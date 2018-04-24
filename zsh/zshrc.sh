@@ -63,3 +63,5 @@ export PATH=$PATH:$CUDA_HOME/bin
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
+export LD_PRELOAD="/usr/lib/libtcmalloc_minimal.so.4"
+export PYTHONPATH=$PYTHONPATH:$HOME/projects/tf-center/research
