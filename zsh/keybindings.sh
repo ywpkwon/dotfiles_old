@@ -41,12 +41,12 @@
 	bindkey "^v" edit_and_run
 
 # LS
-	function ctrl_l() {
+	function ctrl_j() {
 		BUFFER="ls"
 		zle accept-line
 	}
-	zle -N ctrl_l
-	bindkey "^l" ctrl_l
+	zle -N ctrl_j
+	bindkey "^j" ctrl_j
 
 # Enter
 	function enter_line() {
@@ -62,11 +62,3 @@
 	}
 	zle -N add_sudo
 	bindkey "^s" add_sudo
-
-# Clear
-	function clear_screen() {
-		BUFFER="clear"$BUFFER
-		zle accept-line
-	}
-	zle -N clear_screen
-	bindkey "^j" clear_screen
