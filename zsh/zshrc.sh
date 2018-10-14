@@ -8,7 +8,30 @@
 	alias v="vim -p"
 	alias g="git status --porcelain"
 
-	# This is currently causing problems (fails when you run it anywhere that isn't a git project's root directory)
+	# alias gst="git status"
+	# alias gc="git clone"
+	alias gd="git diff"
+	alias ga="git add"
+	alias gbd="git branch -D"
+	alias gca="git commit -a -m"
+	alias gb="git branch"
+	alias gba="git branch -a"
+	alias gl="git log --pretty='format:%Cgreen%h%Creset %an - %s' --graph"
+
+	# alias gpt="git push --tags"
+	# alias gp="git push"
+	# alias gpr="git pull-request"
+	# alias grh="git reset --hard"
+
+	# alias gcob="git checkout -b"
+	# alias gco="git checkout"
+	# alias gcp="git cherry-pick"
+	# alias docs="rm -fr /tmp/docs && cp -fr docs /tmp/docs && git checkout gh-pages && cp -fr /tmp/docs/* ."
+	# alias gpom="git pull origin master"
+	# alias gcd='cd "`git rev-parse --show-toplevel`"'
+	# alias gdmb='git delete-merged-branches'
+
+	# Below is currently causing problems (fails when you run it anywhere that isn't a git project's root directory)
 	# alias vs="v `git status --porcelain | sed -ne 's/^ M //p'`"
 
 # Settings
