@@ -1,0 +1,63 @@
+default  partial alphanumeric_keys modifier_keys
+xkb_symbols "basic" {
+      name[Group1] = "Paul";
+      include "us"
+
+
+    // key <AC06> {
+    //    symbols =   [ h, H, Left ],
+    //    actions =   [ NoAction(), NoAction(), Redirect(key=<LEFT>) ] };
+    // key <AC07> {[ j, J, Down ]};
+    // key <AC08> {[ k, K, Up ] },
+    // key <AC09> {[ l, L, Right ]};
+
+      // hjlk
+      //key <AC06> {
+      //  type="THREE_LEVEL",
+      //  symbols =   [ h, H, Left ],
+      //  actions =   [ NoAction(), NoAction(), Redirect(key=<LEFT>) ] };
+      //key <AC07> {
+      //  type="THREE_LEVEL",
+      //  symbols =   [ j, J, Down ],
+      //  actions =   [ NoAction(), NoAction(), Redirect(key=<DOWN>) ] };
+      //key <AC08> {
+      //  type="THREE_LEVEL",
+      //  symbols =   [ k, K, Up ],
+      //  actions =   [ NoAction(), NoAction(), Redirect(key=<UP>) ] };
+      //key <AC09> {
+      //  type="THREE_LEVEL",
+      //  symbols =   [ l, L, Right ],
+      //  actions =   [ NoAction(), NoAction(), Redirect(key=<RGHT>) ] };
+
+      // ijkl
+      key <AC07> {
+        type="THREE_LEVEL",
+        symbols =   [ j, J, Left ],
+        actions =   [ NoAction(), NoAction(), Redirect(key=<LEFT>) ] };
+      key <AC08> {
+        type="THREE_LEVEL",
+        symbols =   [ k, K, Down ],
+        actions =   [ NoAction(), NoAction(), Redirect(key=<DOWN>) ] };
+      key <AC09> {
+        type="THREE_LEVEL",
+        symbols =   [ l, L, Right ],
+        actions =   [ NoAction(), NoAction(), Redirect(key=<RGHT>) ] };
+      key <AD08> {
+        type="THREE_LEVEL",
+        symbols =   [ i, I, Up ],
+        actions =   [ NoAction(), NoAction(), Redirect(key=<UP>) ] };
+
+      key <AD07> {
+        type="THREE_LEVEL",
+        symbols =   [ u, U, Home ],
+        actions =   [ NoAction(), NoAction(), Redirect(key=<HOME>) ] };
+      key <AD09> {
+        type="THREE_LEVEL",
+        symbols =   [ o, O, End ],
+        actions =   [ NoAction(), NoAction(), Redirect(key=<END>) ] };
+
+      key <CAPS> { [ ISO_Level3_Shift ] };
+      //key <AC10> { [ ISO_Level3_Shift, colon, semicolon, colon ]};
+      modifier_map Mod3 { ISO_Level3_Shift };
+      //modifier_map Mod3 { Hyper };
+};
