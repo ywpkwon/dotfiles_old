@@ -56,8 +56,21 @@ xkb_symbols "basic" {
         symbols =   [ o, O, End ],
         actions =   [ NoAction(), NoAction(), Redirect(key=<END>) ] };
 
-      key <CAPS> { [ ISO_Level3_Shift ] };
+      key <AB07> {
+        type="THREE_LEVEL",
+        symbols =   [ m, M, BackSpace ],
+        actions =   [ NoAction(), NoAction(), Redirect(key=<BKSP>) ] };
+
+
+      // --- if you want to use CAPS modifier
+      //key <CAPS> { [ ISO_Level3_Shift ] };
+      //modifier_map Mod3 { ISO_Level3_Shift };
+
+      // --- if you want to use Right-ALT modifier
+      include "level3(ralt_switch)"
+
+      // --- if you want to use semi-colon (but I think it needs modification)
       //key <AC10> { [ ISO_Level3_Shift, colon, semicolon, colon ]};
-      modifier_map Mod3 { ISO_Level3_Shift };
-      //modifier_map Mod3 { Hyper };
+      //modifier_map Mod3 { ISO_Level3_Shift };
+
 };
