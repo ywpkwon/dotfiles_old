@@ -56,6 +56,16 @@ xkb_symbols "basic" {
         symbols =   [ o, O, End ],
         actions =   [ NoAction(), NoAction(), Redirect(key=<END>) ] };
 
+      key <AD10> {
+        type="THREE_LEVEL",
+        symbols =   [ p, P, Prior ],
+        actions =   [ NoAction(), NoAction(), Redirect(key=<PGUP>) ] };
+      key <AC10> {
+        type="THREE_LEVEL",
+        symbols =   [ semicolon, colon, Next ],
+        actions =   [ NoAction(), NoAction(), Redirect(key=<PGDN>) ] };
+
+
       key <AB07> {
         type="THREE_LEVEL",
         symbols =   [ m, M, BackSpace ],
