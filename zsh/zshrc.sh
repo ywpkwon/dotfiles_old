@@ -5,6 +5,7 @@
 	setopt share_history # setopt inc_append_history
 
 # Aliases
+	alias py="python"
 	alias v="vim -p"
 	alias g="git status --porcelain"
 
