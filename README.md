@@ -96,11 +96,23 @@ Each plugin is sensitive to where you are and what you're doing, they reveal the
 
 
 ### Etc
+i3-gaps installation: https://gist.github.com/boreycutts/6417980039760d9d9dac0dd2148d4783
+
 One-time setting:
 ```
     sudo apt-get install htop
     sudo apt-get install rxvt-unicode-256color
     sudo apt-get install python3-udiskie
+    sudo pip install udiskie
+    sudo apt-get install w3m w3m-img
+```
+
+neofetch install:
+```
+# https://github.com/dylanaraps/neofetch/wiki/Installation#universal-install
+sudo add-apt-repository ppa:dawidd0811/neofetch
+sudo apt update
+sudo apt install neofetch
 ```
 
 ```
