@@ -105,6 +105,8 @@ One-time setting:
     sudo apt-get install python3-udiskie
     sudo pip install udiskie
     sudo apt-get install w3m w3m-img
+    sudo apt-get install feh
+    sudo pip3 install pywal
 ```
 
 neofetch install:
@@ -121,7 +123,16 @@ GNOME network configuration network (maybe other applets too):
 sudo apt-get install lxappearance gtk-chtheme qt4-qtconfig
 ```
 
+Wallpaper:
+```
+feh --bg-fill /path/wallpaper.png
+```
 
+i3blocks:
+```
+sudo apt-get install i3blocks
+cp /etc/i3blocks.conf ~/.config/i3
+```
 
 ```
 cd ~/dotfiles/cfg

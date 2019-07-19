@@ -153,8 +153,9 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
         tray_output primary
+        # status_command i3status
+        status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
 }
 
 # Pulse Audio controls
@@ -170,8 +171,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 bindsym $mod+Tab workspace back_and_forth
 
 # Hangul setup (How to do it in start up?)
-# exec_always --no-startup-id ibus engine hangul
 exec_always ibus-daemon -drx
+exec_always --no-startup-id ibus engine hangul
 bindsym $mod+semicolon exec ibus engine hangul
 
 # You can send notification
@@ -200,13 +201,14 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+t [title="Terminal"] scratchpad show
 
 # dedicated-scratchpad
-#exec_always --no-startup-id env neofetch=true urxvt -ls
-#exec urxvt -name scratch-term -ls
-exec_always --no-startup-id urxvt -e $SHELL -c 'eee=1;$SHELL'"
+exec --no-startup-id env neofetch=true urxvt
+# exec urxvt -name scratch-term -ls
+# exec_always --no-startup-id urxvt -e $SHELL -c 'eee=1;$SHELL'"
 #exec_always --no-startup-id env eee=1 urxvt
 # exec gnome-terminal -e "zsh" -t scratch-term
-#for_window [instance="scratch-term"] floating enable, move to scratchpad
-#bindsym $mod+p [instance="scratch-term"] scratchpad show
+for_window [instance="scratch-term"] floating enable, move to scratchpad,  scratchpad show
+# bindsym $mod+p [instance="scratch-term"] scratchpad show
+bindsym $mod+p [class="urxvt"] scratchpad show
 
 # dedicated-scratchpad
 # exec_always google-chrome
@@ -225,4 +227,4 @@ exec --no-startup-id nm-applet
 # change GTK theme (but why do i need this?)
 # exec_always --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 
-# bindsym $mod+c exec "/home/paul/.i3/i3-plus smart_center 1830x2100,2030x2100,2230x2100"
+# bindsym $mod+c exec "/home/paul/.config/i3/i3-plus smart_center 1830x2100,2030x2100,2230x2100"

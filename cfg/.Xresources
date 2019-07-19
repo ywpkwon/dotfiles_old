@@ -102,7 +102,7 @@ URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 !URxvt*depth: 32
 !URxvt*background: rgba:0000/0000/0200/c800
 
-!urxvt*transparent:true
-!urxvt*shading:40
+urxvt*transparent:true
+urxvt*shading:40
 
 URxvt.perl-ext-common: default,font-size

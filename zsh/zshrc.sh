@@ -122,7 +122,3 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 export LD_PRELOAD="/usr/lib/libtcmalloc_minimal.so.4"
 export PYTHONPATH=$PYTHONPATH:$HOME/projects/tfcenter/research
-
-if [[ $neofetch == true ]]; then
-  neofetch
-fi
