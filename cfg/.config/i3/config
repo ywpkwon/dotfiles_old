@@ -170,8 +170,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 bindsym $mod+Tab workspace back_and_forth
 
 # Hangul setup (How to do it in start up?)
+# exec_always --no-startup-id ibus engine hangul
 exec_always ibus-daemon -drx
-exec_always --no-startup-id ibus engine hangul
 bindsym $mod+semicolon exec ibus engine hangul
 
 # You can send notification
@@ -218,5 +218,11 @@ gaps inner 10
 gaps outer 10
 for_window [class=".*"] border pixel 0
 hide_edge_borders both
+
+# wifi network icon
+exec --no-startup-id nm-applet
+
+# change GTK theme (but why do i need this?)
+# exec_always --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 
 # bindsym $mod+c exec "/home/paul/.i3/i3-plus smart_center 1830x2100,2030x2100,2230x2100"

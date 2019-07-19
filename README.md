@@ -115,6 +115,14 @@ sudo apt update
 sudo apt install neofetch
 ```
 
+GNOME network configuration network (maybe other applets too):
+```
+# https://askubuntu.com/questions/598943/how-to-de-uglify-i3-wm
+sudo apt-get install lxappearance gtk-chtheme qt4-qtconfig
+```
+
+
+
 ```
 cd ~/dotfiles/cfg
 rsync . ~
