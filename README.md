@@ -100,13 +100,15 @@ i3-gaps installation: https://gist.github.com/boreycutts/6417980039760d9d9dac0dd
 
 One-time setting:
 ```
-    sudo apt-get install htop
-    sudo apt-get install rxvt-unicode-256color
-    sudo apt-get install python3-udiskie
-    sudo pip install udiskie
-    sudo apt-get install w3m w3m-img
-    sudo apt-get install feh
-    sudo pip3 install pywal
+sudo apt-get install htop
+sudo apt-get install rxvt-unicode-256color
+sudo apt-get install python3-udiskie
+sudo pip install udiskie
+sudo apt-get install w3m w3m-img
+sudo apt-get install feh
+sudo pip3 install pywal
+sudo apt-get install i3blocks
+
 ```
 
 neofetch install:
@@ -128,14 +130,9 @@ Wallpaper:
 feh --bg-fill /path/wallpaper.png
 ```
 
-i3blocks:
-```
-sudo apt-get install i3blocks
-cp /etc/i3blocks.conf ~/.config/i3
-```
 
 ```
 cd ~/dotfiles/cfg
-rsync . ~
+rsync -rav . ~
 ```
 

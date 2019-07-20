@@ -228,3 +228,8 @@ exec --no-startup-id nm-applet
 # exec_always --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 
 # bindsym $mod+c exec "/home/paul/.config/i3/i3-plus smart_center 1830x2100,2030x2100,2230x2100"
+
+mode  "Passthrough Mode - Press Alt+F12 to exit" {
+        bindsym $mod+F12 mode "default"
+}
+bindsym $mod+F12 mode "Passthrough Mode - Press Alt+F12 to exit"
