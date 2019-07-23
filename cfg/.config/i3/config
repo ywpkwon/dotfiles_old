@@ -198,17 +198,12 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # Show the terminal scratchpad window, if any.
-bindsym $mod+t [title="Terminal"] scratchpad show
+exec --no-startup-id env neofetch=true urxvt -name "scratch-term"
 
 # dedicated-scratchpad
-exec --no-startup-id env neofetch=true urxvt
-# exec urxvt -name scratch-term -ls
-# exec_always --no-startup-id urxvt -e $SHELL -c 'eee=1;$SHELL'"
-#exec_always --no-startup-id env eee=1 urxvt
-# exec gnome-terminal -e "zsh" -t scratch-term
+bindsym $mod+t exec env neofetch=true urxvt -name "scratch-term"
 for_window [instance="scratch-term"] floating enable, move to scratchpad,  scratchpad show
-# bindsym $mod+p [instance="scratch-term"] scratchpad show
-bindsym $mod+p [class="urxvt"] scratchpad show
+bindsym $mod+Shift+t [instance="scratch-term"] scratchpad show
 
 # dedicated-scratchpad
 # exec_always google-chrome
