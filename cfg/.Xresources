@@ -37,7 +37,8 @@
 *.color7: #bfbaac
 *.color15: #fdf6e3
 
-URxvt*.termName: screen-256color
+XTerm*termName: xterm-256color
+URxvt*termName: rxvt-unicode
 
 !! URxvt Appearance
 URxvt.font:  xft:Inconsolata\ for\ Powerline:pixelsize=20:antialias=true:hintpriing=true
