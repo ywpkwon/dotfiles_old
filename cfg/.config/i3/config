@@ -219,9 +219,9 @@ bindsym $mod+minus scratchpad show
 exec --no-startup-id env neofetch=true urxvt -name "scratch-term"
 
 # dedicated-scratchpad
-bindsym $mod+t exec env neofetch=true urxvt -name "scratch-term"
+bindsym $mod+Shift+t exec env neofetch=true urxvt -name "scratch-term"
 for_window [instance="scratch-term"] floating enable, move to scratchpad,  scratchpad show
-bindsym $mod+Shift+t [instance="scratch-term"] scratchpad show
+bindsym $mod+t [instance="scratch-term"] scratchpad show
 
 # dedicated-scratchpad
 # exec_always google-chrome
