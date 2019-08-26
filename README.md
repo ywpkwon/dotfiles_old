@@ -108,7 +108,7 @@ sudo apt-get install w3m w3m-img
 sudo apt-get install feh
 sudo pip3 install pywal
 sudo apt-get install i3blocks
-
+sudo apt-get install conky
 ```
 
 neofetch install:
