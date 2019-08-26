@@ -1,0 +1,1 @@
+ln -sf ~/dotfiles/cfg/.config/conky ~/.config
