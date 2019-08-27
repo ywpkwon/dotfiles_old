@@ -2,6 +2,7 @@ ln -sf ~/dotfiles/cfg/.config/i3 ~/.config
 ln -sf ~/dotfiles/cfg/.config/conky ~/.config
 ln -sf ~/dotfiles/cfg/.Xresources ~
 ln -sf ~/dotfiles/cfg/.urxvt ~
+ln -sf ~/dotfiles/cfg/.note.txt ~
 rsync -rav ~/dotfiles/cfg/.fonts/* ~/.fonts/
 
 echo '---------------- sync done ----------------'

@@ -280,7 +280,7 @@ bindsym $mod+semicolon exec ibus engine hangul
 ####################################################
 
 # Background
-exec_always feh --bg-fill ~/.wallpapers/ky1nrcvz6be11.jpg
+exec_always feh --bg-fill ~/.wallpapers/wooden.jpg
 
 # System Monitor: conky
 exec_always conky -c ~/.config/conky/.conkyrc
