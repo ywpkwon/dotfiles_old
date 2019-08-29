@@ -1,0 +1,125 @@
+alignment bottom_right
+background yes
+update_interval 1
+
+cpu_avg_samples 2
+net_avg_samples 2
+
+override_utf8_locale yes
+
+double_buffer yes
+no_buffers yes
+
+#text_buffer_size 10240
+imlib_cache_size 0
+
+###########
+# Windows #
+###########
+own_window_class Conky
+own_window yes
+own_window_type normal
+#own_window_argb_visual yes
+#own_window_argb_value 0
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+
+border_inner_margin 0
+border_outer_margin 0
+
+minimum_size 500 500
+maximum_width 500
+
+############
+# Graphics #
+############
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+
+########
+# Text #
+########
+use_xft yes
+xftalpha 0.8
+
+uppercase no
+
+default_color F00CA0
+
+########
+# Code #
+########
+own_window_colour 000000
+gap_x 10
+gap_y 0
+TEXT
+${voffset }${offset 20}${font Bauhaus:size=60}${time %H}${color 0CACF0}
+${voffset }${offset 70}${font Bauhaus:size=60}${time %M}${color F00CA0}
+${voffset -156}${offset 90}${font Bauhaus:size=16} ${time %A} ${color 0CACF0}${voffset 20}${offset -10}${time %d %b }
+${voffset 35}
+${color 0CACF0}${voffset -20}$hr
+## OS
+#### LOGO
+${color FFFFFF}${font DejaVu Sans Mono:size=2}${execi 130000 screenfetch -L -N  | sed 's/^/\t/' | sed 's/ *$//'}${color F00CA0}
+#### NAME
+${color F00CA0}${font Bauhaus:size=18}${voffset -70}${offset 100}${exec lsb_release -d | cut -f 2| tr "[:upper:]" "[:lower:]"}${color F00CA0}
+#### Edition
+${voffset 5}${font Bauhaus:size=13}${offset 100}Edition: ${color 0CACF0}${execi 130000 awk -F= '/ID=/{printf $2" "} /RELEASE=/{printf $2" "} /NAME=/{print $2}' /etc/lsb-release}
+${voffset 10}${color 0CACF0} $hr
+## PROCESS
+${font Webdings:size=16}i${color F00CA0}${font Bauhaus:size=13} Processor: ${color }${execi 130000 cat /proc/cpuinfo | grep 'model name' | cut -c 14-18 | uniq} ${execi 130000 cat /proc/cpuinfo | grep 'model name' | cut -c 32-51 | uniq}
+${voffset 5}${alignc}${machine}${color 0CACF0} @ $freq(MHz)${color F00CA0}
+## NVIDIA GPU
+${voffset 5}${color 0CACF0}${font Webdings:size=14}+${color F00CA0}${font Bauhaus:size=13} Nvidia ${execi 130000 nvidia-settings -q gpus | grep '0] (' | cut -d '(' -f 2,2 | sed -e 's/.\{1\}$//'}
+## NVIDIA DRIVER
+${color 0CACF0}${voffset 5}${font Webdings:size=14}+${color F00CA0}${font Bauhaus:size=13} Nvidia Driver ${color 0CACF0}${execi 130000 nvidia-settings -q NvidiaDriverVersion -t | grep -m 1 ""}${color 0CACF0} @ ${nvidia gpufreq}(MHz)
+${color 0CACF0}${voffset 5}${font Webdings:size=14}d${font Bauhaus:size=13}${color F00CA0} Updates ${color 0CACF0}${execi 130000 cat /etc/pacman-mirrors.conf | grep -i "Branch =" | sed -E "s/(# )*Branch = //g"} ${color F00CA0}Branch:${offset 10}${color 0CACF0}${execi 130000 checkupdates | wc -l}
+${color 0CACF0}$hr${color F00CA0}
+${voffset 5}Kernel: ${color 0CACF0}${kernel}${color F00CA0}
+${voffset 5}Uptime: ${color 0CACF0}$uptime_short${color F00CA0}
+# ${voffset 5}Power: ${color 0CACF0}${battery_percent BAT0}%${color F00CA0}
+${voffset 5}LOCAL IP: ${color 0CACF0}${addr eno1}${color F00CA0}
+# ${voffset 5}Public IP: ${color 0CACF0}${execi 3600 wget -q -O - checkip.dyndns.org | sed -e 's/[^[:digit:]\|.]//g'}${color F00CA0}
+${color 0CACF0}$hr${color F00CA0}
+## TEMPARATURE
+${voffset 5}CPU temp: ${color 0CACF0}${hwmon 1 temp 1}${font DejaVu Sans:size=13}°C${color F00CA0}${font Bauhaus:size=13}${alignr}Fan: ${color 0CACF0}${hwmon 2 fan 2}RPM${color F00CA0}
+${voffset 5}GPU temp: ${color 0CACF0}${execi 10 nvidia-smi -q -d TEMPERATURE | awk '/GPU Current Temp/ {print $5}'}${font DejaVu Sans:size=13}°C ${color F00CA0}${offset 5}${font Bauhaus:size=13}${alignr}Fan: ${color 0CACF0}${execi 10 nvidia-settings -tq [fan:0]/GPUCurrentFanSpeed}%${color F00CA0}
+${color 0CACF0}$hr${color F00CA0}
+## Usage
+${voffset 5}VRAM: ${color 0CACF0}${exec nvidia-smi --query-gpu=memory.used --format=csv,noheader} / ${exec nvidia-smi --query-gpu=memory.total --format=csv,noheader}${color F00CA0}
+${voffset 5}AM: ${color 0CACF0}$mem / $memmax$alignr${color CF2765}${membar 10,60 }${color F00CA0}
+${voffset 5}Swap: ${color 0CACF0}${swap}/ ${swapfree}${color F00CA0}$alignr${color CF2765}${swapbar 10,60 }${color F00CA0}
+${voffset 5}CPU: ${color 0CACF0}${cpu cpu0}%${color F00CA0}${alignr}${color CF2765}${cpugraph 18,200 CF2765 CF2765}${color F00CA0}
+${color 0CACF0}$hr${color F00CA0}
+# Signal: ${color 0CACF0}${wireless_link_qual eno1}%${color F00CA0}
+${font PizzaDude Bullets:size=13}O ${font Bauhaus:size=13} Upload: ${color 0CACF0}${upspeed eno1}${color F00CA0}
+${offset 40}Total Sent: ${color 0CACF0}${totalup eno1}${color F00CA0}
+${upspeedgraph eno1 18,210 CF2765 CF2765}${color F00CA0}
+${voffset 10}${font PizzaDude Bullets:size=13}U ${font Bauhaus:size=13} Download: ${color 0CACF0}${downspeed eno1}${color F00CA0}
+${offset 40}Total Received: ${color 0CACF0}${totaldown eno1}${color F00CA0}
+${downspeedgraph eno1 18,200 CF2765 CF2765}
+${color 0CACF0}$hr${color F00CA0}
+Home: ${color 0CACF0}${fs_used /}/${fs_size /}${alignr}${color CF2765}${fs_bar 10,60 /}
+${offset 55}${color 0CACF0}${fs_free /} free${color F00CA0}
+${voffset 5}SSD:${offset 20}${color 0CACF0}${fs_used /mnt/sda5}/${fs_size /mnt/sda5}${alignr}${color CF2765}${fs_bar 10,60 /mnt/sda5}
+${offset 55}${color 0CACF0}${fs_free /mnt/sda5} free${color F00CA0}
+${voffset 5}${color 0CACF0}Read: $color${diskio_read}$alignr${color 0CACF0}Write: $color${diskio_write}
+${diskiograph 18,200 CF2765 CF2765}
+${color 0CACF0}$hr${color F00CA0}
+${color F00CA0}Process ${color F00CA0}${alignr}CPU%
+${color 0CACF0}${top name 1}${alignr}${top cpu 1}
+${color 0CACF0}${top name 2}${alignr}${top cpu 2}
+${color 0CACF0}${top name 3}${alignr}${top cpu 3}
+${color 0CACF0}${top name 4}${alignr}${top cpu 4}
+#${color 0CACF0}${top name 5}${alignr}${top cpu 5}
+#${color 0CACF0}${top name 6}${alignr}${top cpu 6}
+${color 0CACF0}$hr${color F00CA0}
+${color F00CA0}Process ${color F00CA0}${alignr}RAM
+${color 0CACF0}${top_mem name 1}${alignr}${top_mem mem_res 1}
+${color 0CACF0}${top_mem name 2}${alignr}${top_mem mem_res 2}
+${color 0CACF0}${top_mem name 3}${alignr}${top_mem mem_res 3}
+${color 0CACF0}${top_mem name 4}${alignr}${top_mem mem_res 4}
+#${color 0CACF0}${top_mem name 5}${alignr}${top_mem mem_res 5}

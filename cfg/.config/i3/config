@@ -118,6 +118,7 @@ bindsym $mod+Shift+less move workspace to output left
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -267,7 +268,11 @@ mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
   bindsym Escape mode "default"
   bindsym Return mode "default"
 }
-bindsym $mod+x mode "exit: [l]ogout, [r]eboot, [s]hutdown"
+bindsym $mod+Shift+x mode "exit: [l]ogout, [r]eboot, [s]hutdown"
+
+# screen lock
+bindsym $mod+x exec i3lock --color 475263
+
 
 ############################################################
 ###################  Tray Icons   ##########################
@@ -280,12 +285,14 @@ exec_always ibus-daemon -drx
 exec_always --no-startup-id ibus engine hangul
 bindsym $mod+semicolon exec ibus engine hangul
 
+
 ####################################################
-###################  Visial  #######################
+###################  Visual  #######################
 ####################################################
 
 # Background
 exec_always feh --bg-fill ~/.wallpapers/wooden.jpg
 
 # System Monitor: conky
-exec_always conky -c ~/.config/conky/.conkyrc
+# exec_always conky -c ~/.config/conky/.conkyrc
+exec_always ~/.conky/Conky/startconky.sh
