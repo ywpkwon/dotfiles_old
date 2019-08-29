@@ -45,7 +45,7 @@ uppercase no
 default_color FFFFFF
 
 TEXT
-${font Santana:size=14}${alignc}TO-DO LIST${alignr}${font Santana:size=12}(${lines /home/paul/.notes.txt})${font}
+${font Santana:size=14}${alignc}TO-DO LIST${alignr}${font Santana:size=12}(${execi 30 cat ~/.notes.txt | wc -l})${font}
 ${stippled_hr}
 ${voffset 10}${execp ~/.conky/Conky/viewnotes.sh}
 
