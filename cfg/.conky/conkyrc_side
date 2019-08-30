@@ -1,0 +1,117 @@
+# UBUNTU-CONKY
+# A comprehensive conky script, configured for use on
+# Ubuntu / Debian Gnome, without the need for any external scripts.
+#
+# Based on conky-jc and the default .conkyrc.
+# INCLUDES:
+# - tail of /var/log/messages
+# - netstat connections to your computer
+#
+# -- osman (eosm88@yahoo.com)
+#
+# Create own window instead of using desktop (required in nautilus)
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer no
+# fiddle with window
+use_spacer no
+use_xft yes
+# Update interval in seconds
+update_interval 3.0
+# Minimum size of text area
+# minimum_size 250 5
+# Draw shades?
+draw_shades no
+# Text stuff
+draw_outline no # amplifies text if yes
+draw_borders no
+font Sans:size=12:weight=bold
+uppercase no # set to yes if you want all text to be in uppercase
+# Stippled borders?
+stippled_borders 3
+# border margins
+border_margin 9
+# border width
+border_width 10
+# Default colors and also border colors, grey90 == #e5e5e5
+default_color grey
+own_window_colour brown
+own_window_transparent yes
+# Text alignment, other possible values are commented
+#alignment top_left
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+# Gap between borders of screen and text
+gap_x 12
+gap_y 12
+# stuff after ‘TEXT’ will be formatted on screen
+TEXT
+$color
+${color orange}SYSTEM${hr 2}$color
+${color red}${alignc}$sysname ${pre_exec lsb_release -d | cut -f 2| tr "[:upper:]" "[:lower:]"}$color
+Machine:${alignr}$nodename
+Uptime:${alignr}$uptime
+Processes:${alignr}$running_processes/$processes
+Kernel:${alignr}$kernel
+Battery: ${battery_percent BAT0}% ${alignr}${battery}
+${color orange}CPU ${hr 2}$color
+${freq}MHz Load: ${loadavg}${alignr}Temp:${acpitemp}
+${cpubar 10,300 000000 ffffff}
+${cpugraph 10,300 000000 ffffff}
+CORE0:
+${color grey}${cpugraph cpu1 50,300 00ff0c 00ff0c }
+CORE1:
+${color grey}${cpugraph cpu2 50,300 00ff0c 00ff0c }
+NAME $alignr PID $alignr CPU $alignr MEM
+${top name 1} $alignr${top pid 1} $alignr${top cpu 1} $alignr${top mem 1}
+${top name 2} $alignr${top pid 2} $alignr${top cpu 2} $alignr${top mem 2}
+${top name 3} $alignr${top pid 3} $alignr${top cpu 3} $alignr${top mem 3}
+${top name 4} $alignr${top pid 4} $alignr${top cpu 4} $alignr${top mem 4}
+${color orange}MEMORY / DISK ${hr 2}$color
+RAM: $memperc% ${membar 10}$color
+Swap: $swapperc% ${swapbar 10}$color
+Root: ${fs_free_perc /}% ${fs_bar 10 /}$color
+${color orange}TIME ${hr 2}$color
+${alignc 59}${font sans-serif:bold:size=26}${time %H:%M:%S}${font}
+${alignc}${font sans-serif:bold:size=8}${Time %A %d %b %Y}${font}
+${color orange}NETWORK ${hr 2}$color
+${if_existing /proc/net/route wlan0}
+$alignc ....Wireless....
+WAN IP:$alignr${execi 3600 wget -O- http://whatismyip.org/ | tail}
+IP address: $alignr ${addr wlan0}
+ESSID: $alignr ${wireless_essid wlan0}
+Connection quality: $alignr ${wireless_link_qual_perc wlan0}%
+Downloads:$alignr${downspeed wlan0}/s
+${downspeedgraph wlan0 10,300 F57900 FCAF3E}
+Total Downloads:$alignr${totaldown wlan0}
+Uploads:$alignr${upspeed wlan0}/s
+${upspeedgraph wlan0 10,300 F57900 FCAF3E}
+Total Uploads:$alignr${totalup wlan0}
+${else}${if_existing /proc/net/route eth1}
+$alignc ....Wireless....
+WAN IP:$alignr${execi 3600 wget -O- http://whatismyip.org/ | tail}
+IP address: $alignr ${addr eth1}
+ESSID: $alignr ${wireless_essid eth1}
+Connection quality: $alignr ${wireless_link_qual_perc eth1}%
+Downloads:$alignr${downspeed eth1}/s
+${downspeedgraph eth1 10,300 F57900 FCAF3E}
+Total Downloads:$alignr$${totaldown eth1}
+Uploads:$alignr${upspeed eth1}/s
+${upspeedgraph eth1 10,300 F57900 FCAF3E}
+Total Uploads:$alignr${totalup eth1}
+${else}${if_existing /proc/net/route eth0}
+$alignc ....Cable....
+WAN IP:$alignr${execi 3600 wget -O- http://whatismyip.org/ | tail}
+IP address: $alignr ${addr eth0}
+ESSID: $alignr ${wireless_essid eth0}
+Downloads:$alignr${downspeed eth0}/s
+${downspeedgraph eth1 10,300 F57900 FCAF3E}
+Total Downloads:$alignr${totaldown eth0}
+Uploads:$alignr${upspeed eth0}/s
+${upspeedgraph eth0 10,300 F57900 FCAF3E}
+Total Uploads:$alignr${totalup eth0}
+${else}Network Unavailable${endif}

@@ -10,7 +10,7 @@ text_buffer_size 1024
 own_window yes
 own_window_transparent yes
 own_window_type conky
-own_window_argb_visual yes
+#own_window_argb_visual yes
 own_window_class override
 
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
@@ -21,14 +21,17 @@ draw_borders no
 draw_graph_borders no
 
 minimum_size 185 5
-maximum_width 185
+#maximum_width 185
 
 default_color white
 draw_shades no
 
 color0 white
-color1 FCAF3E
+color1 FCAF3E   # orange
 color2 white
+color3 red
+color4 0CACF0   # miami blue
+color5 F00CA0   # miami pink
 
 alignment top_right
 gap_x 25
@@ -42,6 +45,11 @@ override_utf8_locale yes
 TEXT
 
 SYSTEM ${hr 2}
+
+${color3}${font DejaVu Sans Mono:size=5}${execi 130000 screenfetch -L -N  | sed 's/^/\t/' | sed 's/ *$//'}${color F00CA0}
+${color0}${font Lucida Grande:size=12}${voffset }${alignc}${exec lsb_release -d | cut -f 2| tr "[:upper:]" "[:lower:]"}
+${color4}${font Webdings:size=14}i${font}${color0} ${execi 130000 awk -F= '/ID=/{printf $2" "} /RELEASE=/{printf $2" "} /NAME=/{print $2}' /etc/lsb-release}
+${color4}${font Webdings:size=14}+${color0}${font} Nvidia ${execi 130000 nvidia-settings -q gpus | grep '0] (' | cut -d '(' -f 2,2 | sed -e 's/.\{1\}$//'}
 
 ${voffset 2}${color0}${font OpenLogos:size=16}N${font}${color} Kernel: ${alignr}${color2}${kernel}${color}
 ${color0}${font StyleBats:size=16}A${font}${color} CPU0: ${font Liberation Sans:style=Bold:size=8}${color1}${cpu cpu0}%${color}${font} ${alignr}${color2}${cpubar cpu0 8,60}${color}

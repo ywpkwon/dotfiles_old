@@ -1,5 +1,6 @@
 ln -sf ~/dotfiles/cfg/.config/i3 ~/.config
 ln -sf ~/dotfiles/cfg/.config/conky ~/.config
+ln -sf ~/dotfiles/cfg/.fonts ~
 ln -sf ~/dotfiles/cfg/.Xresources ~
 ln -sf ~/dotfiles/cfg/.urxvt ~
 ln -sf ~/dotfiles/cfg/.wallpapers ~
