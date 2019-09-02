@@ -110,6 +110,8 @@ sudo pip3 install pywal
 sudo apt-get install i3blocks
 sudo apt-get install conky conky-all
 sudo apt-get install cowsay cmatrix fortune tty-clock
+sudo apt-get install compton 
+
 ```
 
 neofetch install:
@@ -118,6 +120,13 @@ neofetch install:
 sudo add-apt-repository ppa:dawidd0811/neofetch
 sudo apt update
 sudo apt install neofetch
+```
+
+rofi install (ubuntu 16.04)
+For later version, simple `apt-get install` might be enough)
+```
+sudo add-apt-repository ppa:jasonpleau/rofi
+sudo apt install rofi
 ```
 
 GNOME network configuration network (maybe other applets too):
