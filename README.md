@@ -122,10 +122,11 @@ sudo apt update
 sudo apt install neofetch
 ```
 
-rofi install (ubuntu 16.04)
+rofi install (ver 1.5+. ppa maybe only for ubuntu 16.04)
 For later version, simple `apt-get install` might be enough)
 ```
 sudo add-apt-repository ppa:jasonpleau/rofi
+sudo apt update
 sudo apt install rofi
 ```
 
