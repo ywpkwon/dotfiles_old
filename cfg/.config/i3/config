@@ -185,36 +185,46 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        font pango:monospace 14, FontAwesome 14
+        font pango:Nato Sans, FontAwesome 16
         # tray_output primary
-        # status_command i3status
-        separator_symbol "|"
-        tray_padding 4
-
-
-        status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
-
-#colors {
-#background #2F2F2F
-#statusline #eeeeee
-#separator #666666
-##                     border  backgr. text
-#focused_workspace     #a9a9a9 #222222 #a9a9a9
-#active_workspace      #a9a9a9 #222222 #a9a9a9
-#inactive_workspace    #a9a9a9 #5f676a #a9a9a9
-#urgent_workspace      #eb709b #eb709b #ffffff
-#}
+        # separator_symbol "|"
+        # tray_padding 4
 
         colors {
-            #color class           border      back.           text
-            focused_workspace      $color1     $background     $color1
-            active_workspace       #555555     #555555         #ffffff
-            inactive_workspace     $color2     #000000         $color2
-            urgent_workspace       $color1     $background2    $background
+            background #2f343f
+            statusline #2f343f
+            separator #4b5262
 
-             statusline $color2
-             separator $color2
+            # colour of border, background, and text
+            focused_workspace       #2f343f #bf616a #d8dee8
+            active_workspace        #2f343f #2f343f #d8dee8
+            inactive_workspace      #2f343f #2f343f #d8dee8
+            urgent_workspacei       #2f343f #ebcb8b #2f343f
         }
+        status_command i3status -c $HOME/.config/i3/i3status2.conf
+
+        #status_command i3status -c $HOME/.config/i3/i3status.conf
+        #colors {
+            ##color class           border      back.           text
+            #focused_workspace      $color1     $background     $color1
+            #active_workspace       #555555     #555555         #ffffff
+            #inactive_workspace     $color2     #000000         $color2
+            #urgent_workspace       $color1     $background2    $background
+            #statusline $color2
+            #separator $color2
+        #}
+
+        #status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
+        #colors {
+        #background #2F2F2F
+        #statusline #eeeeee
+        #separator #666666
+        ##                     border  backgr. text
+        #focused_workspace     #a9a9a9 #222222 #a9a9a9
+        #active_workspace      #a9a9a9 #222222 #a9a9a9
+        #inactive_workspace    #a9a9a9 #5f676a #a9a9a9
+        #urgent_workspace      #eb709b #eb709b #ffffff
+        #}
 }
 
 
@@ -261,6 +271,11 @@ bindsym $mod+Tab workspace back_and_forth
 # USB disk auto mount
 exec_always --no-startup-id udiskie &
 
+
+###################################################################
+###################  SCRATCHPAD and FLOATS  #######################
+###################################################################
+
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
@@ -276,9 +291,11 @@ for_window [instance="scratch-term"] floating enable, move to scratchpad,  scrat
 bindsym $mod+t [instance="scratch-term"] scratchpad show
 
 # dedicated-scratchpad
-# exec_always google-chrome
 for_window [class="Google-chrome"] floating enable, move to scratchpad, scratchpad show
 bindsym $mod+b [class="Google-chrome"] scratchpad show
+
+for_window [class="TeamViewer"] floating enable
+for_window [class="Slack"] floating enable
 
 
 ###################################################################
@@ -318,6 +335,13 @@ bindsym $mod+Shift+x mode "exit: [l]ogout, [r]eboot, [s]hutdown"
 
 # screen lock
 bindsym $mod+x exec i3lock --color 475263
+
+
+########################################################
+###################  App Assign   ######################
+########################################################
+assign [class="Slack"]                      $workspace10
+assign [class="TeamViewer"]                 $workspace10
 
 
 ############################################################
