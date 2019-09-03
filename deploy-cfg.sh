@@ -13,4 +13,4 @@ rsync -rav ~/dotfiles/cfg/.fonts/* ~/.fonts/
 echo '---------------- sync done ----------------'
 echo 'Alt+Shift+r              for i3 reload'
 echo 'fc-cache -fv ~/.fonts    for font reload'
-echo 'xrdb ~/.Xresource        for terminal reload'
+echo 'xrdb ~/.Xresources       for terminal reload'
