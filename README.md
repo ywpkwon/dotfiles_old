@@ -111,7 +111,7 @@ sudo apt-get install i3blocks
 sudo apt-get install conky conky-all
 sudo apt-get install cowsay cmatrix fortune tty-clock
 sudo apt-get install compton 
-
+sudo apt-get install scrot imagemagick
 ```
 
 neofetch install:

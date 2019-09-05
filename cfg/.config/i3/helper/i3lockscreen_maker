@@ -1,0 +1,33 @@
+#!/bin/bash
+notify-send "Producing lock screen..."
+
+HOSTNAME=`hostname`
+IMG_LOCK=~/.config/i3/image/lock.png
+IMG_OUT=~/.config/i3/image/lockscreen_$HOSTNAME.png
+IMG_IN=~/tmp/tmp.png
+
+# -- Capture screen
+scrot $IMG_IN
+convert -filter Gaussian -resize 25% -resize 400% $IMG_IN $IMG_IN
+
+# -- Analyze screens
+RESOLUTIONS=`xrandr --current | grep ' connected' | sed 's/primary//g' | awk '{print $3}'`
+NUM_SCREEN=`echo $RESOLUTIONS | wc -w`
+notify-send "Processing $NUM_SCREEN screens..."
+
+# -- Composite locker mark
+i=1
+while read -r res
+do
+    TEMP_IMG="/tmp/tmp$i.png"
+    `convert $IMG_IN -crop $res $TEMP_IMG`
+    `composite -gravity center $IMG_LOCK $TEMP_IMG $TEMP_IMG`
+    if [ "$i" = 1 ]
+    then
+        `cp $TEMP_IMG $IMG_OUT`
+    else
+        `convert $IMG_OUT $TEMP_IMG -background "#000000" +append $IMG_OUT  `
+    fi
+    i=$(( i+1 ))     # increments $n
+done <<< "$RESOLUTIONS"
+notify-send "Processing done: $IMG_OUT"

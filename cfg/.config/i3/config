@@ -335,6 +335,8 @@ bindsym $mod+Shift+x mode "exit: [l]ogout, [r]eboot, [s]hutdown"
 
 # screen lock
 bindsym $mod+x exec i3lock --color 475263
+# screen lock image making
+bindsym $mod+Ctrl+Shift+x exec ~/.config/i3/helper/i3lockscreen_maker
 
 
 ########################################################
