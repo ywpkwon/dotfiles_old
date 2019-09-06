@@ -1,5 +1,7 @@
 #!/bin/sh
 
+HOSTNAME=`hostname`
+
 B='#00000000'  # blank
 C='#ffffff22'  # clear ish
 D='#ff00ffcc'  # default
@@ -7,7 +9,7 @@ T='#ee00eeee'  # text
 W='#880000bb'  # wrong
 V='#bb00bbbb'  # verifying
 
-/home/phantom/misc/i3lock-color/build/i3lock \
+i3lock \
 --insidevercolor=$C   \
 --ringvercolor=$V     \
 \
@@ -27,7 +29,7 @@ V='#bb00bbbb'  # verifying
 --keyhlcolor=$W       \
 --bshlcolor=$W        \
 \
--i ~/.config/i3/image/lockscreen_devbox1.png \
+-i ~/.config/i3/image/lockscreen_$HOSTNAME.png \
 --clock               \
 --indicator           \
 --timestr="%H:%M:%S"  \
