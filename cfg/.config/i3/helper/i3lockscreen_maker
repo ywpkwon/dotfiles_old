@@ -4,7 +4,7 @@ notify-send "Producing lock screen..."
 HOSTNAME=`hostname`
 IMG_LOCK=~/.config/i3/image/lock.png
 IMG_OUT=~/.config/i3/image/lockscreen_$HOSTNAME.png
-IMG_IN=~/tmp/tmp.png
+IMG_IN=/tmp/tmp.png
 
 # -- Capture screen
 scrot $IMG_IN
@@ -22,12 +22,14 @@ do
     TEMP_IMG="/tmp/tmp$i.png"
     `convert $IMG_IN -crop $res $TEMP_IMG`
     `composite -gravity center $IMG_LOCK $TEMP_IMG $TEMP_IMG`
-    if [ "$i" = 1 ]
-    then
-        `cp $TEMP_IMG $IMG_OUT`
-    else
-        `convert $IMG_OUT $TEMP_IMG -background "#000000" +append $IMG_OUT  `
-    fi
+    `convert $IMG_IN $TEMP_IMG -geometry $res -compose copy -composite $IMG_IN`
+    #if [ "$i" = 1 ]
+    #then
+        #`cp $TEMP_IMG $IMG_OUT`
+    #else
+        #`convert $IMG_OUT $TEMP_IMG -background "#000000" +append $IMG_OUT  `
+    #fi
     i=$(( i+1 ))     # increments $n
 done <<< "$RESOLUTIONS"
+`mv $IMG_IN $IMG_OUT`
 notify-send "Processing done: $IMG_OUT"
