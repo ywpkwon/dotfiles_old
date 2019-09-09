@@ -5,28 +5,33 @@ HOSTNAME=`hostname`
 B='#00000000'  # blank
 C='#ffffff22'  # clear ish
 D='#ff00ffcc'  # default
-T='#ee00eeee'  # text
+T='#9DBEA0ee'  # text
 W='#880000bb'  # wrong
 V='#bb00bbbb'  # verifying
 
+BL='#000000cc'  # smoky black
+WT='#ffffffff'  # white
+DB='#575757cc'  # smoky dark gray
+
+
 i3lock \
 --insidevercolor=$C   \
---ringvercolor=$V     \
+--ringvercolor=$B     \
 \
 --insidewrongcolor=$C \
 --ringwrongcolor=$W   \
 \
---insidecolor=$B      \
---ringcolor=$D        \
+--insidecolor=$DB      \
+--ringcolor=$BL        \
 --linecolor=$B        \
---separatorcolor=$D   \
+--separatorcolor=$B   \
 \
---verifcolor=$T        \
+--verifcolor=$B        \
 --wrongcolor=$W        \
---timecolor=$T        \
---datecolor=$T        \
+--timecolor=$WT        \
+--datecolor=$WT        \
 --layoutcolor=$T      \
---keyhlcolor=$W       \
+--keyhlcolor=$WT       \
 --bshlcolor=$W        \
 \
 -i ~/.config/i3/image/lockscreen_$HOSTNAME.png \
