@@ -363,6 +363,19 @@ bindsym $mod+semicolon exec ibus engine hangul
 # Start Dropbox
 exec --no-startup-id dropbox start
 
+###############################################
+############### Screen Capture  ###############
+###############################################
+# --- region screen video to clipboard
+bindsym $mod+Shift+braceleft exec "maim -u -s -n -l -c 0.157,0.333,0.466,0.4 | xclip -selection clipboard -t image/png"
+# --- region screenshot to ~/Pictures
+bindsym $mod+bracketleft exec "maim -u -s -n -l -c 0.157,0.333,0.466,0.4 ~/Pictures/Screenshot-$(date -Iseconds | cut -d'+' -f1).png"
+# --- region screen video to ~/Videos
+bindsym $mod+bracketright exec ~/.config/i3/helper/record-screen.sh gif
+# --- possible other examples
+# bindsym Shift+Print exec ~/.files/i3/record-screen.sh byzanz
+# bindsym Shift+Mod4+Print exec ~/.files/i3/record-screen.sh ogv
+
 ####################################################
 ###################  Visual  #######################
 ####################################################
@@ -377,5 +390,5 @@ exec --no-startup-id compton -b --config ~/.config/compton.conf
 # exec_always conky -c ~/.config/conky/.conkyrc
 exec ~/.conky/Conky/startconky.sh
 
-
 exec --no-startup-id i3-msg "workspace 1; append_layout ~/.config/i3/workspace-1.json; exec urxvt; exec urxvt; exec urxvt; exec env neofetch=true urxvt"
+

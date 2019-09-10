@@ -168,3 +168,25 @@ cd polybar
 sudo rm /etc/fonts/conf.d/70-no-bitmaps.conf
 fc-cache -fv ~/.fonts
 ```
+
+slop (maybe apt-get install will be enough in > 16.04)
+```
+## slop
+sudo apt-get install libxext-dev
+sudo apt-get install libpng-dev
+sudo apt-get install libimlib2-dev
+sudo apt-get install libglew-dev
+sudo apt-get install libxrender-dev
+sudo apt-get install libxrandr-dev
+sudo apt-get install libglm-dev
+git clone https://github.com/naelstrof/slop.git
+cd slop
+cmake -DCMAKE_INSTALL_PREFIX="/usr" ./
+make && sudo make install
+## maim
+git clone https://github.com/naelstrof/maim.git
+cd maim
+cmake -DCMAKE_INSTALL_PREFIX="/usr" ./
+make && sudo make install
+```
+
