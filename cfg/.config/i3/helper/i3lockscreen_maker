@@ -15,21 +15,54 @@ RESOLUTIONS=`xrandr --current | grep ' connected' | sed 's/primary//g' | awk '{p
 NUM_SCREEN=`echo $RESOLUTIONS | wc -w`
 notify-send "Processing $NUM_SCREEN screens..."
 
+font="ubuntu"
+text="Don't touch... Genius at work."
+
 # -- Composite locker mark
 i=1
 while read -r res
 do
     TEMP_IMG="/tmp/tmp$i.png"
-    `convert $IMG_IN -crop $res $TEMP_IMG`
+    `convert $IMG_IN -crop $res +repage $TEMP_IMG`
     `composite -gravity center $IMG_LOCK $TEMP_IMG $TEMP_IMG`
+    `convert                                    \
+          -background "rgba(0,0,0,0.45)"        \
+          -gravity center                       \
+          -fill white                           \
+          -pointsize 30 label:"$text"           \
+           $TEMP_IMG                            \
+          +swap                                 \
+          -gravity center                       \
+          -geometry +0+100                      \
+          -composite                            \
+           $TEMP_IMG`
+
+    # lock image + text
+    # `convert $TEMP_IMG -font "$font" -pointsize 26 -fill black -stroke white -strokewidth 4 \
+    #          -gravity center -annotate +0+160 "$text" \
+    #          $IMG_LOCK -gravity center -composite $TEMP_IMG`
+
     `convert $IMG_IN $TEMP_IMG -geometry $res -compose copy -composite $IMG_IN`
-    #if [ "$i" = 1 ]
-    #then
-        #`cp $TEMP_IMG $IMG_OUT`
-    #else
-        #`convert $IMG_OUT $TEMP_IMG -background "#000000" +append $IMG_OUT  `
-    #fi
     i=$(( i+1 ))     # increments $n
 done <<< "$RESOLUTIONS"
 `mv $IMG_IN $IMG_OUT`
 notify-send "Processing done: $IMG_OUT"
+
+# convert  ~/Downloads/flower_original.jpg \
+#     -size 1024x -background "rgba(255,215,0,0.5)" label:"Merry Christmas Mom and Dad" \) \
+#     -geometry +67+60 -compose over -composite flower_result.jpg
+
+
+# mytext="Cheers\!"
+
+# convert                            \
+#   -background "rgba(0,255,255,0.25)" \
+#   -gravity center                  \
+#   -fill white                      \
+#   -size 400x200 caption:"${mytext}" \
+#    ~/Downloads/flower_original.jpg \
+#   +swap                            \
+#   -gravity center                   \
+#   -geometry +0+446  \
+#   -composite                       \
+#    ~/Downloads/flower_1.jpg
