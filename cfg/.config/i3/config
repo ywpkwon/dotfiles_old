@@ -229,7 +229,7 @@ bar {
 #        urgent_workspace      #eb709b #eb709b #ffffff
 #        }
 }
-
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 ###############################################################
 ###################  Window Appearance  #######################
