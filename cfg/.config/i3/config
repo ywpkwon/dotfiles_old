@@ -181,9 +181,6 @@ bindsym $mod+r mode "resize"
 ###############################################################
 ###################  Bar Appearance  ##########################
 ###############################################################
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
 bar {
         font pango:Font Awesome 5 Free 10
         # tray_output primary
@@ -229,6 +226,8 @@ bar {
 #        urgent_workspace      #eb709b #eb709b #ffffff
 #        }
 }
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
 
 
 ###############################################################
