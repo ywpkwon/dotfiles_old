@@ -5,7 +5,7 @@
 
 PDIR="$HOME/.config/polybar"
 LAUNCH="polybar-msg cmd restart"
- 
+
 if  [[ $1 = "-amber" ]]; then
 # Replacing colors
 sed -i -e 's/shade1 = .*/shade1 = #FF6F00/g' $PDIR/config.ini
@@ -313,7 +313,7 @@ $LAUNCH &
 else
 echo "Available options:
 -amber		-blue			-blue-grey		-brown
--cyan		-deep-orange		-deep-purple		-green
+-cyan		-deep-orange	-deep-purple	-green
 -grey		-indigo			-light-blue		-light-green
 -lime		-orange			-pink			-purple
 -red		-teal			-yellow"
