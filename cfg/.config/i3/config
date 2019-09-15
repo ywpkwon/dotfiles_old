@@ -382,7 +382,7 @@ bindsym $mod+bracketright exec ~/.config/i3/helper/record-screen.sh gif
 exec_always --no-startup-id feh --bg-fill ~/.wallpapers/wooden.jpg
 
 # Compton
-exec --no-startup-id compton -b --config ~/.config/compton.conf
+exec_always --no-startup-id killall -9 compton; compton -b --config ~/.config/compton.conf
 
 # System Monitor: conky
 # exec_always conky -c ~/.config/conky/.conkyrc
