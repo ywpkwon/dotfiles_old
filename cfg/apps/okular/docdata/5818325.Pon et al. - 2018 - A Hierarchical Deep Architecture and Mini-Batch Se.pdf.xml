@@ -1,24 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE documentInfo>
 <documentInfo url="/home/phantom/Zotero/storage/KKYBYQA5/Pon et al. - 2018 - A Hierarchical Deep Architecture and Mini-Batch Se.pdf">
- <pageList/>
+ <pageList>
+  <page number="0">
+   <annotationList>
+    <annotation type="4">
+     <base flags="0" creationDate="2019-09-24T14:21:08" uniqueName="okular-{b9e6e9bd-a278-445d-b155-aae5ae2de6fd}" author="paul" modifyDate="2019-09-24T14:21:08" color="#fff412">
+      <boundary l="0.24211" r="0.350099" b="0.689498" t="0.678082"/>
+     </base>
+     <hl>
+      <quad dx="0.24225" cx="0.350172" dy="0.678191" bx="0.350172" cy="0.678191" ax="0.24225" by="0.689716" ay="0.689716" feather="1"/>
+     </hl>
+    </annotation>
+   </annotationList>
+  </page>
+ </pageList>
  <generalInfo>
   <history>
-   <oldPage viewport="2;C2:0.499867:0.957826:1"/>
-   <oldPage viewport="3;C2:0.499867:0.980511:1"/>
-   <oldPage viewport="4;C2:0.499867:0.0302124:1"/>
-   <oldPage viewport="3;C2:0.499867:0.911013:1"/>
-   <oldPage viewport="4;C2:0.499867:0.875748:1"/>
-   <oldPage viewport="5;C2:0.499867:0.991235:1"/>
-   <oldPage viewport="6;C2:0.499867:0.67385:1"/>
-   <oldPage viewport="8;C2:0.499529:0.431851:1"/>
    <oldPage viewport="6;C2:0.499764:0.983229:1"/>
    <oldPage viewport="7;C2:0.499764:0.0452698:1"/>
-   <current viewport="6;C2:0.499731:0.828072:1"/>
+   <oldPage viewport="6;C2:0.499736:0.132825:1"/>
+   <oldPage viewport="5;C2:0.499736:0.0531391:1"/>
+   <oldPage viewport="4;C2:0.499736:0.265485:1"/>
+   <oldPage viewport="3;C2:0.499736:0.0136512:1"/>
+   <oldPage viewport="2;C2:0.499736:0.0364711:1"/>
+   <oldPage viewport="1;C2:0.499736:0.118378:1"/>
+   <oldPage viewport="0;C2:0.499736:0.995488:1"/>
+   <oldPage viewport="1;C2:0.499736:0.0155023:1"/>
+   <current viewport="0;C2:0.499169:0.629905:1"/>
   </history>
   <views>
    <view name="PageView">
-    <zoom mode="1" value="2.55808"/>
+    <zoom mode="1" value="0.344629"/>
    </view>
   </views>
  </generalInfo>
