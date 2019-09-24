@@ -1,27 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE documentInfo>
 <documentInfo url="/home/phantom/Zotero/storage/AYUVHRW9/Li et al. - 2017 - Perceptual Generative Adversarial Networks for Sma.pdf">
- <pageList>
-  <page number="0">
-   <annotationList>
-    <annotation type="4">
-     <base flags="0" creationDate="2019-09-24T14:33:24" uniqueName="okular-{2c8abf0a-3b57-406f-a6b0-afd1d4b6d8d0}" author="paul" modifyDate="2019-09-24T14:33:24" color="#fff412">
-      <boundary l="0.23862" r="0.310973" b="0.267481" t="0.254162"/>
-     </base>
-     <hl>
-      <quad dx="0.238806" cx="0.311137" dy="0.254433" bx="0.311137" cy="0.254433" ax="0.238806" by="0.26773" ay="0.26773" feather="1"/>
-     </hl>
-    </annotation>
-   </annotationList>
-  </page>
- </pageList>
+ <pageList/>
  <generalInfo>
   <history>
-   <current viewport="0;C2:0.499736:0.228945:1"/>
+   <current viewport="0;C2:0.499707:0.235815:1"/>
   </history>
   <views>
    <view name="PageView">
-    <zoom mode="1" value="1.11587"/>
+    <zoom mode="1" value="2.08824"/>
    </view>
   </views>
  </generalInfo>
