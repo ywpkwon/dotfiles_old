@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE documentInfo>
+<documentInfo url="/mnt/datasets/mapillary-vistas-dataset_public_v1.0/Mapillary Vistas Research Edition License.pdf">
+ <pageList/>
+ <generalInfo>
+  <history>
+   <oldPage viewport="0;C2:0.499737:0.973417:1"/>
+   <oldPage viewport="1;C2:0.499737:0.932917:1"/>
+   <oldPage viewport="2;C2:0.499737:0.0175575:1"/>
+   <current viewport="1;C2:0.499737:0.625975:1"/>
+  </history>
+  <views>
+   <view name="PageView">
+    <zoom mode="1" value="2.62238"/>
+   </view>
+  </views>
+ </generalInfo>
+</documentInfo>

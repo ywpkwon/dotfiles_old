@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE documentInfo>
+<documentInfo url="/mnt/common/paul/kitti-submit/rrc-perfaug-stereo/result.pdf">
+ <pageList/>
+ <generalInfo>
+  <history>
+   <oldPage viewport="0;C2:0.5:0.777314:1"/>
+   <oldPage viewport="2;C2:0.49951:0.0402124:1"/>
+   <oldPage viewport="1;C2:0.49951:0.00227618:1"/>
+   <oldPage viewport="0;C2:0.49951:0.991654:1"/>
+   <oldPage viewport="1;C2:0.49951:0.938543:1"/>
+   <oldPage viewport="2;C2:0.49951:0.0204856:1"/>
+   <oldPage viewport="1;C2:0.49951:0.0280728:1"/>
+   <oldPage viewport="0;C2:0.49951:0.991654:1"/>
+   <oldPage viewport="1;C2:0.49951:0.0280728:1"/>
+   <current viewport="0;C2:0.49951:0.777314:1"/>
+  </history>
+  <views>
+   <view name="PageView">
+    <zoom mode="0" value="1.25"/>
+   </view>
+  </views>
+ </generalInfo>
+</documentInfo>

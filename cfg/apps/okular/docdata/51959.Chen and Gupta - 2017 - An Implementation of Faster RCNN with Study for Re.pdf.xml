@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE documentInfo>
+<documentInfo url="/home/phantom/Zotero/storage/BV98M7LW/Chen and Gupta - 2017 - An Implementation of Faster RCNN with Study for Re.pdf">
+ <pageList>
+  <page number="0">
+   <annotationList>
+    <annotation type="4">
+     <base flags="0" creationDate="2018-05-08T17:09:27" uniqueName="okular-{fddc0d3b-1786-48ed-bcda-8555b1a72bc7}" author="paul" modifyDate="2018-05-08T17:09:27" color="#fff412">
+      <boundary l="0.0811887" r="0.467831" b="0.451422" t="0.424882"/>
+     </base>
+     <hl>
+      <quad dx="0.298165" cx="0.46789" dy="0.425022" bx="0.46789" cy="0.425022" ax="0.298165" by="0.436557" ay="0.436557" feather="1"/>
+      <quad dx="0.081422" cx="0.170872" dy="0.440106" bx="0.170872" cy="0.440106" ax="0.081422" by="0.451642" ay="0.451642" feather="1"/>
+     </hl>
+    </annotation>
+    <annotation type="4">
+     <base flags="0" creationDate="2018-05-08T17:09:44" uniqueName="okular-{811049f2-546c-4f4c-bbd5-257839fd08f0}" author="paul" modifyDate="2018-05-08T17:09:44" color="#fff412">
+      <boundary l="0.690257" r="0.838235" b="0.67346" t="0.661848"/>
+     </base>
+     <hl>
+      <quad dx="0.690367" cx="0.838303" dy="0.661934" bx="0.838303" cy="0.661934" ax="0.690367" by="0.673469" ay="0.673469" feather="1"/>
+     </hl>
+    </annotation>
+    <annotation type="4">
+     <base flags="0" creationDate="2018-05-08T17:09:51" uniqueName="okular-{28db2071-f2c3-41d7-8749-ab1c384055d6}" author="paul" modifyDate="2018-05-08T17:09:51" color="#fff412">
+      <boundary l="0.653493" r="0.839154" b="0.330806" t="0.318483"/>
+     </base>
+     <hl>
+      <quad dx="0.65367" cx="0.83945" dy="0.318545" bx="0.83945" cy="0.318545" ax="0.65367" by="0.330967" ay="0.330967" feather="1"/>
+     </hl>
+    </annotation>
+    <annotation type="1">
+     <base flags="4" creationDate="2018-05-08T17:11:19" uniqueName="okular-{647132af-7a3b-4417-ac14-2b2a27f26ccb}" author="paul" contents="ROI vs crop_and_resize" modifyDate="2018-05-08T17:11:19" color="#ffff39">
+      <boundary l="0.885589" r="1" b="0.43815" t="0.408768"/>
+      <window width="0" flags="-1" title="" left="0" height="0" summary="Inline Note" top="0"/>
+     </base>
+     <text icon="Comment" type="1" font="Ubuntu,7,-1,5,50,0,0,0,0,0"/>
+    </annotation>
+   </annotationList>
+  </page>
+  <page number="1">
+   <annotationList>
+    <annotation type="4">
+     <base flags="0" creationDate="2018-05-08T17:11:42" uniqueName="okular-{ca778447-56ac-40e0-8069-414602068396}" author="paul" modifyDate="2018-05-08T17:11:42" color="#fff412">
+      <boundary l="0.176471" r="0.287684" b="0.636019" t="0.623697"/>
+     </base>
+     <hl>
+      <quad dx="0.176606" cx="0.220183" dy="0.62378" bx="0.220183" cy="0.62378" ax="0.176606" by="0.636202" ay="0.636202" feather="1"/>
+     </hl>
+    </annotation>
+    <annotation type="4">
+     <base flags="0" creationDate="2018-05-08T17:11:45" uniqueName="okular-{2e2c770e-9616-4d9d-a403-1f41d4dcea83}" author="paul" modifyDate="2018-05-08T17:11:45" color="#fff412">
+      <boundary l="0.0811887" r="0.125919" b="0.651185" t="0.638863"/>
+     </base>
+     <hl>
+      <quad dx="0.081422" cx="0.126147" dy="0.638864" bx="0.126147" cy="0.638864" ax="0.081422" by="0.651287" ay="0.651287" feather="1"/>
+     </hl>
+    </annotation>
+   </annotationList>
+  </page>
+ </pageList>
+ <generalInfo>
+  <history>
+   <oldPage viewport="0;C2:0.499847:0.996327:1"/>
+   <oldPage viewport="1;C2:0.499847:0.0219194:1"/>
+   <oldPage viewport="0;C2:0.499847:0.991825:1"/>
+   <oldPage viewport="1;C2:0.499694:0.0736967:1"/>
+   <oldPage viewport="0;C2:0.499694:0.997393:1"/>
+   <oldPage viewport="1;C2:0.499694:0.0196682:1"/>
+   <current viewport="0;C2:0.499694:0.485545:1"/>
+  </history>
+  <views>
+   <view name="PageView">
+    <zoom mode="0" value="2"/>
+   </view>
+  </views>
+ </generalInfo>
+</documentInfo>

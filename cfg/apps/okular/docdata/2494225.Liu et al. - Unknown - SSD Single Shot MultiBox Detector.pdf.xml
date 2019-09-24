@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE documentInfo>
+<documentInfo url="/home/phantom/Dropbox/Mendeley/Liu et al. - Unknown - SSD Single Shot MultiBox Detector.pdf">
+ <pageList>
+  <page number="6">
+   <annotationList>
+    <annotation type="4">
+     <base flags="0" creationDate="2017-08-16T14:39:24" uniqueName="okular-{cfb94d4a-88b5-4f38-8278-b4dad5be1ecf}" author="paul" modifyDate="2017-08-16T14:39:24" color="#fff412">
+      <boundary l="0.43498" r="0.631627" b="0.430882" t="0.413183"/>
+     </base>
+     <hl>
+      <quad dx="0.435323" cx="0.631841" dy="0.413389" bx="0.631841" cy="0.413389" ax="0.435323" by="0.430962" ay="0.430962" feather="1"/>
+     </hl>
+    </annotation>
+    <annotation type="4">
+     <base flags="0" creationDate="2017-08-16T14:39:47" uniqueName="okular-{4f3c2fd7-915b-4a72-9ec6-b939009e994a}" author="paul" modifyDate="2017-08-16T14:39:47" color="#fff412">
+      <boundary l="0.496149" r="0.641595" b="0.469332" t="0.454989"/>
+     </base>
+     <hl>
+      <quad dx="0.496269" cx="0.641791" dy="0.45523" bx="0.641791" cy="0.45523" ax="0.496269" by="0.469456" ay="0.469456" feather="1"/>
+     </hl>
+    </annotation>
+    <annotation type="4">
+     <base flags="0" creationDate="2017-08-16T14:39:55" uniqueName="okular-{8ef4a8e0-dac6-4ed4-a68e-0bd47746dcb3}" author="paul" modifyDate="2017-08-16T14:39:55" color="#fff412">
+      <boundary l="0.879021" r="0.911645" b="0.450107" t="0.435764"/>
+     </base>
+     <hl>
+      <quad dx="0.879353" cx="0.911692" dy="0.435983" bx="0.911692" cy="0.435983" ax="0.879353" by="0.450209" ay="0.450209" feather="1"/>
+     </hl>
+    </annotation>
+    <annotation type="4">
+     <base flags="0" creationDate="2017-08-16T14:39:59" uniqueName="okular-{e6edb059-8205-4c24-a1f9-38208f0a566c}" author="paul" modifyDate="2017-08-16T14:39:59" color="#fff412">
+      <boundary l="0.127775" r="0.188944" b="0.469332" t="0.454989"/>
+     </base>
+     <hl>
+      <quad dx="0.128109" cx="0.172886" dy="0.45523" bx="0.172886" cy="0.45523" ax="0.128109" by="0.469456" ay="0.469456" feather="1"/>
+     </hl>
+    </annotation>
+    <annotation type="4">
+     <base flags="0" creationDate="2017-08-16T14:40:01" uniqueName="okular-{935e1bd8-f6cf-4f66-ad4c-62028f4e11ce}" author="paul" modifyDate="2017-08-16T14:40:01" color="#fff412">
+      <boundary l="0.264613" r="0.30947" b="0.469332" t="0.454989"/>
+     </base>
+     <hl>
+      <quad dx="0.264925" cx="0.309701" dy="0.45523" bx="0.309701" cy="0.45523" ax="0.264925" by="0.469456" ay="0.469456" feather="1"/>
+     </hl>
+    </annotation>
+    <annotation type="4">
+     <base flags="0" creationDate="2017-08-16T14:40:11" uniqueName="okular-{eb5df345-8479-4bfe-adf0-2da6626d52a2}" author="paul" modifyDate="2017-08-16T14:40:11" color="#fff412">
+      <boundary l="0.734934" r="0.88763" b="0.488557" t="0.474214"/>
+     </base>
+     <hl>
+      <quad dx="0.735075" cx="0.88806" dy="0.474477" bx="0.88806" cy="0.474477" ax="0.735075" by="0.488703" ay="0.488703" feather="1"/>
+     </hl>
+    </annotation>
+    <annotation type="4">
+     <base flags="0" creationDate="2017-08-16T14:41:05" uniqueName="okular-{0ad5b6d0-ad8a-42cc-939e-b159315a2d03}" author="paul" modifyDate="2017-08-16T14:41:05" color="#fff412">
+      <boundary l="0.539647" r="0.814227" b="0.527922" t="0.512969"/>
+     </base>
+     <hl>
+      <quad dx="0.539801" cx="0.807214" dy="0.512971" bx="0.807214" cy="0.512971" ax="0.539801" by="0.528033" ay="0.528033" feather="1"/>
+     </hl>
+    </annotation>
+    <annotation type="4">
+     <base flags="0" creationDate="2017-08-16T14:41:42" uniqueName="okular-{f27f4834-1b54-4390-af10-8de1ceea6621}" author="paul" modifyDate="2017-08-16T14:41:42" color="#fff412">
+      <boundary l="0.0820118" r="0.917535" b="0.567287" t="0.532804"/>
+     </base>
+     <hl>
+      <quad dx="0.177861" cx="0.787313" dy="0.533054" bx="0.787313" cy="0.533054" ax="0.177861" by="0.54728" ay="0.54728" feather="1"/>
+     </hl>
+    </annotation>
+   </annotationList>
+  </page>
+ </pageList>
+ <generalInfo>
+  <history>
+   <oldPage viewport="13"/>
+   <oldPage viewport="12"/>
+   <oldPage viewport="11"/>
+   <oldPage viewport="10"/>
+   <oldPage viewport="9"/>
+   <oldPage viewport="8"/>
+   <oldPage viewport="7"/>
+   <oldPage viewport="6"/>
+   <oldPage viewport="5"/>
+   <oldPage viewport="6;C2:0.499773:0.621605:1"/>
+   <current viewport="16;C2:0.499773:0.527617:1"/>
+  </history>
+  <views>
+   <view name="PageView">
+    <zoom mode="0" value="4"/>
+   </view>
+  </views>
+ </generalInfo>
+</documentInfo>

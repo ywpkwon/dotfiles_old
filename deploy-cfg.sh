@@ -11,7 +11,8 @@ ln -sf ~/dotfiles/cfg/.urxvt ~
 ln -sf ~/dotfiles/cfg/.wallpapers ~
 ln -sf ~/dotfiles/cfg/.notes.txt ~
 ln -sf ~/dotfiles/cfg/.conky ~
-rsync -rav ~/dotfiles/cfg/.fonts/* ~/.fonts/
+ln -sf ~/dotfiles/cfg/apps/okular/docdata ~/.kde/share/apps/okular
+# rsync -rav ~/dotfiles/cfg/.fonts/* ~/.fonts/
 
 echo '---------------- sync done ----------------'
 echo 'Alt+Shift+r              for i3 reload'

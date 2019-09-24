@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE documentInfo>
+<documentInfo url="/home/phantom/Downloads/1607.07155.pdf">
+ <pageList>
+  <page number="6">
+   <annotationList>
+    <annotation type="4">
+     <base flags="0" creationDate="2017-06-20T18:44:50" uniqueName="okular-{5ed17861-d6de-44af-b5c4-d9b111ddc4f6}" author="paul" modifyDate="2017-06-20T18:44:50" color="#fff412">
+      <boundary l="0.542926" r="0.644498" b="0.691619" t="0.675346"/>
+     </base>
+     <hl>
+      <quad dx="0.543532" cx="0.645522" dy="0.676151" bx="0.645522" cy="0.676151" ax="0.543532" by="0.69205" ay="0.69205" feather="1"/>
+     </hl>
+    </annotation>
+   </annotationList>
+  </page>
+ </pageList>
+ <generalInfo>
+  <history>
+   <oldPage viewport="12;C2:0.5:0.988706:1"/>
+   <oldPage viewport="13;C2:0.5:-0.00152625:1"/>
+   <oldPage viewport="12;C2:0.5:0.00457875:1"/>
+   <oldPage viewport="11;C2:0.5:0.0631868:1"/>
+   <oldPage viewport="10;C2:0.5:0.0173993:1"/>
+   <oldPage viewport="9;C2:0.5:0.00702076:1"/>
+   <oldPage viewport="8;C2:0.5:0.996642:1"/>
+   <oldPage viewport="9;C2:0.5:0.0247253:1"/>
+   <oldPage viewport="8;C2:0.5:0.00641026:1"/>
+   <oldPage viewport="7;C2:0.5:0.0247253:1"/>
+   <current viewport="6;C2:0.5:0.640765:1"/>
+  </history>
+  <views>
+   <view name="PageView">
+    <zoom mode="0" value="1.5"/>
+   </view>
+  </views>
+ </generalInfo>
+</documentInfo>

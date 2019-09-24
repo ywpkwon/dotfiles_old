@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE documentInfo>
+<documentInfo url="/home/phantom/Downloads/Gurghian_DeepLanes_End-To-End_Lane_CVPR_2016_paper.pdf">
+ <pageList>
+  <page number="0">
+   <annotationList>
+    <annotation type="4">
+     <base flags="0" creationDate="2017-05-30T13:37:38" uniqueName="okular-{14b83b60-7f52-4c74-8cb7-f24d9c3c3933}" author="phantom ai 1" modifyDate="2017-05-30T13:37:38" color="#fff412">
+      <boundary l="0.289216" r="0.468137" b="0.544192" t="0.532197"/>
+     </base>
+     <hl>
+      <quad dx="0.289323" cx="0.468427" dy="0.532801" bx="0.468427" cy="0.532801" ax="0.289323" by="0.544326" ay="0.544326" feather="1"/>
+     </hl>
+    </annotation>
+    <annotation type="1">
+     <base flags="4" creationDate="2017-05-30T14:36:11" uniqueName="okular-{84dfbaee-faf4-4020-ad47-934b5e3b3205}" author="phantom ai 1" contents="new setup&#xa;no evaluation&#xa;no forward lanes&#xa;guessing a bit easy?&#xa;" modifyDate="2017-05-30T14:36:58" color="#ffff39">
+      <boundary l="0.796569" r="0.933287" b="0.120896" t="0.0517677"/>
+      <window width="0" flags="-1" title="" left="0" height="0" summary="Inline Note" top="0"/>
+     </base>
+     <text icon="Comment" type="1" font="Ubuntu,7,-1,5,25,0,0,0,0,0">
+      <callout cx="0.0972222" bx="0.0972222" cy="-0.0296717" ax="0.0972222" by="-0.0296717" ay="-0.0296717"/>
+     </text>
+    </annotation>
+   </annotationList>
+  </page>
+  <page number="1">
+   <annotationList>
+    <annotation type="4">
+     <base flags="0" creationDate="2017-05-30T13:50:06" uniqueName="okular-{fd220593-3d06-4aa3-ad5a-7aa6e9854676}" author="phantom ai 1" modifyDate="2017-05-30T13:50:06" color="#fff412">
+      <boundary l="0.224673" r="0.36683" b="0.316919" t="0.305556"/>
+     </base>
+     <hl>
+      <quad dx="0.225029" cx="0.367394" dy="0.305851" bx="0.367394" cy="0.305851" ax="0.225029" by="0.317376" ay="0.317376" feather="1"/>
+     </hl>
+    </annotation>
+    <annotation type="4">
+     <base flags="0" creationDate="2017-05-30T13:52:41" uniqueName="okular-{0d0c9335-2d5c-484f-a6db-8f7733165096}" author="phantom ai 1" modifyDate="2017-05-30T13:52:41" color="#fff412">
+      <boundary l="0.437908" r="0.468137" b="0.377525" t="0.366793"/>
+     </base>
+     <hl>
+      <quad dx="0.438576" cx="0.468427" dy="0.367021" bx="0.468427" cy="0.367021" ax="0.438576" by="0.37766" ay="0.37766" feather="1"/>
+     </hl>
+    </annotation>
+    <annotation type="4">
+     <base flags="0" creationDate="2017-05-30T13:55:30" uniqueName="okular-{d47207c6-6928-4acf-b34b-5a5c91d26fee}" author="phantom ai 1" modifyDate="2017-05-30T13:55:30" color="#fff412">
+      <boundary l="0.66585" r="0.839869" b="0.250631" t="0.239268"/>
+     </base>
+     <hl>
+      <quad dx="0.665901" cx="0.836969" dy="0.239362" bx="0.836969" cy="0.239362" ax="0.665901" by="0.250887" ay="0.250887" feather="1"/>
+     </hl>
+    </annotation>
+    <annotation type="4">
+     <base flags="0" creationDate="2017-05-30T13:59:53" uniqueName="okular-{7b37c344-53c6-447c-bdc4-6326b26578cb}" author="phantom ai 1" modifyDate="2017-05-30T13:59:53" color="#fff412">
+      <boundary l="0.504902" r="0.890523" b="0.654672" t="0.628157"/>
+     </base>
+     <hl>
+      <quad dx="0.843858" cx="0.89093" dy="0.628546" bx="0.89093" cy="0.628546" ax="0.843858" by="0.640071" ay="0.640071" feather="1"/>
+      <quad dx="0.505166" cx="0.529277" dy="0.643617" bx="0.529277" cy="0.643617" ax="0.505166" by="0.655142" ay="0.655142" feather="1"/>
+     </hl>
+    </annotation>
+   </annotationList>
+  </page>
+  <page number="2">
+   <annotationList>
+    <annotation type="4">
+     <base flags="0" creationDate="2017-05-30T14:23:19" uniqueName="okular-{f2ac4725-781b-4f47-a20b-89006f7a7d53}" author="phantom ai 1" modifyDate="2017-05-30T14:23:19" color="#fff412">
+      <boundary l="0.0808824" r="0.191176" b="0.371843" t="0.358586"/>
+     </base>
+     <hl>
+      <quad dx="0.0815155" cx="0.087256" dy="0.359043" bx="0.087256" cy="0.359043" ax="0.0815155" by="0.370567" ay="0.370567" feather="1"/>
+      <quad dx="0.087256" cx="0.191734" dy="0.359043" bx="0.191734" cy="0.359043" ax="0.087256" by="0.37234" ay="0.37234" feather="1"/>
+     </hl>
+    </annotation>
+    <annotation type="4">
+     <base flags="0" creationDate="2017-05-30T14:23:23" uniqueName="okular-{939bbce4-2ee5-40ba-a2b5-3ba6b729ded4}" author="phantom ai 1" modifyDate="2017-05-30T14:23:23" color="#fff412">
+      <boundary l="0.0808824" r="0.214052" b="0.796086" t="0.782197"/>
+     </base>
+     <hl>
+      <quad dx="0.0815155" cx="0.0918485" dy="0.782801" bx="0.0918485" cy="0.782801" ax="0.0815155" by="0.794326" ay="0.794326" feather="1"/>
+      <quad dx="0.0918485" cx="0.214696" dy="0.782801" bx="0.214696" cy="0.782801" ax="0.0918485" by="0.796099" ay="0.796099" feather="1"/>
+     </hl>
+    </annotation>
+   </annotationList>
+  </page>
+  <page number="3">
+   <annotationList>
+    <annotation type="4">
+     <base flags="0" creationDate="2017-05-30T14:24:16" uniqueName="okular-{5518d02c-43e2-4d28-bcf2-f8ba6b039272}" author="phantom ai 1" modifyDate="2017-05-30T14:24:16" color="#fff412">
+      <boundary l="0.504902" r="0.890523" b="0.401515" t="0.375"/>
+     </base>
+     <hl>
+      <quad dx="0.82434" cx="0.89093" dy="0.375" bx="0.89093" cy="0.375" ax="0.82434" by="0.386525" ay="0.386525" feather="1"/>
+      <quad dx="0.505166" cx="0.601607" dy="0.390071" bx="0.601607" cy="0.390071" ax="0.505166" by="0.401596" ay="0.401596" feather="1"/>
+     </hl>
+    </annotation>
+   </annotationList>
+  </page>
+  <page number="4">
+   <annotationList>
+    <annotation type="4">
+     <base flags="0" creationDate="2017-05-30T14:32:21" uniqueName="okular-{f9a15b71-8e8d-461e-b742-baaa27f1db62}" author="phantom ai 1" modifyDate="2017-05-30T14:32:21" color="#fff412">
+      <boundary l="0.0808824" r="0.468137" b="0.258838" t="0.230429"/>
+     </base>
+     <hl>
+      <quad dx="0.297359" cx="0.468427" dy="0.230496" bx="0.468427" cy="0.230496" ax="0.297359" by="0.243794" ay="0.243794" feather="1"/>
+      <quad dx="0.0815155" cx="0.267509" dy="0.245567" bx="0.267509" cy="0.245567" ax="0.0815155" by="0.258865" ay="0.258865" feather="1"/>
+     </hl>
+    </annotation>
+    <annotation type="1">
+     <base flags="4" creationDate="2017-05-30T14:32:38" uniqueName="okular-{532416d7-ef5a-4dae-9c0b-99810c0979ff}" author="phantom ai 1" contents="wow!" modifyDate="2017-05-30T14:32:38" color="#ffff39">
+      <boundary l="0.398693" r="0.440359" b="0.271149" t="0.255051"/>
+      <window width="0" flags="-1" title="" left="0" height="0" summary="Inline Note" top="0"/>
+     </base>
+     <text icon="Comment" type="1" font="Ubuntu,9,-1,5,50,0,0,0,0,0"/>
+    </annotation>
+   </annotationList>
+  </page>
+ </pageList>
+ <generalInfo>
+  <history>
+   <oldPage viewport="4;C2:0.499465:0.98303:1"/>
+   <oldPage viewport="5;C2:0.499465:0.966474:1"/>
+   <oldPage viewport="6;C2:0.499465:0.00620861:1"/>
+   <oldPage viewport="5;C2:0.499465:0.0227649:1"/>
+   <oldPage viewport="4;C2:0.499465:0.685017:1"/>
+   <oldPage viewport="3;C2:0.499465:0.181705:1"/>
+   <oldPage viewport="1;C2:0.499465:0.688328:1"/>
+   <oldPage viewport="0;C2:0.499465:0.999586:1"/>
+   <oldPage viewport="1;C2:0.499465:0.0393212:1"/>
+   <oldPage viewport="7;C2:0.499689:0.00794798:1"/>
+   <current viewport="6;C2:0.499689:0.724711:1"/>
+  </history>
+  <views>
+   <view name="PageView">
+    <zoom mode="1" value="1.96814"/>
+   </view>
+  </views>
+ </generalInfo>
+</documentInfo>

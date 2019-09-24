@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE documentInfo>
+<documentInfo url="/home/phantom/Downloads/aly08realtime.pdf">
+ <pageList>
+  <page number="0">
+   <annotationList>
+    <annotation type="4">
+     <base flags="0" creationDate="2017-09-20T14:46:23" uniqueName="okular-{960c47c1-93d9-4487-8924-47633abf62e8}" author="paul" modifyDate="2017-09-20T14:46:23" color="#fff412">
+      <boundary l="0.0882852" r="0.488398" b="0.780648" t="0.75394"/>
+     </base>
+     <hl>
+      <quad dx="0.266055" cx="0.488532" dy="0.754215" bx="0.488532" cy="0.754215" ax="0.266055" by="0.76575" ay="0.76575" feather="1"/>
+      <quad dx="0.0883028" cx="0.264908" dy="0.769299" bx="0.264908" cy="0.769299" ax="0.0883028" by="0.780834" ay="0.780834" feather="1"/>
+     </hl>
+    </annotation>
+    <annotation type="4">
+     <base flags="0" creationDate="2017-09-20T14:47:05" uniqueName="okular-{82e83874-1294-4d26-8909-f50c30c6e66b}" author="paul" modifyDate="2017-09-20T14:47:05" color="#fff412">
+      <boundary l="0.0882852" r="0.488398" b="0.916375" t="0.889667"/>
+     </base>
+     <hl>
+      <quad dx="0.287844" cx="0.488532" dy="0.889973" bx="0.488532" cy="0.889973" ax="0.287844" by="0.900621" ay="0.900621" feather="1"/>
+      <quad dx="0.0883028" cx="0.12844" dy="0.905058" bx="0.12844" cy="0.905058" ax="0.0883028" by="0.916593" ay="0.916593" feather="1"/>
+     </hl>
+    </annotation>
+    <annotation type="4">
+     <base flags="0" creationDate="2017-09-20T14:47:28" uniqueName="okular-{3fcb7ade-c72d-4fbc-8104-ea35f161f32e}" author="paul" modifyDate="2017-09-20T14:47:28" color="#fff412">
+      <boundary l="0.511036" r="0.911149" b="0.357268" t="0.315674"/>
+     </base>
+     <hl>
+      <quad dx="0.762615" cx="0.911697" dy="0.315883" bx="0.911697" cy="0.315883" ax="0.762615" by="0.327418" ay="0.327418" feather="1"/>
+      <quad dx="0.511468" cx="0.588303" dy="0.330967" bx="0.588303" cy="0.330967" ax="0.511468" by="0.342502" ay="0.342502" feather="1"/>
+     </hl>
+    </annotation>
+   </annotationList>
+  </page>
+  <page number="1">
+   <annotationList>
+    <annotation type="4">
+     <base flags="0" creationDate="2017-09-20T14:49:04" uniqueName="okular-{0249615a-d176-4f47-8a83-8cb74923df80}" author="paul" modifyDate="2017-09-20T14:49:04" color="#fff412">
+      <boundary l="0.0882852" r="0.488398" b="0.839317" t="0.812609"/>
+     </base>
+     <hl>
+      <quad dx="0.368119" cx="0.488532" dy="0.812777" bx="0.488532" cy="0.812777" ax="0.368119" by="0.824312" ay="0.824312" feather="1"/>
+      <quad dx="0.0883028" cx="0.291284" dy="0.827862" bx="0.291284" cy="0.827862" ax="0.0883028" by="0.839397" ay="0.839397" feather="1"/>
+     </hl>
+    </annotation>
+    <annotation type="4">
+     <base flags="0" creationDate="2017-09-20T14:49:43" uniqueName="okular-{9a78f7fa-5574-467d-b197-f69dc31dad96}" author="paul" modifyDate="2017-09-20T14:49:43" color="#fff412">
+      <boundary l="0.467459" r="0.488398" b="0.869527" t="0.857706"/>
+     </base>
+     <hl>
+      <quad dx="0.46789" cx="0.488532" dy="0.85803" bx="0.488532" cy="0.85803" ax="0.46789" by="0.869565" ay="0.869565" feather="1"/>
+     </hl>
+    </annotation>
+    <annotation type="4">
+     <base flags="0" creationDate="2017-09-20T14:49:46" uniqueName="okular-{cc66021d-6a27-4719-b3a7-412af200d2dd}" author="paul" modifyDate="2017-09-20T14:49:46" color="#fff412">
+      <boundary l="0.340125" r="0.400113" b="0.931261" t="0.919877"/>
+     </base>
+     <hl>
+      <quad dx="0.340596" cx="0.400229" dy="0.920142" bx="0.400229" cy="0.920142" ax="0.340596" by="0.931677" ay="0.931677" feather="1"/>
+     </hl>
+    </annotation>
+    <annotation type="4">
+     <base flags="0" creationDate="2017-09-20T14:51:25" uniqueName="okular-{0150f19e-504b-4b0d-8c63-cf52b57c0895}" author="paul" modifyDate="2017-09-20T14:51:25" color="#fff412">
+      <boundary l="0.511036" r="0.636106" b="0.735552" t="0.72373"/>
+     </base>
+     <hl>
+      <quad dx="0.511468" cx="0.636468" dy="0.724046" bx="0.636468" cy="0.724046" ax="0.511468" by="0.735581" ay="0.735581" feather="1"/>
+     </hl>
+    </annotation>
+    <annotation type="4">
+     <base flags="0" creationDate="2017-09-20T14:51:33" uniqueName="okular-{570406d1-50ab-407a-88cd-6365ef48eab7}" author="paul" modifyDate="2017-09-20T14:51:33" color="#fff412">
+      <boundary l="0.650821" r="0.822864" b="0.750438" t="0.739054"/>
+     </base>
+     <hl>
+      <quad dx="0.651376" cx="0.823394" dy="0.73913" bx="0.823394" cy="0.73913" ax="0.651376" by="0.750665" ay="0.750665" feather="1"/>
+     </hl>
+    </annotation>
+   </annotationList>
+  </page>
+  <page number="4">
+   <annotationList>
+    <annotation type="4">
+     <base flags="0" creationDate="2017-09-20T14:58:30" uniqueName="okular-{158937f1-54a6-4a62-a700-d37e4f5f2725}" author="paul" modifyDate="2017-09-20T14:58:30" color="#fff412">
+      <boundary l="0.0882852" r="0.488398" b="0.431699" t="0.390105"/>
+     </base>
+     <hl>
+      <quad dx="0.219037" cx="0.488532" dy="0.404614" bx="0.488532" cy="0.404614" ax="0.219037" by="0.417036" ay="0.417036" feather="1"/>
+      <quad dx="0.0883028" cx="0.147936" dy="0.420586" bx="0.147936" cy="0.420586" ax="0.0883028" by="0.432121" ay="0.432121" feather="1"/>
+     </hl>
+    </annotation>
+   </annotationList>
+  </page>
+ </pageList>
+ <generalInfo>
+  <history>
+   <oldPage viewport="0;C2:0.499717:0.992557:1"/>
+   <oldPage viewport="1;C2:0.499717:0.985552:1"/>
+   <oldPage viewport="2;C2:0.499717:0.00656743:1"/>
+   <oldPage viewport="1;C2:0.499717:0.985552:1"/>
+   <oldPage viewport="2;C2:0.499717:0.978546:1"/>
+   <oldPage viewport="3;C2:0.499717:0.997811:1"/>
+   <oldPage viewport="4;C2:0.499717:0.0188266:1"/>
+   <oldPage viewport="3;C2:0.499717:0.997811:1"/>
+   <oldPage viewport="4;C2:0.499717:0.997373:1"/>
+   <oldPage viewport="5;C2:0.499717:0.00700525:1"/>
+   <current viewport="4;C2:0.499717:0.486865:1"/>
+  </history>
+  <views>
+   <view name="PageView">
+    <zoom mode="1" value="2.16544"/>
+   </view>
+  </views>
+ </generalInfo>
+</documentInfo>
