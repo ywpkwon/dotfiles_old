@@ -48,9 +48,7 @@
 XTerm*termName: xterm-256color
 xterm*font:  xft:Inconsolata\ for\ Powerline:pixelsize=20:antialias=true:hintpriing=true
 
-
 URxvt*termName: rxvt-unicode
-
 !! URxvt Appearance
 URxvt.font:  xft:Inconsolata\ for\ Powerline:pixelsize=20:antialias=true:hintpriing=true
 
@@ -63,6 +61,7 @@ URxvt.font:  xft:Inconsolata\ for\ Powerline:pixelsize=20:antialias=true:hintpri
 ! URxvt.italicFont: -*-rissole-*
 ! URxvt.boldItalicfont: -*-rissole-*
 
+URxvt*dynamicColors:         on
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 URxvt.geometry: 92x24

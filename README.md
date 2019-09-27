@@ -114,13 +114,13 @@ sudo apt install htop scrot imagemagick
 #sudo apt install rxvt-unicode-256color
 ```
 
+alacritty
 ```bash
-udo snap install alacritty --classic
-# If you have your own alarcritty.yml (dotfies syncing), you may do
-mv ~/snap/alacritty/9/alacritty/alacritty.yml ~/snap/alacritty/9/alacritty/alacritty.yml.old
+sudo add-apt-repository ppa:mmstick76/alacritty
+sudo apt install alacritty
 ```
 
-neofetch install:
+neofetch
 ```bash
 # https://github.com/dylanaraps/neofetch/wiki/Installation#universal-install
 # sudo add-apt-repository ppa:dawidd0811/neofetch
@@ -128,8 +128,7 @@ neofetch install:
 sudo apt install neofetch
 ```
 
-rofi install (ver 1.5+. ppa maybe only for ubuntu 16.04)
-For later version, simple `apt install` is enough)
+rofi
 ```bash
 #sudo add-apt-repository ppa:jasonpleau/rofi
 #sudo apt update

@@ -126,3 +126,5 @@ source /usr/local/bin/virtualenvwrapper.sh
 # d-bus notification (notify-osd in gnome, dunst in i3)
 # https://askubuntu.com/questions/634797/notify-osd-replaced-with-dunst-after-switching-back-to-unity-from-i3wm
 export XDG_DATA_HOME=$HOME/.local/share
+
+export PATH="$HOME/.dynamic-colors/bin:$PATH"
