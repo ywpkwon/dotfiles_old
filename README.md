@@ -114,6 +114,12 @@ sudo apt install htop scrot imagemagick
 #sudo apt install rxvt-unicode-256color
 ```
 
+```bash
+udo snap install alacritty --classic
+# If you have your own alarcritty.yml (dotfies syncing), you may do
+mv ~/snap/alacritty/9/alacritty/alacritty.yml ~/snap/alacritty/9/alacritty/alacritty.yml.old
+```
+
 neofetch install:
 ```bash
 # https://github.com/dylanaraps/neofetch/wiki/Installation#universal-install
