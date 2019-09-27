@@ -101,32 +101,32 @@ i3-gaps installation: https://gist.github.com/boreycutts/6417980039760d9d9dac0dd
 One-time setting:
 ```
 sudo apt-get install htop
-sudo apt-get install rxvt-unicode-256color
+sudo apt install rxvt-unicode-256color
 sudo apt-get install python3-udiskie
 sudo pip install udiskie
 sudo apt-get install w3m w3m-img
 sudo apt-get install feh
 sudo pip3 install pywal
 sudo apt-get install i3blocks
-sudo apt-get install conky conky-all
-sudo apt-get install cowsay cmatrix fortune tty-clock
-sudo apt-get install compton 
-sudo apt-get install scrot imagemagick
+sudo apt install conky conky-all
+sudo apt install cowsay cmatrix fortune tty-clock
+sudo apt install compton 
+sudo apt install scrot imagemagick
 ```
 
 neofetch install:
-```
+```bash
 # https://github.com/dylanaraps/neofetch/wiki/Installation#universal-install
-sudo add-apt-repository ppa:dawidd0811/neofetch
-sudo apt update
+# sudo add-apt-repository ppa:dawidd0811/neofetch
+# sudo apt update
 sudo apt install neofetch
 ```
 
 rofi install (ver 1.5+. ppa maybe only for ubuntu 16.04)
-For later version, simple `apt-get install` might be enough)
-```
-sudo add-apt-repository ppa:jasonpleau/rofi
-sudo apt update
+For later version, simple `apt install` is enough)
+```bash
+#sudo add-apt-repository ppa:jasonpleau/rofi
+#sudo apt update
 sudo apt install rofi
 ```
 
@@ -158,8 +158,8 @@ sudo cp i3lock /usr/bin/i3lock
 ```
 
 polybar
-```
-sudo apt-get install cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto libxcb-xrm-dev i3-wm libasound2-dev libmpdclient-dev libiw-dev libcurl4-openssl-dev libpulse-dev
+```bash
+sudo apt install cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto libxcb-xrm-dev i3-wm libasound2-dev libmpdclient-dev libiw-dev libcurl4-openssl-dev libpulse-dev libxcb-composite0 libxcb-composite0-dev
 git clone https://github.com/polybar/polybar.git
 cd polybar
 ./build.sh
@@ -169,24 +169,25 @@ sudo rm /etc/fonts/conf.d/70-no-bitmaps.conf
 fc-cache -fv ~/.fonts
 ```
 
-slop (maybe apt-get install will be enough in > 16.04)
-```
-## slop
-sudo apt-get install libxext-dev
-sudo apt-get install libpng-dev
-sudo apt-get install libimlib2-dev
-sudo apt-get install libglew-dev
-sudo apt-get install libxrender-dev
-sudo apt-get install libxrandr-dev
-sudo apt-get install libglm-dev
-git clone https://github.com/naelstrof/slop.git
-cd slop
-cmake -DCMAKE_INSTALL_PREFIX="/usr" ./
-make && sudo make install
-## maim
-git clone https://github.com/naelstrof/maim.git
-cd maim
-cmake -DCMAKE_INSTALL_PREFIX="/usr" ./
-make && sudo make install
+slop & maim (apt-get is enough for 18.04+)
+```bash
+sudo apt slop maim
+# ## ---- slop ----
+# sudo apt-get install libxext-dev
+# sudo apt-get install libpng-dev
+# sudo apt-get install libimlib2-dev
+# sudo apt-get install libglew-dev
+# sudo apt-get install libxrender-dev
+# sudo apt-get install libxrandr-dev
+# sudo apt-get install libglm-dev
+# git clone https://github.com/naelstrof/slop.git
+# cd slop
+# cmake -DCMAKE_INSTALL_PREFIX="/usr" ./
+# make && sudo make install
+# ## ---- maim ----
+# git clone https://github.com/naelstrof/maim.git
+# cd maim
+# cmake -DCMAKE_INSTALL_PREFIX="/usr" ./
+# make && sudo make install
 ```
 
