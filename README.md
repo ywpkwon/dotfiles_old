@@ -99,19 +99,19 @@ Each plugin is sensitive to where you are and what you're doing, they reveal the
 i3-gaps installation: https://gist.github.com/boreycutts/6417980039760d9d9dac0dd2148d4783
 
 One-time setting:
-```
-sudo apt-get install htop
-sudo apt install rxvt-unicode-256color
-sudo apt-get install python3-udiskie
+```bash
+sudo apt install alarcritty
+sudo apt install python3-udiskie
 sudo pip install udiskie
-sudo apt-get install w3m w3m-img
-sudo apt-get install feh
+sudo apt install w3m w3m-img
+sudo apt install feh
 sudo pip3 install pywal
-sudo apt-get install i3blocks
+sudo apt install i3blocks
 sudo apt install conky conky-all
 sudo apt install cowsay cmatrix fortune tty-clock
 sudo apt install compton 
-sudo apt install scrot imagemagick
+sudo apt install htop scrot imagemagick
+#sudo apt install rxvt-unicode-256color
 ```
 
 neofetch install:
