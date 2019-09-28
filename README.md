@@ -178,13 +178,7 @@ slop & maim (apt-get is enough for 18.04+)
 ```bash
 sudo apt slop maim
 # ## ---- slop ----
-# sudo apt-get install libxext-dev
-# sudo apt-get install libpng-dev
-# sudo apt-get install libimlib2-dev
-# sudo apt-get install libglew-dev
-# sudo apt-get install libxrender-dev
-# sudo apt-get install libxrandr-dev
-# sudo apt-get install libglm-dev
+# sudo apt-get install libxext-dev libpng-dev libimlib2-dev libglew-dev libxrender-dev libxrandr-dev libglm-dev
 # git clone https://github.com/naelstrof/slop.git
 # cd slop
 # cmake -DCMAKE_INSTALL_PREFIX="/usr" ./
