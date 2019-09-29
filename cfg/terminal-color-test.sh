@@ -5,7 +5,7 @@ echo '--- 256 color test ---'
 
 curl -s https://gist.githubusercontent.com/lifepillar/d4acaf918ae8d9bb2cab24d62abd768c/raw/a38d1e6a5500708d1f6318660f47b7702f53e009/256-colors.pl | perl
 curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash
-url -s -L https://git.gnome.org/browse/vte/plain/perf/256test.sh?h=vte-0-38 | bash
+curl -s -L https://git.gnome.org/browse/vte/plain/perf/256test.sh?h=vte-0-38 | bash
 
 echo ''
 echo '--- True color test ---'
