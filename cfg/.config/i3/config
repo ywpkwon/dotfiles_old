@@ -300,8 +300,7 @@ bindsym $mod+t [instance="scratch-term"] scratchpad show
 bindsym $mod+b [class="Google-chrome"] scratchpad show
 
 for_window [class="TeamViewer"] floating enable
-for_window [class="Slack"] floating enable
-
+for_window [title="TeamViewer"] floating enable
 
 ###################################################################
 ###################  I 3  G A P S     #############################
