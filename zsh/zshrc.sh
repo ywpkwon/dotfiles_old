@@ -93,6 +93,7 @@ source ~/dotfiles/zsh/plugins/vi-mode.plugin.zsh
 source ~/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/dotfiles/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/dotfiles/zsh/keybindings.sh
+source ~/dotfiles/zsh/grc.zsh
 
 # Fix for arrow-key searching
 # start typing + [Up-Arrow] - fuzzy find history forward
@@ -121,10 +122,15 @@ export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
 #export LD_PRELOAD="/usr/lib/libtcmalloc_minimal.so.4"
-#export PYTHONPATH=$PYTHONPATH:$HOME/projects/tfcenter/research
 
 # d-bus notification (notify-osd in gnome, dunst in i3)
 # https://askubuntu.com/questions/634797/notify-osd-replaced-with-dunst-after-switching-back-to-unity-from-i3wm
-export XDG_DATA_HOME=$HOME/.local/share
+# export XDG_DATA_HOME=$HOME/.local/share
 
-export PATH="$HOME/.dynamic-colors/bin:$PATH"
+# d-bus notification
+SERVICE=org.knopwob.dunst 	# use dunst
+# SERVICE=					# use default
+mkdir -p "${XDG_DATA_HOME:-$HOME/.local/share}/dbus-1/services"
+ln -sTf \
+    "/usr/share/dbus-1/services/${SERVICE:-org.Freedesktop.Notifications}.service" \
+    "${XDG_DATA_HOME:-$HOME/.local/share}/dbus-1/services/org.freedesktop.Notifications.service"

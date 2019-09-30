@@ -260,12 +260,15 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+# -- XPS doesn't obey xbacklight. So, `light` is installed
+# -- https://github.com/haikarainen/light
+# -- bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+# -- bindsym XF86MonBrightnessDown exec backlight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
 
 # Toggling between workspaces
 bindsym $mod+Tab workspace back_and_forth
-
 
 # You can send notification
 # bindsym $mod+semicolon exec notify-send 'test 123'
@@ -285,10 +288,10 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # Show the terminal scratchpad window, if any.
-exec --no-startup-id env neofetch=true urxvt -name "scratch-term"
+exec --no-startup-id env neofetch=true alacritty --class "scratch-term"
 
 # dedicated-scratchpad
-bindsym $mod+Shift+t exec env neofetch=true urxvt -name "scratch-term"
+bindsym $mod+Shift+t exec env neofetch=true alacritty --class "scratch-term"
 for_window [instance="scratch-term"] floating enable, move to scratchpad,  scratchpad show
 bindsym $mod+t [instance="scratch-term"] scratchpad show
 
@@ -387,7 +390,6 @@ exec_always --no-startup-id killall -9 compton; compton -b --config ~/.config/co
 
 # System Monitor: conky
 # exec_always conky -c ~/.config/conky/.conkyrc
-exec ~/.conky/Conky/startconky.sh
+# exec ~/.conky/Conkystartconky.sh
 
-exec --no-startup-id i3-msg "workspace 1; append_layout ~/.config/i3/workspace-1.json; exec urxvt; exec urxvt; exec urxvt; exec env neofetch=true urxvt"
-
+exec --no-startup-id i3-msg "workspace 1; append_layout ~/.config/i3/workspace-1.json; exec alacritty; exec alacritty; exec alacritty; exec env neofetch=true alacritty; exec env neofetch=true alacritty"
