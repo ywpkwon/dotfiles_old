@@ -9,13 +9,13 @@
        "x": 0,
        "y": 0
     },
-    "name": "urxvt",
+    "name": "Alacritty",
     "percent": 0.333333333333333,
     "swallows": [
        {
-       "class": "^URxvt$",
-       "instance": "^urxvt$",
-       "title": "^urxvt$"
+       "class": "^Alacritty$",
+       "instance": "^Alacritty$",
+       "title": "^Alacritty$"
        }
     ],
     "type": "con"
@@ -31,13 +31,13 @@
        "x": 0,
        "y": 0
     },
-    "name": "urxvt",
+    "name": "Alacritty",
     "percent": 0.333333333333333,
     "swallows": [
        {
-       "class": "^URxvt$",
-       "instance": "^urxvt$",
-       "title": "^urxvt$"
+       "class": "^Alacritty$",
+       "instance": "^Alacritty$",
+       "title": "^Alacritty$"
        }
     ],
     "type": "con"
@@ -61,13 +61,13 @@
                "x": 0,
                "y": 0
             },
-            "name": "urxvt",
+            "name": "Alacritty",
             "percent": 0.5,
             "swallows": [
                {
-               "class": "^URxvt$",
-               "instance": "^urxvt$",
-               "title": "^urxvt$"
+               "class": "^Alacritty$",
+               "instance": "^Alacritty$",
+               "title": "^Alacritty$"
                }
             ],
             "type": "con"
@@ -90,13 +90,13 @@
                        "x": 0,
                        "y": 0
                     },
-                    "name": "urxvt",
+                    "name": "Alacritty",
                     "percent": 0.5,
                     "swallows": [
                        {
-                       "class": "^URxvt$",
-                       "instance": "^urxvt$",
-                       "title": "^urxvt$"
+                       "class": "^Alacritty$",
+                       "instance": "^Alacritty$",
+                       "title": "^Alacritty$"
                        }
                     ],
                     "type": "con"
@@ -111,13 +111,13 @@
                        "x": 0,
                        "y": 0
                     },
-                    "name": "urxvt",
+                    "name": "Alacritty",
                     "percent": 0.5,
                     "swallows": [
                        {
-                       "class": "^URxvt$",
-                       "instance": "^urxvt$",
-                       "title": "^urxvt$"
+                       "class": "^Alacritty$",
+                       "instance": "^Alacritty$",
+                       "title": "^Alacritty$"
                        }
                     ],
                     "type": "con"
