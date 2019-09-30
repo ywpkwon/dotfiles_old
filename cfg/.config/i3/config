@@ -273,6 +273,9 @@ bindsym $mod+Tab workspace back_and_forth
 # You can send notification
 # bindsym $mod+semicolon exec notify-send 'test 123'
 
+# Toggle polybar show/hide
+bindsym $mod+p exec polybar-msg cmd toggle
+
 # USB disk auto mount
 exec_always --no-startup-id udiskie &
 
@@ -331,7 +334,7 @@ bindsym $mod+F12 mode "Passthrough Mode - Press Alt+F12 to exit"
 mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
   bindsym l exec i3-msg exit
   bindsym r exec systemctl reboot
-  bindsym s exec systemctl shutdown
+  bindsym s exec shutdown now
   bindsym Escape mode "default"
   bindsym Return mode "default"
 }
