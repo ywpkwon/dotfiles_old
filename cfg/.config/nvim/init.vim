@@ -36,6 +36,10 @@ filetype indent on
 set fileformat=unix
 set shortmess+=c
 
+set autoindent                    " take indent for new line from previous line
+set smartindent                   " enable smart indentation
+set autoread                      " reload file if the file changes on the disk
+
 set mouse=a  " change cursor per mode
 set number  " always show current line number
 set smartcase  " better case-sensitivity when searching
@@ -85,7 +89,10 @@ set viminfo='20,<1000  " allow copying of more than 50 lines to other applicatio
 set cursorline                    " highlight the current line for the cursor
 
 
-"----------------- 256 colors -----------------
+"----------------------------------------------
+" Colors
+"----------------------------------------------
+" True color
 set termguicolors
 
 " Correct RGB escape codes for vim inside tmux
@@ -93,8 +100,39 @@ set termguicolors
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 "endif
+
+" colorscheme options
+"let g:lucius_style="dark"
+"let g:lucius_contrast="low"
+"colo lucius
+"set background=light
+
+colo gruvbox
+set background=dark
+
+
+" theicfire .vimrc tips
+" With a map leader it's possible to do extra key combinations
+" like <leader>w saves the current file
+let mapleader = " " " Leader is the space key
+let g:mapleader = " "
+let maplocalleader = "`"
+let g:maplocalleader = "`"
+nnoremap <SPACE> <Nop>
+
 "----------------------------------------------
-"
+" Navigation
+"----------------------------------------------
+" Move between buffers with Shift + arrow key...
+nnoremap <leader>bk :bprevious<cr>
+nnoremap <leader>bj :bnext<cr>
+
+" ... but skip the quickfix when navigating
+augroup qf
+    autocmd!
+    autocmd FileType qf set nobuflisted
+augroup END
+
 " easy split movement
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -102,20 +140,30 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " tabs:
-nnoremap tn :tabnew<Space>
-nnoremap tk :tabnext<CR>
-nnoremap tj :tabprev<CR>
-nnoremap th :tabfirst<CR>
-nnoremap tl :tablast<CR>
+nnoremap <leader>tn :tabnew<Space>
+nnoremap <leader>tj :tabnext<CR>
+nnoremap <leader>tk :tabprev<CR>
+"nnoremap th :tabfirst<CR>
+"nnoremap tl :tablast<CR>
 
-" colorscheme options
-"let g:lucius_style="dark"
-"let g:lucius_contrast="low"
-"colo lucius
-"set background=light
-colo gruvbox
-set background=dark
+"----------------------------------------------
+" Splits
+"----------------------------------------------
+" Create horizontal splits below the current window
+set splitbelow
+set splitright
 
+" Creating splits
+nnoremap <leader>v :vsplit<cr>
+nnoremap <leader>h :split<cr>
+
+" Closing splits
+nnoremap <leader>w :w<cr>
+nnoremap <leader>q :lcl<cr>:q<cr>
+
+"----------------------------------------------
+" Misc
+"----------------------------------------------
 " mapping Esc
 imap <F13> <Esc>
 cnoremap <Esc> <C-c>
@@ -125,8 +173,6 @@ nnoremap <C-z> <Esc>  " disable terminal ctrl-z
 " map S to replace current word with pasteboard
 nnoremap S diw"0P
 nnoremap cc "_cc
-nnoremap q: :q<CR>
-nnoremap w: :w<CR>
 
 " map paste, yank and delete to named register so the content
 " will not be overwritten (I know I should just remember...)
@@ -166,19 +212,8 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-" theicfire .vimrc tips
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
-let mapleader = " " " Leader is the space key
-let g:mapleader = " "
-let maplocalleader = "`"
-let g:maplocalleader = "`"
-nnoremap <SPACE> <Nop>
-
 "auto indent for brackets
-nmap <leader>w :w!<cr>
-nmap <leader>q :lcl<cr>:q<cr>
-nnoremap <leader>h :nohlsearch<Bar>:echo<CR>
+nnoremap <leader>c :nohlsearch<Bar>:echo<CR>
 
 " FlyGrep settings
 nnoremap <leader>s :FlyGrep<cr>
