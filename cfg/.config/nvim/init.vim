@@ -22,7 +22,7 @@ Plug 'ncm2/ncm2'  " awesome autocomplete plugin
 Plug 'HansPinckaers/ncm2-jedi'  " fast python completion (use ncm2 if you want type info or snippet support)
 Plug 'ncm2/ncm2-bufword'  " buffer keyword completion
 Plug 'ncm2/ncm2-path'  " filepath completion
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+Plug 'numirias/semshi'
 Plug 'lilydjwg/colorizer'
 
 call plug#end()
@@ -295,9 +295,9 @@ function MyCustomHighlights()
     hi semshiImported        ctermfg=214 guifg=#ffaf00 cterm=bold gui=bold
     hi semshiParameter       ctermfg=75  guifg=#5fafff
     hi semshiParameterUnused ctermfg=117 guifg=#87d7ff cterm=underline gui=underline
-    hi semshiFree            ctermfg=218 guifg=#ffafd7
+    hi semshiFree            ctermfg=97  guifg=#875faf
     hi semshiBuiltin         ctermfg=217 guifg=#ffafaf
-    hi semshiAttribute       ctermfg=49  guifg=#00ffaf
+    hi semshiAttribute       ctermfg=49  guifg=#00ff87
     hi semshiSelf            ctermfg=249 guifg=#b2b2b2
     hi semshiUnresolved      ctermfg=226 guifg=#ffff00 cterm=underline gui=underline
     hi semshiSelected        ctermfg=231 guifg=#ffffff ctermbg=60 guibg=#5f5f87
@@ -308,3 +308,5 @@ endfunction
 
 autocmd FileType python call MyCustomHighlights()
 autocmd ColorScheme * call MyCustomHighlights()
+
+let g:semshi#excluded_hl_groups = ['local']
