@@ -110,6 +110,13 @@ set termguicolors
 colo gruvbox
 set background=dark
 
+" highlight python and self function
+"autocmd BufEnter * syntax match Type /\v\.[a-zA-Z0-9_]+\ze(\[|\s|$|,|\]|\)|\.|:)/hs=s+1
+"autocmd BufEnter * syntax match pythonFunction /\v[[:alnum:]_]+\ze(\s?\()/
+"hi def link pythonFunction Function
+"autocmd BufEnter * syn match Self "\(\W\|^\)\@<=self\(\.\)\@="
+"highlight self ctermfg=243
+
 
 " theicfire .vimrc tips
 " With a map leader it's possible to do extra key combinations
@@ -186,6 +193,7 @@ endfunction
 call airline#add_statusline_func('WindowNumber')
 call airline#add_inactive_statusline_func('WindowNumber')
 
+let g:airline_theme='cobalt2'
 let g:airline_powerline_fonts = 1
 let g:airline_section_y = ""
 let g:airline#extensions#tabline#enabled = 1
@@ -287,13 +295,6 @@ nnoremap <silent> <expr> k ScreenMovement("k")
 nnoremap <silent> <expr> 0 ScreenMovement("0")
 nnoremap <silent> <expr> ^ ScreenMovement("^")
 nnoremap <silent> <expr> $ ScreenMovement("$")
-
-" highlight python and self function
-autocmd BufEnter * syntax match Type /\v\.[a-zA-Z0-9_]+\ze(\[|\s|$|,|\]|\)|\.|:)/hs=s+1
-autocmd BufEnter * syntax match pythonFunction /\v[[:alnum:]_]+\ze(\s?\()/
-hi def link pythonFunction Function
-autocmd BufEnter * syn match Self "\(\W\|^\)\@<=self\(\.\)\@="
-highlight self ctermfg=243
 
 " jedi options
 let g:jedi#auto_initialization = 1
