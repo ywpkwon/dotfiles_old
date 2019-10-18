@@ -146,6 +146,16 @@ nnoremap <leader>tk :tabprev<CR>
 "nnoremap th :tabfirst<CR>
 "nnoremap tl :tablast<CR>
 
+noremap <leader>1 1<c-w><c-w>
+noremap <leader>2 2<c-w><c-w>
+noremap <leader>3 3<c-w><c-w>
+noremap <leader>4 4<c-w><c-w>
+noremap <leader>5 5<c-w><c-w>
+noremap <leader>6 6<c-w><c-w>
+noremap <leader>7 7<c-w><c-w>
+noremap <leader>8 8<c-w><c-w>
+noremap <leader>9 9<c-w><c-w>
+
 "----------------------------------------------
 " Splits
 "----------------------------------------------
@@ -160,6 +170,34 @@ nnoremap <leader>h :split<cr>
 " Closing splits
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :lcl<cr>:q<cr>
+
+
+"----------------------------------------------
+" Airline
+"----------------------------------------------
+" Add window number
+function! WindowNumber(...)
+    let builder = a:1
+    let context = a:2
+    call builder.add_section('airline_a', '  %{tabpagewinnr(tabpagenr())} ')
+    return 0
+endfunction
+
+call airline#add_statusline_func('WindowNumber')
+call airline#add_inactive_statusline_func('WindowNumber')
+
+let g:airline_powerline_fonts = 1
+let g:airline_section_y = ""
+let g:airline#extensions#tabline#enabled = 1
+
+" Airline settings
+" do not show error/warning section
+let g:airline_section_error = ""
+let g:airline_section_warning = ""
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
 
 "----------------------------------------------
 " Misc
@@ -198,19 +236,6 @@ set pumheight=5
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <silent> <expr> <CR> (pumvisible() && empty(v:completed_item)) ?  "\<c-y>\<cr>" : "\<CR>"
-
-let g:airline_powerline_fonts = 1
-let g:airline_section_y = ""
-let g:airline#extensions#tabline#enabled = 1
-
-" Airline settings
-" do not show error/warning section
-let g:airline_section_error = ""
-let g:airline_section_warning = ""
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
 
 "auto indent for brackets
 nnoremap <leader>c :nohlsearch<Bar>:echo<CR>
