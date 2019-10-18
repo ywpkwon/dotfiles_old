@@ -6,7 +6,7 @@
 
 # Aliases
 	alias py="python"
-	alias v="vim -p"
+	alias v="nvim -p"
 	alias g="git status --porcelain"
 
 	# alias gst="git status"

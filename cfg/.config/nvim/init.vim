@@ -8,11 +8,12 @@ Plug 'vim-airline/vim-airline'  " make statusline awesome
 Plug 'vim-airline/vim-airline-themes'  " themes for statusline
 Plug 'jonathanfilip/vim-lucius'  " nice white colortheme
 Plug 'morhetz/gruvbox'           " colortheme
+Plug 'joshdick/onedark.vim'          " colortheme
 Plug 'davidhalter/jedi-vim'   " jedi for python
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  "to highlight files in nerdtree
 Plug 'Vimjas/vim-python-pep8-indent'  "better indenting for python
 Plug 'kien/ctrlp.vim'  " fuzzy search files
-Plug 'tweekmonster/impsort.vim'  " color and sort imports
+"Plug 'twieekmonster/impsort.vim'  " color and sort imports
 Plug 'wsdjeg/FlyGrep.vim'  " awesome grep on the fly
 Plug 'w0rp/ale'  " python linters
 Plug 'airblade/vim-gitgutter'  " show git changes to files in gutter
@@ -22,7 +23,7 @@ Plug 'ncm2/ncm2'  " awesome autocomplete plugin
 Plug 'HansPinckaers/ncm2-jedi'  " fast python completion (use ncm2 if you want type info or snippet support)
 Plug 'ncm2/ncm2-bufword'  " buffer keyword completion
 Plug 'ncm2/ncm2-path'  " filepath completion
-Plug 'numirias/semshi'
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'lilydjwg/colorizer'
 
 call plug#end()
@@ -87,35 +88,6 @@ set relativenumber
 set viminfo='20,<1000  " allow copying of more than 50 lines to other applications
 
 set cursorline                    " highlight the current line for the cursor
-
-
-"----------------------------------------------
-" Colors
-"----------------------------------------------
-" True color
-set termguicolors
-
-" Correct RGB escape codes for vim inside tmux
-"if !has('nvim') && $TERM ==# 'screen-256color'
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-"endif
-
-" colorscheme options
-"let g:lucius_style="dark"
-"let g:lucius_contrast="low"
-"colo lucius
-"set background=light
-
-colo gruvbox
-set background=dark
-
-" highlight python and self function
-"autocmd BufEnter * syntax match Type /\v\.[a-zA-Z0-9_]+\ze(\[|\s|$|,|\]|\)|\.|:)/hs=s+1
-"autocmd BufEnter * syntax match pythonFunction /\v[[:alnum:]_]+\ze(\s?\()/
-"hi def link pythonFunction Function
-"autocmd BufEnter * syn match Self "\(\W\|^\)\@<=self\(\.\)\@="
-"highlight self ctermfg=243
 
 
 " theicfire .vimrc tips
@@ -266,7 +238,7 @@ let g:ale_open_list = 1
 let g:ale_keep_list_window_open = '1'
 
 " Options are in .pylintrc!
-highlight VertSplit ctermbg=253
+"highlight VertSplit ctermbg=253
 
 let g:ale_sign_error = '‼'
 let g:ale_sign_warning = '∙'
@@ -310,9 +282,10 @@ let g:jedi#show_call_signatures_modes = 'i'  " ni = also in normal mode
 let g:jedi#enable_speed_debugging=0
 
 " Impsort option
-hi pythonImportedObject ctermfg=75
-hi pythonImportedFuncDef ctermfg=81
-hi pythonImportedClassDef ctermfg=87
+"hi pythonImportedObject ctermfg=142 guifg=#afaf00
+"hi pythonImportedFuncDef ctermfg=81
+"hi pythonImportedClassDef ctermfg=87
+"let g:impsort_highlight_imported=0
 
 " Remove all trailing whitespace by pressing C-S
 nnoremap <C-S> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
@@ -349,18 +322,47 @@ let g:gitgutter_map_keys = 0
 let g:ctrlp_custom_ignore = '\v\.(npy|jpg|pyc|so|dll)$'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
+"----------------------------------------------
+" Colors
+"----------------------------------------------
+" True color
+
+" Correct RGB escape codes for vim inside tmux
+"if !has('nvim') && $TERM ==# 'screen-256color'
+"let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
+"endif
+
+" colorscheme options
+"let g:lucius_style="dark"
+"let g:lucius_contrast="low"
+"colorscheme lucius
+"set background=light
+
+let g:gruvbox_contrast_dark = 'soft'
+colorscheme gruvbox
+set background=dark
+
+" highlight python and self function
+"autocmd BufEnter * syntax match Type /\v\.[a-zA-Z0-9_]+\ze(\[|\s|$|,|\]|\)|\.|:)/hs=s+1
+"autocmd BufEnter * syntax match pythonFunction /\v[[:alnum:]_]+\ze(\s?\()/
+"hi def link pythonFunction Function
+"autocmd BufEnter * syn match Self "\(\W\|^\)\@<=self\(\.\)\@="
+"highlight self ctermfg=243
+
 " semshi options
 function MyCustomHighlights()
     hi semshiLocal           ctermfg=209 guifg=#ff875f
     hi semshiGlobal          ctermfg=214 guifg=#ffaf00
-    hi semshiImported        ctermfg=214 guifg=#ffaf00 cterm=bold gui=bold
+    hi semshiImported        ctermfg=172 guifg=#d78700 cterm=bold gui=bold
     hi semshiParameter       ctermfg=75  guifg=#5fafff
     hi semshiParameterUnused ctermfg=117 guifg=#87d7ff cterm=underline gui=underline
     hi semshiFree            ctermfg=97  guifg=#875faf
     hi semshiBuiltin         ctermfg=217 guifg=#ffafaf
     hi semshiAttribute       ctermfg=49  guifg=#00ff87
     hi semshiSelf            ctermfg=249 guifg=#b2b2b2
-    hi semshiUnresolved      ctermfg=226 guifg=#ffff00 cterm=underline gui=underline
+    hi semshiUnresolved      ctermfg=148 guifg=#afd700 cterm=underline gui=underline
     hi semshiSelected        ctermfg=231 guifg=#ffffff ctermbg=60 guibg=#5f5f87
 
     hi semshiErrorSign       ctermfg=231 guifg=#ffffff ctermbg=160 guibg=#d70000
@@ -368,6 +370,7 @@ function MyCustomHighlights()
 endfunction
 
 autocmd FileType python call MyCustomHighlights()
-autocmd ColorScheme * call MyCustomHighlights()
+"autocmd ColorScheme * call MyCustomHighlights()
 
-let g:semshi#excluded_hl_groups = ['local']
+let g:semshi#excluded_hl_groups = ['local', 'attribute', 'builtin']
+let g:semshi#no_default_builtin_highlight = v:false
