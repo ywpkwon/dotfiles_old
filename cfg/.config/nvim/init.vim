@@ -25,6 +25,7 @@ Plug 'ncm2/ncm2-bufword'  " buffer keyword completion
 Plug 'ncm2/ncm2-path'  " filepath completion
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'lilydjwg/colorizer'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
