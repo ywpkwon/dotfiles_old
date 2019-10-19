@@ -73,7 +73,8 @@ source ~/dotfiles/zsh/plugins/fixls.zsh
 autoload -U compinit
 
 plugins=(
-	docker
+	docker 
+    docker-compose
 )
 
 for plugin ($plugins); do
@@ -134,3 +135,8 @@ mkdir -p "${XDG_DATA_HOME:-$HOME/.local/share}/dbus-1/services"
 ln -sTf \
     "/usr/share/dbus-1/services/${SERVICE:-org.Freedesktop.Notifications}.service" \
     "${XDG_DATA_HOME:-$HOME/.local/share}/dbus-1/services/org.freedesktop.Notifications.service"
+
+# for docker complete plugin. It activates only with the following.
+# https://github.com/docker/cli/issues/26
+autoload -Uz compinit
+compinit
