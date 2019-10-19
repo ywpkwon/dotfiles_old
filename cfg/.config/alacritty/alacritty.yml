@@ -267,9 +267,9 @@ colors:
     foreground: '0xc5e3ca'
 
   # Cursor colors
-  cursor:
-    text: '0xFFC620'
-    cursor: '0x0d0d0d' #'0xFF261E'
+  # cursor:
+  # text: '0xFFC620'
+  # cursor: '0x0d0d0d' #'0xFF261E'
 
   # Normal colors
   normal:
