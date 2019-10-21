@@ -42,9 +42,10 @@ set autoindent                    " take indent for new line from previous line
 set smartindent                   " enable smart indentation
 set autoread                      " reload file if the file changes on the disk
 
-set mouse=a  " change cursor per mode
-set number  " always show current line number
-set smartcase  " better case-sensitivity when searching
+set mouse=a         " change cursor per mode
+set number          " always show current line number
+set smartcase       " case sensitive when a query has capital
+set ignorecase      " this should be set for 'smartcase' to work
 set wrapscan  " begin search from top of file when nothing is found anymore
 
 set expandtab
@@ -136,6 +137,7 @@ noremap <leader>7 7<c-w><c-w>
 noremap <leader>8 8<c-w><c-w>
 noremap <leader>9 9<c-w><c-w>
 
+noremap <Tab> <C-w>w
 "----------------------------------------------
 " Splits
 "----------------------------------------------
