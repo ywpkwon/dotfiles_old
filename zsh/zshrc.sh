@@ -35,8 +35,14 @@
 	# Below is currently causing problems (fails when you run it anywhere that isn't a git project's root directory)
 	# alias vs="v `git status --porcelain | sed -ne 's/^ M //p'`"
 
+    if type nvim > /dev/null 2>&1; then
+        alias vim='nvim'
+        export VISUAL=nvim; export VISUAL EDITOR=nvim; export EDITOR
+    else
+	    export VISUAL=vim
+    fi
+
 # Settings
-	export VISUAL=vim
 
 source ~/dotfiles/zsh/plugins/fixls.zsh
 

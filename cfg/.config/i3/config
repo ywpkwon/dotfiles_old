@@ -393,5 +393,4 @@ exec_always --no-startup-id killall -9 compton; compton -b --config ~/.config/co
 # System Monitor: conky
 # exec_always conky -c ~/.config/conky/.conkyrc
 # exec ~/.conky/Conkystartconky.sh
-
-exec --no-startup-id i3-msg "workspace 1; append_layout ~/.config/i3/workspace-1.json; exec env neofetch=true alacritty; exec env neofetch=true alacritty; exec env neofetch=true alacritty; exec env neofetch=true alacritty; exec env neofetch=true alacritty"
+# exec --no-startup-id i3-msg "workspace 1; append_layout ~/.config/i3/workspace-1.json; exec env neofetch=true alacritty; exec env neofetch=true alacritty; exec env neofetch=true alacritty; exec env neofetch=true alacritty; exec env neofetch=true alacritty"
