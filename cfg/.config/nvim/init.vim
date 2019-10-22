@@ -26,6 +26,7 @@ Plug 'ncm2/ncm2-path'  " filepath completion
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'lilydjwg/colorizer'
 Plug 'tpope/vim-fugitive'
+Plug 'liuchengxu/vim-which-key'
 
 call plug#end()
 
@@ -377,3 +378,7 @@ autocmd FileType python call MyCustomHighlights()
 
 let g:semshi#excluded_hl_groups = ['local', 'attribute', 'builtin']
 let g:semshi#no_default_builtin_highlight = v:false
+
+
+" which-vim-key setting
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
