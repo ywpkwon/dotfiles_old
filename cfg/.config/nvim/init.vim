@@ -27,6 +27,7 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'lilydjwg/colorizer'
 Plug 'tpope/vim-fugitive'
 Plug 'liuchengxu/vim-which-key'
+Plug 'ianding1/leetcode.vim'
 
 call plug#end()
 
@@ -98,8 +99,8 @@ set cursorline                    " highlight the current line for the cursor
 " like <leader>w saves the current file
 let mapleader = " " " Leader is the space key
 let g:mapleader = " "
-let maplocalleader = "`"
-let g:maplocalleader = "`"
+let maplocalleader = "'"
+let g:maplocalleader = "'"
 nnoremap <SPACE> <Nop>
 
 "----------------------------------------------
@@ -379,6 +380,27 @@ autocmd FileType python call MyCustomHighlights()
 let g:semshi#excluded_hl_groups = ['local', 'attribute', 'builtin']
 let g:semshi#no_default_builtin_highlight = v:false
 
-
+" ---------------------------------------------------
 " which-vim-key setting
+" ---------------------------------------------------
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+" Define prefix dictionary
+let g:which_key_map =  {}
+
+" Create menus based on existing mappings
+nnoremap <silent> <leader>oq  :copen<CR>
+nnoremap <silent> <leader>ol  :lopen<CR>
+let g:which_key_map.o = {
+      \ 'name' : '+open',
+      \ 'q' : 'open-quickfix'    ,
+      \ 'l' : 'open-locationlist',
+      \ }
+
+" leetcode
+let g:leetcode_solution_filetype = 'python3'
+let g:leetcode_username = 'kwonbin@gmail.com'
+nnoremap <leader>ll :LeetCodeList<cr>
+nnoremap <leader>lt :LeetCodeTest<cr>
+nnoremap <leader>ls :LeetCodeSubmit<cr>
+nnoremap <leader>li :LeetCodeSignIn<cr>
+
