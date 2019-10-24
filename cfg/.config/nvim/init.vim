@@ -103,6 +103,15 @@ let maplocalleader = "'"
 let g:maplocalleader = "'"
 nnoremap <SPACE> <Nop>
 
+" ---------------------------------------------------
+" which-vim-key setting
+" ---------------------------------------------------
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+" Define prefix dictionary
+let g:which_key_map =  {}
+autocmd VimEnter * call which_key#register('<Space>', "g:which_key_map")
+
+
 "----------------------------------------------
 " Navigation
 "----------------------------------------------
@@ -147,14 +156,28 @@ noremap <Tab> <C-w>w
 set splitbelow
 set splitright
 
-" Creating splits
-nnoremap <leader>v :vsplit<cr>
-nnoremap <leader>h :split<cr>
-
 " Closing splits
-nnoremap <leader>w :w<cr>
 nnoremap <leader>q :lcl<cr>:q<cr>
-
+let g:which_key_map.w = {
+      \ 'name' : '+windows' ,
+      \ 'd' : ['<C-W>c'     , 'delete-window']         ,
+      \ '-' : ['<C-W>s'     , 'split-window-below']    ,
+      \ '|' : ['<C-W>v'     , 'split-window-right']    ,
+      \ '2' : ['<C-W>v'     , 'layout-double-columns'] ,
+      \ 'h' : ['<C-W>h'     , 'window-left']           ,
+      \ 'j' : ['<C-W>j'     , 'window-below']          ,
+      \ 'l' : ['<C-W>l'     , 'window-right']          ,
+      \ 'k' : ['<C-W>k'     , 'window-up']             ,
+      \ 'H' : ['<C-W>5<'    , 'expand-window-left']    ,
+      \ 'J' : ['resize +5'  , 'expand-window-below']   ,
+      \ 'L' : ['<C-W>5>'    , 'expand-window-right']   ,
+      \ 'K' : ['resize -5'  , 'expand-window-up']      ,
+      \ '=' : ['<C-W>='     , 'balance-window']        ,
+      \ '?' : ['Windows'    , 'fzf-window']            ,
+      \ 'w' : [':w'         , 'save-file']          ,
+      \ 'q' : ['<C-W>q'     , 'close-file']            ,
+      \ 'Q' : [':q!'        , 'close-file!']            ,
+      \ }
 
 "----------------------------------------------
 " Airline
@@ -380,12 +403,6 @@ autocmd FileType python call MyCustomHighlights()
 let g:semshi#excluded_hl_groups = ['local', 'attribute', 'builtin']
 let g:semshi#no_default_builtin_highlight = v:false
 
-" ---------------------------------------------------
-" which-vim-key setting
-" ---------------------------------------------------
-nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
-" Define prefix dictionary
-let g:which_key_map =  {}
 
 " Create menus based on existing mappings
 nnoremap <silent> <leader>oq  :copen<CR>
@@ -396,9 +413,16 @@ let g:which_key_map.o = {
       \ 'l' : 'open-locationlist',
       \ }
 
+let g:which_key_map.g = {
+      \ 'name' : '+git',
+      \ 's' : [':Gstatus', 'git status']  ,
+      \ 'd' : [':Gdiffsplit', 'git diff'] ,
+      \ }
+
 " leetcode
 let g:leetcode_solution_filetype = 'python3'
 let g:leetcode_username = 'kwonbin@gmail.com'
+let g:which_key_map.l = { 'name' : '+leetcode' }
 nnoremap <leader>ll :LeetCodeList<cr>
 nnoremap <leader>lt :LeetCodeTest<cr>
 nnoremap <leader>ls :LeetCodeSubmit<cr>
