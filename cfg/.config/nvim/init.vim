@@ -251,12 +251,6 @@ nnoremap <leader>c :nohlsearch<Bar>:echo<CR>
 " FlyGrep settings
 nnoremap <leader>s :FlyGrep<cr>
 
-" easy breakpoint python
-au FileType python map <silent> <leader>b ofrom pudb import set_trace; set_trace()<esc>
-au FileType python map <silent> <leader>B Ofrom pudb import set_trace; set_trace()<esc>
-au FileType python map <silent> <leader>j ofrom pdb import set_trace; set_trace()<esc>
-au FileType python map <silent> <leader>J Ofrom pdb import set_trace; set_trace()<esc>
-
 " ale options
 let g:ale_python_flake8_options = '--ignore=E129,E501,E302,E265,E241,E305,E402,W503'
 let g:ale_python_pylint_options = '-j 0 --max-line-length=120'
@@ -302,12 +296,26 @@ let g:jedi#completions_enabled = 0
 let g:jedi#auto_vim_configuration = 0
 let g:jedi#smart_auto_mappings = 0
 let g:jedi#popup_on_dot = 0
-let g:jedi#completions_command = ""
 let g:jedi#show_call_signatures = "1"
 let g:jedi#show_call_signatures_delay = 0
-let g:jedi#use_tabs_not_buffers = 0
 let g:jedi#show_call_signatures_modes = 'i'  " ni = also in normal mode
 let g:jedi#enable_speed_debugging=0
+let g:jedi#use_tabs_not_buffers = 0  " use buffers instead of tabs
+let g:jedi#goto_command = "<leader>jg"
+let g:jedi#goto_assignments_command = "<leader>ja"
+let g:jedi#goto_definitions_command = "<leader>jd"
+let g:jedi#goto_stubs_command = "<leader>js"
+let g:jedi#documentation_command = "<leader>jh"
+let g:jedi#usages_command = "<leader>ju"
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#rename_command = "<leader>jr"
+
+
+" easy breakpoint python
+au FileType python map <silent> <leader>jb ofrom pudb import set_trace; set_trace()<esc>
+au FileType python map <silent> <leader>jB Ofrom pudb import set_trace; set_trace()<esc>
+au FileType python map <silent> <leader>jp ofrom pdb import set_trace; set_trace()<esc>
+au FileType python map <silent> <leader>jP Ofrom pdb import set_trace; set_trace()<esc>
 
 " Impsort option
 "hi pythonImportedObject ctermfg=142 guifg=#afaf00
