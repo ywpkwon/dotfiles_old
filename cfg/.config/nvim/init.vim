@@ -28,6 +28,7 @@ Plug 'lilydjwg/colorizer'
 Plug 'tpope/vim-fugitive'
 Plug 'liuchengxu/vim-which-key'
 Plug 'ianding1/leetcode.vim'
+Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
