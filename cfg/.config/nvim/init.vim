@@ -228,9 +228,17 @@ vnoremap x "_x
 
 set clipboard=unnamedplus
 
-" toggle nerdtree on ctrl+n
-map <C-n> :NERDTreeToggle<CR>
-map <C-t> :set nosplitright<CR>:TagbarToggle<CR>:set splitright<CR>
+" toggle nerdtree
+let g:which_key_map.f = { 'name' : '+files' }
+nnoremap <leader>fn :NERDTreeToggle<CR>
+nnoremap <leader>ft :set nosplitright<CR>:TagbarToggle<CR>:set splitright<CR>
+let g:which_key_map.f.n = 'toggle NERDTree'
+let g:which_key_map.f.t = 'toggle Tagbar'
+
+" let g:which_key_map.f = {
+"       \ 'n' : 'toggle NERDTree',
+"       \ 't' : 'toggle Tagbar',
+"       \ }
 
 " ncm2 settings
 autocmd BufEnter * call ncm2#enable_for_buffer()
