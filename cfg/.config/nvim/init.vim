@@ -93,6 +93,7 @@ set relativenumber
 set viminfo='20,<1000  " allow copying of more than 50 lines to other applications
 
 set cursorline                    " highlight the current line for the cursor
+set listchars=tab:>-,trail:~,space:·,extends:>,precedes:<
 
 
 " theicfire .vimrc tips
@@ -228,6 +229,19 @@ vnoremap x "_x
 
 set clipboard=unnamedplus
 
+
+" Removes trailing spaces
+function TrimWhiteSpace()
+  %s/\s*$//
+  ''
+endfunction
+
+autocmd FileWritePre * call TrimWhiteSpace()
+autocmd FileAppendPre * call TrimWhiteSpace()
+autocmd FilterWritePre * call TrimWhiteSpace()
+autocmd BufWritePre * call TrimWhiteSpace()
+
+
 " toggle nerdtree
 let g:which_key_map.f = { 'name' : '+files' }
 nnoremap <leader>fn :NERDTreeToggle<CR>
@@ -337,7 +351,7 @@ nnoremap <C-S> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 
 " move between defs python:
-" NOTE: this break shortcuts with []
+" NOTE: this break shortcuts with LL
 nnoremap [[ [m
 nnoremap ]] ]m
 
@@ -366,6 +380,41 @@ let g:gitgutter_map_keys = 0
 " ctrl p options
 let g:ctrlp_custom_ignore = '\v\.(npy|jpg|pyc|so|dll)$'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+
+"----------------------------------------------
+" Toggling
+"----------------------------------------------
+let s:activatedh = 0 
+function! ToggleOverlengh()
+    if s:activatedh == 0
+        highlight OverLength ctermbg=red ctermfg=white guibg=#792929
+        match OverLength /\%81v.\+/
+        let s:activatedh = 1
+    else
+        match none
+        let s:activatedh = 0
+    endif
+endfunction
+autocmd VimEnter * call ToggleOverlengh()    " let's turn on in the beginning
+
+let s:activated_ws = 0 
+function! ToggleWhiteSpace()
+    if s:activated_ws == 0
+        let s:activated_ws = 1 
+        set list
+    else
+        let s:activated_ws = 0 
+        set nolist
+    endif
+endfunction
+
+let g:which_key_map.o = {
+      \ 'name' : '+toggle',
+      \ 'w' : [':call ToggleWhiteSpace()', 'toggle whitespace'],
+      \ 'o' : [':call ToggleOverlengh()', 'toggle overlength'] ,
+      \ }
+ 
 
 "----------------------------------------------
 " Colors
@@ -396,6 +445,9 @@ set background=dark
 "autocmd BufEnter * syn match Self "\(\W\|^\)\@<=self\(\.\)\@="
 "highlight self ctermfg=243
 
+
+
+
 " semshi options
 function MyCustomHighlights()
     hi semshiLocal           ctermfg=209 guifg=#ff875f
@@ -422,13 +474,13 @@ let g:semshi#no_default_builtin_highlight = v:false
 
 
 " Create menus based on existing mappings
-nnoremap <silent> <leader>oq  :copen<CR>
-nnoremap <silent> <leader>ol  :lopen<CR>
-let g:which_key_map.o = {
-      \ 'name' : '+open',
-      \ 'q' : 'open-quickfix'    ,
-      \ 'l' : 'open-locationlist',
-      \ }
+" nnoremap <silent> <leader>oq  :copen<CR>
+" nnoremap <silent> <leader>ol  :lopen<CR>
+" let g:which_key_map.o = {
+"       \ 'name' : '+open',
+"       \ 'q' : 'open-quickfix'    ,
+"       \ 'l' : 'open-locationlist',
+"       \ }
 
 let g:which_key_map.g = {
       \ 'name' : '+git',
