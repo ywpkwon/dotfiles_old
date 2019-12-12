@@ -44,6 +44,7 @@ set shortmess+=c
 set autoindent                    " take indent for new line from previous line
 set smartindent                   " enable smart indentation
 set autoread                      " reload file if the file changes on the disk
+au CursorHold * checktime
 
 set mouse=a         " change cursor per mode
 set number          " always show current line number
@@ -104,6 +105,9 @@ let g:mapleader = " "
 let maplocalleader = "'"
 let g:maplocalleader = "'"
 nnoremap <SPACE> <Nop>
+
+" paste multiple times
+xnoremap p pgvy
 
 " ---------------------------------------------------
 " which-vim-key setting
@@ -385,7 +389,7 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 "----------------------------------------------
 " Toggling
 "----------------------------------------------
-let s:activatedh = 0 
+let s:activatedh = 0
 function! ToggleOverlengh()
     if s:activatedh == 0
         highlight OverLength ctermbg=red ctermfg=white guibg=#792929
@@ -398,13 +402,13 @@ function! ToggleOverlengh()
 endfunction
 autocmd VimEnter * call ToggleOverlengh()    " let's turn on in the beginning
 
-let s:activated_ws = 0 
+let s:activated_ws = 0
 function! ToggleWhiteSpace()
     if s:activated_ws == 0
-        let s:activated_ws = 1 
+        let s:activated_ws = 1
         set list
     else
-        let s:activated_ws = 0 
+        let s:activated_ws = 0
         set nolist
     endif
 endfunction
@@ -414,7 +418,7 @@ let g:which_key_map.o = {
       \ 'w' : [':call ToggleWhiteSpace()', 'toggle whitespace'],
       \ 'o' : [':call ToggleOverlengh()', 'toggle overlength'] ,
       \ }
- 
+
 
 "----------------------------------------------
 " Colors
