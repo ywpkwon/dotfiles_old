@@ -79,7 +79,7 @@ source ~/dotfiles/zsh/plugins/fixls.zsh
 autoload -U compinit
 
 plugins=(
-	docker 
+	docker
     docker-compose
 )
 
@@ -126,7 +126,12 @@ export PATH=$PATH:$CUDA_HOME/bin
 
 # virtualenv and virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+FILE_VIRTUALENV_WR=/usr/local/bin/virtualenvwrapper.sh
+if test -f "FILE_VIRTUALENV_WR"; then
+    source /usr/local/bin/virtualenvwrapper.sh
+else
+    source $HOME/.local/bin/virtualenvwrapper.sh
+fi
 
 #export LD_PRELOAD="/usr/lib/libtcmalloc_minimal.so.4"
 
