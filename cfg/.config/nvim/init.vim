@@ -495,6 +495,7 @@ let g:which_key_map.g = {
 " leetcode
 let g:leetcode_solution_filetype = 'python3'
 let g:leetcode_username = 'kwonbin@gmail.com'
+let g:leetcode_browser = 'chrome'
 let g:which_key_map.l = { 'name' : '+leetcode' }
 nnoremap <leader>ll :LeetCodeList<cr>
 nnoremap <leader>lt :LeetCodeTest<cr>
