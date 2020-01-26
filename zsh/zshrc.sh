@@ -127,7 +127,7 @@ export PATH=$PATH:$CUDA_HOME/bin
 # virtualenv and virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 FILE_VIRTUALENV_WR=/usr/local/bin/virtualenvwrapper.sh
-if test -f "FILE_VIRTUALENV_WR"; then
+if test -f "$FILE_VIRTUALENV_WR"; then
     source /usr/local/bin/virtualenvwrapper.sh
 else
     source $HOME/.local/bin/virtualenvwrapper.sh
