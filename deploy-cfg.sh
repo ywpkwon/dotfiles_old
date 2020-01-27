@@ -1,5 +1,8 @@
 #!/bin/sh
-
+if [ ! -d "$HOME/.config" ]; then
+    echo "mkdir ~/.config"
+    mkdir $HOME/.config
+fi
 ln -sf ~/dotfiles/cfg/.config/i3 ~/.config
 ln -sf ~/dotfiles/cfg/.config/conky ~/.config
 ln -sf ~/dotfiles/cfg/.config/rofi ~/.config
