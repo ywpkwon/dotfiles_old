@@ -40,13 +40,13 @@
 	zle -N edit_and_run
 	bindkey "^v" edit_and_run
 
-# LS
-	function ctrl_j() {
-		BUFFER="ls"
-		zle accept-line
-	}
-	zle -N ctrl_j
-	bindkey "^j" ctrl_j
+## LS
+#	function ctrl_j() {
+#		BUFFER="ls"
+#		zle accept-line
+#	}
+#	zle -N ctrl_j
+#	bindkey "^j" ctrl_j
 
 # Enter
 	function enter_line() {
