@@ -1,38 +1,3 @@
-source ~/dotfiles/zsh/antigen.zsh
-antigen use oh-my-zsh
-
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle heroku
-antigen bundle pip
-antigen bundle lein
-antigen bundle command-not-found
-antigen bundle docker
-
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-
-# Load the theme.
-# antigen theme robbyrussell
-BULLETTRAIN_PROMPT_ORDER=(
-  time
-  context
-  dir
-  git
-  virtualenv
-)
-BULLETTRAIN_TIME_BG=black
-BULLETTRAIN_TIME_FG=yellow
-BULLETTRAIN_DIR_FG=black
-BULLETTRAIN_VIRTUALENV_BG=yellow
-BULLETTRAIN_VIRTUALENV_FG=black
-antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
-
-# Tell Antigen that you're done.
-antigen apply
-
 # Vars
 	HISTFILE=~/.zsh_history
 	SAVEHIST=1000
@@ -79,7 +44,7 @@ antigen apply
 
 # Settings
 
-# source ~/dotfiles/zsh/plugins/fixls.zsh
+source ~/dotfiles/zsh/plugins/fixls.zsh
 
 #Functions
 	# Loop a command and show the output in vim
@@ -113,28 +78,28 @@ antigen apply
 
 autoload -U compinit
 
-# plugins=(
-# 	docker
-#     docker-compose
-# )
-#
-# for plugin ($plugins); do
-#     fpath=(~/dotfiles/zsh/plugins/oh-my-zsh/plugins/$plugin $fpath)
-# done
-#
-# compinit
-#
-# export ZSH=~/dotfiles/zsh/plugins/oh-my-zsh
-# ZSH_THEME="agnoster"
-# source ~/dotfiles/zsh/plugins/oh-my-zsh/oh-my-zsh.sh
-#
-# source ~/dotfiles/zsh/plugins/oh-my-zsh/lib/history.zsh
-# source ~/dotfiles/zsh/plugins/oh-my-zsh/lib/key-bindings.zsh
-# source ~/dotfiles/zsh/plugins/oh-my-zsh/lib/completion.zsh
-# #source ~/dotfiles/zsh/plugins/vi-mode.plugin.zsh
-# source ~/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source ~/dotfiles/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source ~/dotfiles/zsh/keybindings.sh
+plugins=(
+	docker
+    docker-compose
+)
+
+for plugin ($plugins); do
+    fpath=(~/dotfiles/zsh/plugins/oh-my-zsh/plugins/$plugin $fpath)
+done
+
+compinit
+
+export ZSH=~/dotfiles/zsh/plugins/oh-my-zsh
+ZSH_THEME="agnoster"
+source ~/dotfiles/zsh/plugins/oh-my-zsh/oh-my-zsh.sh
+
+source ~/dotfiles/zsh/plugins/oh-my-zsh/lib/history.zsh
+source ~/dotfiles/zsh/plugins/oh-my-zsh/lib/key-bindings.zsh
+source ~/dotfiles/zsh/plugins/oh-my-zsh/lib/completion.zsh
+#source ~/dotfiles/zsh/plugins/vi-mode.plugin.zsh
+source ~/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/dotfiles/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/dotfiles/zsh/keybindings.sh
 source ~/dotfiles/zsh/grc.zsh
 
 # Fix for arrow-key searching
