@@ -8,6 +8,7 @@ antigen bundle pip
 antigen bundle lein
 antigen bundle command-not-found
 antigen bundle docker
+antigen bundle fasd
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-completions
@@ -135,6 +136,7 @@ autoload -U compinit
 # source ~/dotfiles/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source ~/dotfiles/zsh/keybindings.sh
 source ~/dotfiles/zsh/grc.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Fix for arrow-key searching
 # start typing + [Up-Arrow] - fuzzy find history forward
