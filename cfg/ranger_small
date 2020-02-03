@@ -1,0 +1,6 @@
+#!/bin/bash
+ranger \
+  --cmd="enter_bookmark '" \
+  --cmd="set column_ratios 2,1" \
+  --cmd="set preview_files false" $@
+

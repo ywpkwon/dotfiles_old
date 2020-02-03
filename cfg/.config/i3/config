@@ -398,7 +398,7 @@ exec_always --no-startup-id killall -9 compton; compton -b --config ~/.config/co
 ###############################
 ###########  IDE  #############
 ###############################
-bindsym $mod+g exec alacritty --class ranger_ide -e ~/bin/ranger_small
+bindsym $mod+g exec alacritty --class ranger_ide -e ~/dotfiles/cfg/ranger_small
 
 for_window [instance="ranger_ide"] \
     move container left, resize set 20 ppt
