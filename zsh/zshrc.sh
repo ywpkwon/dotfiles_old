@@ -78,8 +78,7 @@ antigen apply
     fi
 
 # Settings
-
-# source ~/dotfiles/zsh/plugins/fixls.zsh
+source ~/dotfiles/zsh/plugins/fixls.zsh
 
 #Functions
 	# Loop a command and show the output in vim
