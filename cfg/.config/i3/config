@@ -394,3 +394,21 @@ exec_always --no-startup-id killall -9 compton; compton -b --config ~/.config/co
 # exec_always conky -c ~/.config/conky/.conkyrc
 # exec ~/.conky/Conkystartconky.sh
 # exec --no-startup-id i3-msg "workspace 1; append_layout ~/.config/i3/workspace-1.json; exec env neofetch=true alacritty; exec env neofetch=true alacritty; exec env neofetch=true alacritty; exec env neofetch=true alacritty; exec env neofetch=true alacritty"
+
+###############################
+###########  IDE  #############
+###############################
+bindsym $mod+g exec alacritty --class ranger_ide -e ~/dotfiles/cfg/ranger_small
+
+for_window [instance="ranger_ide"] \
+    move container left, resize set 20 ppt
+# for_window [instance="ranger_ide"] \
+#   mark r, focus, \
+#   gaps inner current set 0,\
+#   gaps vertical current set 15,\
+#   gaps horizontal current set 5,\
+#   [con_mark="r"] move container to mark z, \
+#   move container to mark v, \
+#   move container left, \
+#   move container left, \
+#   resize set 20 ppt 80 ppt
