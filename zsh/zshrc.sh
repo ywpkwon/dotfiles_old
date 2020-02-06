@@ -1,7 +1,7 @@
 source ~/dotfiles/zsh/antigen.zsh
 antigen use oh-my-zsh
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
+## Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle git
 antigen bundle heroku
 antigen bundle pip
@@ -10,13 +10,15 @@ antigen bundle command-not-found
 antigen bundle docker
 antigen bundle fasd
 
-# Syntax highlighting bundle.
+## Syntax highlighting bundle.
+## * syntax highlighting should be before history-substring-search
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-history-substring-search
 
-# Load the theme.
-# antigen theme robbyrussell
+## Load the theme.
+## antigen theme robbyrussell
 BULLETTRAIN_PROMPT_ORDER=(
   time
   context
@@ -30,6 +32,7 @@ BULLETTRAIN_DIR_FG=black
 BULLETTRAIN_VIRTUALENV_BG=yellow
 BULLETTRAIN_VIRTUALENV_FG=black
 antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
+
 
 # Tell Antigen that you're done.
 antigen apply
@@ -80,6 +83,7 @@ antigen apply
 
 # Settings
 source ~/dotfiles/zsh/plugins/fixls.zsh
+source ~/dotfiles/zsh/grc.zsh
 
 #Functions
 	# Loop a command and show the output in vim
@@ -135,22 +139,25 @@ autoload -U compinit
 # source ~/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source ~/dotfiles/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source ~/dotfiles/zsh/keybindings.sh
-source ~/dotfiles/zsh/grc.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Fix for arrow-key searching
-# start typing + [Up-Arrow] - fuzzy find history forward
-if [[ "${terminfo[kcuu1]}" != "" ]]; then
-	autoload -U up-line-or-beginning-search
-	zle -N up-line-or-beginning-search
-	bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
-fi
-# start typing + [Down-Arrow] - fuzzy find history backward
-if [[ "${terminfo[kcud1]}" != "" ]]; then
-	autoload -U down-line-or-beginning-search
-	zle -N down-line-or-beginning-search
-	bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
-fi
+# I think substring finder is better than begining below.
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+
+## Fix for arrow-key searching
+## start typing + [Up-Arrow] - fuzzy find history forward
+#if [[ "${terminfo[kcuu1]}" != "" ]]; then
+#	autoload -U up-line-or-beginning-search
+#	zle -N up-line-or-beginning-search
+#	bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
+#fi
+## start typing + [Down-Arrow] - fuzzy find history backward
+#if [[ "${terminfo[kcud1]}" != "" ]]; then
+#	autoload -U down-line-or-beginning-search
+#	zle -N down-line-or-beginning-search
+#	bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
+#fi
 
 #source ~/dotfiles/zsh/prompt.sh
 export PATH=$PATH:$HOME/dotfiles/utils
@@ -188,10 +195,17 @@ ln -sTf \
 autoload -Uz compinit
 compinit
 
-# HSTR configuration - add this to ~/.zshrc
+
+## HSTR configuration - add this to ~/.zshrc
 if type hstr > /dev/null 2>&1; then
     alias hh=hstr                    # hh to be alias for hstr
     setopt histignorespace           # skip cmds w/ leading space from history
     export HSTR_CONFIG=hicolor       # get more colors
     bindkey -s "\C-r" "\C-a hstr -- \C-j"  # bind hstr to Ctrl-r (for Vi mode check doc)
 fi
+
+
+## history-substring-search configuration
+export HISTORY_SUBSTRING_SEARCH_FUZZY=1
+
+
