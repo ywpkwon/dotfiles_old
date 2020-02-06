@@ -19,20 +19,22 @@ antigen bundle zsh-users/zsh-history-substring-search
 
 ## Load the theme.
 ## antigen theme robbyrussell
-BULLETTRAIN_PROMPT_ORDER=(
-  time
-  context
-  dir
-  git
-  virtualenv
-)
-BULLETTRAIN_TIME_BG=black
-BULLETTRAIN_TIME_FG=yellow
-BULLETTRAIN_DIR_FG=black
-BULLETTRAIN_VIRTUALENV_BG=yellow
-BULLETTRAIN_VIRTUALENV_FG=black
-antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
 
+#BULLETTRAIN_PROMPT_ORDER=(
+#  time
+#  context
+#  dir
+#  git
+#  virtualenv
+#)
+#BULLETTRAIN_TIME_BG=black
+#BULLETTRAIN_TIME_FG=yellow
+#BULLETTRAIN_DIR_FG=black
+#BULLETTRAIN_VIRTUALENV_BG=yellow
+#BULLETTRAIN_VIRTUALENV_FG=black
+#antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
+
+antigen theme denysdovhan/spaceship-prompt
 
 # Tell Antigen that you're done.
 antigen apply
