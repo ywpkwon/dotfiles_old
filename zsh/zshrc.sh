@@ -199,13 +199,13 @@ compinit
 
 
 ## HSTR configuration - add this to ~/.zshrc
+## (02/04/2020, I think "fzf" is better than "hstr". So disable \C-r.
 if type hstr > /dev/null 2>&1; then
     alias hh=hstr                    # hh to be alias for hstr
     setopt histignorespace           # skip cmds w/ leading space from history
     export HSTR_CONFIG=hicolor       # get more colors
-    bindkey -s "\C-r" "\C-a hstr -- \C-j"  # bind hstr to Ctrl-r (for Vi mode check doc)
+    #`bindkey -s "\C-r" "\C-a hstr -- \C-j"  # bind hstr to Ctrl-r (for Vi mode check doc)
 fi
-
 
 ## history-substring-search configuration
 export HISTORY_SUBSTRING_SEARCH_FUZZY=1
