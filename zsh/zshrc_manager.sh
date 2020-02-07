@@ -29,7 +29,7 @@ fi
 
 if [[ $neofetch == true ]]; then
     echo ''
-    neofetch
+    neofetch --block_range 0 15
 fi
 
 source ~/dotfiles/zsh/zshrc.sh
