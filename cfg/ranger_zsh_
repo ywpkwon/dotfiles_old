@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ "$2" = "tab" ]; then
+  tmux run -t ranger:1.0 "tmux new-window -c $1"
+elif [ "$2" = "vs" ]; then
+  tmux run -t ranger:1.0 "tmux split-window -h -c $1"
+elif [ "$2" = "sp" ]; then
+  tmux run -t ranger:1.0 "tmux split-window -c $1"
+fi
