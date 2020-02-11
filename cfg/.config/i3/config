@@ -333,7 +333,7 @@ smart_borders on
 ############################################################
 # Disable Mod key
 mode  "Passthrough Mode - Press Alt+F12 to exit" {
-        bindsym $mod+F12 mode "default"
+  bindsym $mod+F12 mode "default"
 }
 bindsym $mod+F12 mode "Passthrough Mode - Press Alt+F12 to exit"
 
@@ -347,11 +347,28 @@ mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
 }
 bindsym $mod+Shift+x mode "exit: [l]ogout, [r]eboot, [s]hutdown"
 
-# screen lock
+## screen lock
 bindsym $mod+x exec ~/.config/i3/helper/i3lock
-# screen lock image making
+## screen lock image making
 bindsym $mod+Ctrl+Shift+x exec ~/.config/i3/helper/i3lockscreen_maker
 
+## Quiet mode
+bindsym $mod+Shift+u mode "$quiet_mode"
+
+# set command displays the keybindings on i3 bar for usability
+set $quiet_mode (q)uiet, (Q)uit, hide (p)olybar, (Esc)ape
+
+mode "$quiet_mode" {
+  bindsym q exec $HOME/.config/i3/helper/quiet-cmd.py
+  bindsym Shift+q exec $HOME/.config/i3/helper/quiet-cmd.py toggle
+  #polybar control
+  ## exec_always $HOME/.config/i3/quiet-toggle-bar.py
+  # i3-bar toggle key
+  ##bindsym h bar mode toggle
+  bindsym p exec polybar-msg cmd toggle
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+}
 
 ########################################################
 ###################  App Assign   ######################
