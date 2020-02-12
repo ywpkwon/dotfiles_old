@@ -12,7 +12,7 @@ Plug 'joshdick/onedark.vim'          " colortheme
 Plug 'davidhalter/jedi-vim'   " jedi for python
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  "to highlight files in nerdtree
 Plug 'Vimjas/vim-python-pep8-indent'  "better indenting for python
-Plug 'kien/ctrlp.vim'  " fuzzy search files
+Plug 'ctrlpvim/ctrlp.vim'  " fuzzy search files
 "Plug 'twieekmonster/impsort.vim'  " color and sort imports
 Plug 'wsdjeg/FlyGrep.vim'  " awesome grep on the fly
 Plug 'w0rp/ale'  " python linters
