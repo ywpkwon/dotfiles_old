@@ -31,7 +31,7 @@ Plug 'ianding1/leetcode.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'mhinz/vim-startify'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 " path to your python
