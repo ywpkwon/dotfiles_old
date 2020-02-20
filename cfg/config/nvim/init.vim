@@ -2,39 +2,69 @@ syntax on
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree'  " file list
-Plug 'majutsushi/tagbar'  " show tags in a bar (functions etc) for easy browsing
-Plug 'vim-airline/vim-airline'  " make statusline awesome
-Plug 'vim-airline/vim-airline-themes'  " themes for statusline
-Plug 'jonathanfilip/vim-lucius'  " nice white colortheme
-Plug 'morhetz/gruvbox'           " colortheme
-Plug 'joshdick/onedark.vim'          " colortheme
-Plug 'davidhalter/jedi-vim'   " jedi for python
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  "to highlight files in nerdtree
-Plug 'Vimjas/vim-python-pep8-indent'  "better indenting for python
-Plug 'ctrlpvim/ctrlp.vim'  " fuzzy search files
-"Plug 'twieekmonster/impsort.vim'  " color and sort imports
-Plug 'wsdjeg/FlyGrep.vim'  " awesome grep on the fly
-Plug 'w0rp/ale'  " python linters
-Plug 'airblade/vim-gitgutter'  " show git changes to files in gutter
-Plug 'tpope/vim-commentary'  "comment-out by gc
-Plug 'roxma/nvim-yarp'  " dependency of ncm2
-Plug 'ncm2/ncm2'  " awesome autocomplete plugin
-Plug 'HansPinckaers/ncm2-jedi'  " fast python completion (use ncm2 if you want type info or snippet support)
-Plug 'ncm2/ncm2-bufword'  " buffer keyword completion
-Plug 'ncm2/ncm2-path'  " filepath completion
+" ================= looks and GUI stuff ================== "
+"
+Plug 'vim-airline/vim-airline'                      " make statusline awesome
+Plug 'vim-airline/vim-airline-themes'               " themes for statusline
+Plug 'ryanoasis/vim-devicons'
+Plug 'joshdick/onedark.vim'                         " colortheme
+Plug 'morhetz/gruvbox'                              " colortheme
+Plug 'jonathanfilip/vim-lucius'                     " nice white colortheme
+
+" ================= Functionalities ================= "
+
+" auto completion, Language servers stuff
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'w0rp/ale'                                     " python linters
+Plug 'davidhalter/jedi-vim'                         " jedi for python
+Plug 'Vimjas/vim-python-pep8-indent'                " better indenting for python
+Plug 'tpope/vim-commentary'                         " comment-out by gc
+" Plug 'ncm2/ncm2'                                    " awesome autocomplete plugin
+" Plug 'roxma/nvim-yarp'                              " dependency of ncm2
+" Plug 'ncm2/ncm2-bufword'                            " buffer keyword completion
+" Plug 'ncm2/ncm2-path'                               " filepath completion
+" Plug 'HansPinckaers/ncm2-jedi'                      " fast python completion (use ncm2 if you want type info or snippet support)
+"" {{ ncm2 settings
+"    autocmd BufEnter * call ncm2#enable_for_buffer()
+"    set completeopt=menuone,noselect,noinsert
+"    " make it FAST
+"    let ncm2#popup_delay = 5
+"    let ncm2#complete_length = [[1,1]]
+"    let g:ncm2#matcher = 'substrfuzzy'
+"" }}
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-Plug 'lilydjwg/colorizer'
-Plug 'tpope/vim-fugitive'
-Plug 'liuchengxu/vim-which-key'
-Plug 'ianding1/leetcode.vim'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'mhinz/vim-startify'
+Plug 'majutsushi/tagbar'                            " show tags in a bar (functions etc) for easy browsing
+"Plug 'twieekmonster/impsort.vim'                   " color and sort imports
+
+" fuzzy stuff
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'ryanoasis/vim-devicons'
 Plug 'yuki-ycino/fzf-preview.vim'
-Plug 'christoomey/vim-tmux-navigator'
+" {{
+    " Command to be executed after file list creation
+    " let g:fzf_preview_filelist_postprocess_command = ''
+    " let g:fzf_preview_filelist_po stprocess_command = 'xargs -d "\n" ls —color'          " Use dircolors
+    let g:fzf_preview_filelist_postprocess_command = 'xargs -d "\n" exa --color=always' " Use exa
+" }}
+Plug 'wsdjeg/FlyGrep.vim'                           " awesome grep on the fly
+Plug 'ctrlpvim/ctrlp.vim'                           " fuzzy search files
+
+" nerd tree
+Plug 'scrooloose/nerdtree'                          " file list
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'      " to highlight files in nerdtree
+
+" git
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'                       " show git changes to files in gutter
+
+" other
+Plug 'liuchengxu/vim-which-key'
+Plug 'mhinz/vim-startify'                           " cool start up screen
+Plug 'christoomey/vim-tmux-navigator'               " seamless vim and tmux navigation
+Plug 'ianding1/leetcode.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'lilydjwg/colorizer'
+
 call plug#end()
 
 " path to your python
@@ -263,13 +293,16 @@ let g:which_key_map.f.t = 'toggle Tagbar'
 "       \ 't' : 'toggle Tagbar',
 "       \ }
 
-" ncm2 settings
-autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt=menuone,noselect,noinsert
-" make it FAST
-let ncm2#popup_delay = 5
-let ncm2#complete_length = [[1,1]]
-let g:ncm2#matcher = 'substrfuzzy'
+
+" FzfPreview
+nnoremap <leader>fp :FzfPreviewProjectFiles<CR>
+nnoremap <leader>fg :FzfPreviewGitFiles<CR>
+nnoremap <leader>fs :FzfPreviewGitStatus<CR>
+nnoremap <leader>fb :FzfPreviewBuffers<CR>
+nnoremap <leader>fj :FzfPreviewJumps<CR>
+nnoremap <leader>fl :FzfPreviewLines<CR>
+nnoremap <leader>fd :FzfPreviewLocationList<CR>
+
 
 set pumheight=5
 
@@ -506,4 +539,6 @@ nnoremap <leader>ll :LeetCodeList<cr>
 nnoremap <leader>lt :LeetCodeTest<cr>
 nnoremap <leader>ls :LeetCodeSubmit<cr>
 nnoremap <leader>li :LeetCodeSignIn<cr>
+
+
 
