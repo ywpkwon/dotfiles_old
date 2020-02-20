@@ -4,3 +4,4 @@ lockscreen_*.png
 *.zwc
 *.pyo
 *.py~
+*.pyc

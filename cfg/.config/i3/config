@@ -13,8 +13,10 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec WINIT_HIDPI_FACTOR=1.7 neofetch=true alacritty
-bindsym $mod+Shift+Return exec WINIT_HIDPI_FACTOR=1.7 alacritty
+# bindsym $mod+Return       exec WINIT_HIDPI_FACTOR=1.7 NO_TMUX=true neofetch=true alacritty
+# bindsym $mod+Shift+Return exec WINIT_HIDPI_FACTOR=1.7 DOTFILE_SYNC=true neofetch=true alacritty
+bindsym $mod+Return       exec NO_TMUX=true neofetch=true kitty
+bindsym $mod+Shift+Return exec DOTFILE_SYNC=true neofetch=true kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -172,6 +174,8 @@ mode "resize" {
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
+        bindsym c move position center
+
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -180,62 +184,21 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 ###############################################################
-###################  Bar Appearance  ##########################
-###############################################################
-#bar {
-#        font pango:Font Awesome 5 Free 10
-#        # tray_output primary
-#        # separator_symbol "|"
-#        # tray_padding 4
-#        position top
-#
-#        colors {
-#            background #d1d1d1
-#            statusline #2f343f
-#            separator #d1d1d1
-#            focused_background #ffffff
-#
-#            # colour of             border   background  text
-#            focused_workspace       #2f343f  #bf616a     #d8dee8
-#            active_workspace        #2f343f  #2f343f     #d8dee8
-#            inactive_workspace      #2f343f  #2f343f     #d8dee8
-#            urgent_workspace        #2f343f  #ebcb8b     #2f343f
-#            binding_mode            #2f343a  #900000     #d8dee8
-#        }
-#        status_command i3status -c $HOME/.config/i3/i3status2.conf
-#
-##        status_command i3status -c $HOME/.config/i3/i3status.conf
-##        colors {
-##            #color class           border      back.           text
-##            focused_workspace      $color1     $background     $color1
-##            active_workspace       #555555     #555555         #ffffff
-##            inactive_workspace     $color2     #000000         $color2
-##            urgent_workspace       $color1     $background2    background
-##            statusline $color2
-##            separator $color2
-##        }
-#
-##        status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
-##        colors {
-##        background #2F2F2F
-##        statusline #eeeeee
-##        separator #666666
-##        #                     border  backgr. text
-##        focused_workspace     #a9a9a9 #222222 #a9a9a9
-##        active_workspace      #a9a9a9 #222222 #a9a9a9
-##        inactive_workspace    #a9a9a9 #5f676a #a9a9a9
-##        urgent_workspace      #eb709b #eb709b #ffffff
-##        }
-#}
-exec_always --no-startup-id ~/.config/polybar/launch.sh
-
-
-###############################################################
 ###################  Window Appearance  #######################
 ###############################################################
 
-# DarkGrey background with white text - not focus grey background - black text
-# Windows decoration colors
+# Defining colors
+set $bg       #282A3644
+set $lg       #44475a
+set $fg       #f8f8f2
+set $cyan     #8be9fd
+set $green    #50fa7b
+set $magenta  #ff79c6
+set $comment  #6272a4
+set $purple   #bd93f9
+
+# # DarkGrey background with white text - not focus grey background - black text
+# # Windows decoration colors
 # class                 border  backgr. text    indicator
 # client.placeholder      #242424 #242424 #242424
 # client.background       #242424 #242424 #242424
@@ -244,14 +207,95 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 # client.focused_inactive #222222 #222222 #a9a9a9 #222222
 # client.urgent           #4A4A4A #4A4A4A #f7f7f7 #4A4A4A
 
-# Orange background with black text - not focus grey background - white text
-# Windows decoration colors
-# class                   border  backgr. text    indicator
-client.background color         #222222
-client.focused          #FFAF00 #FFAF00 #333333 #00AA00
-client.unfocused        #222222 #222222 #aaaaaa #2e9ef4
-client.focused_inactive #333333 #5f676a #ffffff #484e50
-client.urgent           #2f343a #900000 #ffffff #900000
+# # Orange background with black text - not focus grey background - white text
+# # Windows decoration colors
+# # class                   border  backgr. text    indicator
+# client.background color         #222222
+# client.focused          #FFAF00 #FFAF00 #333333 #00AA00
+# client.unfocused        #222222 #222222 #aaaaaa #2e9ef4
+# client.focused_inactive #333333 #5f676a #ffffff #484e50
+# client.urgent           #2f343a #900000 #ffffff #900000
+
+# Set some nice colors      border	 background text     indicator
+client.focused              $comment $comment   $fg      $comment
+client.unfocused            $bg      $bg        $cyan    $cyan
+client.focused_inactive     $bg      $bg        $green   $green
+client.urgent               $bg      $bg        $magenta $magenta
+client.placeholder          $bg      $bg        $cyan    $cyan
+
+###############################################################
+###################  Bar Appearance  ##########################
+###############################################################
+bar {
+        #font pango:Font Awesome 5 Free 10
+        # tray_output primary
+        # separator_symbol "|"
+        # tray_padding 4
+        position top
+
+        ## i3status design
+        # status_command i3status -c $HOME/.config/i3/i3status2.conf
+        # colors {
+        #     background #d1d1d1
+        #     statusline #2f343f
+        #     separator #d1d1d1
+        #     focused_background #ffffff
+
+        #     # colour of             border   background  text
+        #     focused_workspace       #2f343f  #bf616a     #d8dee8
+        #     active_workspace        #2f343f  #2f343f     #d8dee8
+        #     inactive_workspace      #2f343f  #2f343f     #d8dee8
+        #     urgent_workspace        #2f343f  #ebcb8b     #2f343f
+        #     binding_mode            #2f343a  #900000     #d8dee8
+        # }
+
+        ## i3status design
+        # status_command i3status -c $HOME/.config/i3/i3status.conf
+        # colors {
+        #     #color class           border      back.           text
+        #     focused_workspace      $color1     $background     $color1
+        #     active_workspace       #555555     #555555         #ffffff
+        #     inactive_workspace     $color2     #000000         $color2
+        #     urgent_workspace       $color1     $background2    background
+        #     statusline $color2
+        #     separator $color2
+        # }
+
+        ## i3block design
+        # status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
+        # colors {
+        #     background #2F2F2F
+        #     statusline #eeeeee
+        #     separator #666666
+        #     #                     border  backgr. text
+        #     focused_workspace     #a9a9a9 #222222 #a9a9a9
+        #     active_workspace      #a9a9a9 #222222 #a9a9a9
+        #     inactive_workspace    #a9a9a9 #5f676a #a9a9a9
+        #     urgent_workspace      #eb709b #eb709b #ffffff
+        # }
+
+	    status_command i3blocks -c $HOME/.config/i3/i3blocks_neat.conf
+        i3bar_command i3bar -t
+        #font pango: SpaceMono Nerd Font Regular 11
+        #font pango: Fira Code Regular 12
+        font pango: Iosevka Nerd Font Regular 12
+
+	    colors
+	    {
+            #                   Border Background Text
+		    focused_workspace   $fg    $fg        $bg
+		    active_workspace    $bg    $bg        $purple
+		    inactive_workspace  $bg    $bg        $cyan
+		    urgent_workspace    $bg    $bg        $magenta
+		    background          $bg
+        }
+}
+
+## Instead of i3bar or i3blocks, polybar is an option
+#exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+
+
 
 
 # Pulse Audio controls
@@ -291,11 +335,14 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # Show the terminal scratchpad window, if any.
-exec --no-startup-id env neofetch=true alacritty --class "scratch-term"
+#exec --no-startup-id env DOTFILE_SYNC=false neofetch=true alacritty --class "scratch-term"
+exec --no-startup-id env DOTFILE_SYNC=false neofetch=true kitty --class "startup-zsh"
 
 # dedicated-scratchpad
-bindsym $mod+Shift+t exec env neofetch=true alacritty --class "scratch-term"
-for_window [instance="scratch-term"] floating enable, move to scratchpad,  scratchpad show
+bindsym $mod+Shift+t exec env neofetch=true kitty --class "scratch-term"
+for_window [instance="scratch-term"] floating enable, move to scratchpad, \
+                                     scratchpad show, resize set 1400 px 1000 px, \
+                                     move position center
 bindsym $mod+t [instance="scratch-term"] scratchpad show
 
 # dedicated-scratchpad
@@ -309,8 +356,8 @@ for_window [title="TeamViewer"] floating enable
 ###################  I 3  G A P S     #############################
 ###################################################################
 # i3-gaps
-gaps inner 4
-gaps outer 2
+gaps inner 10
+gaps outer 0
 for_window [class=".*"] border pixel 2
 # hide_edge_borders both
 smart_gaps on
@@ -326,7 +373,7 @@ smart_borders on
 ############################################################
 # Disable Mod key
 mode  "Passthrough Mode - Press Alt+F12 to exit" {
-        bindsym $mod+F12 mode "default"
+  bindsym $mod+F12 mode "default"
 }
 bindsym $mod+F12 mode "Passthrough Mode - Press Alt+F12 to exit"
 
@@ -340,11 +387,28 @@ mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
 }
 bindsym $mod+Shift+x mode "exit: [l]ogout, [r]eboot, [s]hutdown"
 
-# screen lock
+## screen lock
 bindsym $mod+x exec ~/.config/i3/helper/i3lock
-# screen lock image making
+## screen lock image making
 bindsym $mod+Ctrl+Shift+x exec ~/.config/i3/helper/i3lockscreen_maker
 
+## Quiet mode
+bindsym $mod+Shift+u mode "$quiet_mode"
+
+# set command displays the keybindings on i3 bar for usability
+set $quiet_mode (q)uiet, (Q)uit, hide (p)olybar, (Esc)ape
+
+mode "$quiet_mode" {
+  bindsym q exec $HOME/.config/i3/helper/quiet-cmd.py
+  bindsym Shift+q exec $HOME/.config/i3/helper/quiet-cmd.py toggle
+  #polybar control
+  ## exec_always $HOME/.config/i3/quiet-toggle-bar.py
+  # i3-bar toggle key
+  ##bindsym h bar mode toggle
+  bindsym p exec polybar-msg cmd toggle
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+}
 
 ########################################################
 ###################  App Assign   ######################
@@ -385,7 +449,7 @@ bindsym $mod+bracketright exec ~/.config/i3/helper/record-screen.sh gif
 ####################################################
 
 # Background
-exec_always --no-startup-id feh --bg-fill ~/.wallpapers/wooden.jpg
+exec_always --no-startup-id feh --bg-fill ~/.wallpapers/sea-coast-sunset-horizon-waves-nt.jpg
 
 # Compton
 exec_always --no-startup-id killall -9 compton; compton -b --config ~/.config/compton.conf
@@ -398,7 +462,7 @@ exec_always --no-startup-id killall -9 compton; compton -b --config ~/.config/co
 ###############################
 ###########  IDE  #############
 ###############################
-bindsym $mod+g exec alacritty --class ranger_ide -e ~/dotfiles/cfg/ranger_small
+bindsym $mod+g exec kitty --class ranger_ide -e ~/dotfiles/cfg/ranger_small
 
 for_window [instance="ranger_ide"] \
     move container left, resize set 20 ppt
@@ -412,3 +476,6 @@ for_window [instance="ranger_ide"] \
 #   move container left, \
 #   move container left, \
 #   resize set 20 ppt 80 ppt
+
+for_window [instance="vim_server"] \
+  mark v
