@@ -184,62 +184,21 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 ###############################################################
-###################  Bar Appearance  ##########################
-###############################################################
-#bar {
-#        font pango:Font Awesome 5 Free 10
-#        # tray_output primary
-#        # separator_symbol "|"
-#        # tray_padding 4
-#        position top
-#
-#        colors {
-#            background #d1d1d1
-#            statusline #2f343f
-#            separator #d1d1d1
-#            focused_background #ffffff
-#
-#            # colour of             border   background  text
-#            focused_workspace       #2f343f  #bf616a     #d8dee8
-#            active_workspace        #2f343f  #2f343f     #d8dee8
-#            inactive_workspace      #2f343f  #2f343f     #d8dee8
-#            urgent_workspace        #2f343f  #ebcb8b     #2f343f
-#            binding_mode            #2f343a  #900000     #d8dee8
-#        }
-#        status_command i3status -c $HOME/.config/i3/i3status2.conf
-#
-##        status_command i3status -c $HOME/.config/i3/i3status.conf
-##        colors {
-##            #color class           border      back.           text
-##            focused_workspace      $color1     $background     $color1
-##            active_workspace       #555555     #555555         #ffffff
-##            inactive_workspace     $color2     #000000         $color2
-##            urgent_workspace       $color1     $background2    background
-##            statusline $color2
-##            separator $color2
-##        }
-#
-##        status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
-##        colors {
-##        background #2F2F2F
-##        statusline #eeeeee
-##        separator #666666
-##        #                     border  backgr. text
-##        focused_workspace     #a9a9a9 #222222 #a9a9a9
-##        active_workspace      #a9a9a9 #222222 #a9a9a9
-##        inactive_workspace    #a9a9a9 #5f676a #a9a9a9
-##        urgent_workspace      #eb709b #eb709b #ffffff
-##        }
-#}
-exec_always --no-startup-id ~/.config/polybar/launch.sh
-
-
-###############################################################
 ###################  Window Appearance  #######################
 ###############################################################
 
-# DarkGrey background with white text - not focus grey background - black text
-# Windows decoration colors
+# Defining colors
+set $bg       #282A3644
+set $lg       #44475a
+set $fg       #f8f8f2
+set $cyan     #8be9fd
+set $green    #50fa7b
+set $magenta  #ff79c6
+set $comment  #6272a4
+set $purple   #bd93f9
+
+# # DarkGrey background with white text - not focus grey background - black text
+# # Windows decoration colors
 # class                 border  backgr. text    indicator
 # client.placeholder      #242424 #242424 #242424
 # client.background       #242424 #242424 #242424
@@ -248,14 +207,95 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 # client.focused_inactive #222222 #222222 #a9a9a9 #222222
 # client.urgent           #4A4A4A #4A4A4A #f7f7f7 #4A4A4A
 
-# Orange background with black text - not focus grey background - white text
-# Windows decoration colors
-# class                   border  backgr. text    indicator
-client.background color         #222222
-client.focused          #FFAF00 #FFAF00 #333333 #00AA00
-client.unfocused        #222222 #222222 #aaaaaa #2e9ef4
-client.focused_inactive #333333 #5f676a #ffffff #484e50
-client.urgent           #2f343a #900000 #ffffff #900000
+# # Orange background with black text - not focus grey background - white text
+# # Windows decoration colors
+# # class                   border  backgr. text    indicator
+# client.background color         #222222
+# client.focused          #FFAF00 #FFAF00 #333333 #00AA00
+# client.unfocused        #222222 #222222 #aaaaaa #2e9ef4
+# client.focused_inactive #333333 #5f676a #ffffff #484e50
+# client.urgent           #2f343a #900000 #ffffff #900000
+
+# Set some nice colors      border	 background text     indicator
+client.focused              $comment $comment   $fg      $comment
+client.unfocused            $bg      $bg        $cyan    $cyan
+client.focused_inactive     $bg      $bg        $green   $green
+client.urgent               $bg      $bg        $magenta $magenta
+client.placeholder          $bg      $bg        $cyan    $cyan
+
+###############################################################
+###################  Bar Appearance  ##########################
+###############################################################
+bar {
+        #font pango:Font Awesome 5 Free 10
+        # tray_output primary
+        # separator_symbol "|"
+        # tray_padding 4
+        position top
+
+        ## i3status design
+        # status_command i3status -c $HOME/.config/i3/i3status2.conf
+        # colors {
+        #     background #d1d1d1
+        #     statusline #2f343f
+        #     separator #d1d1d1
+        #     focused_background #ffffff
+
+        #     # colour of             border   background  text
+        #     focused_workspace       #2f343f  #bf616a     #d8dee8
+        #     active_workspace        #2f343f  #2f343f     #d8dee8
+        #     inactive_workspace      #2f343f  #2f343f     #d8dee8
+        #     urgent_workspace        #2f343f  #ebcb8b     #2f343f
+        #     binding_mode            #2f343a  #900000     #d8dee8
+        # }
+
+        ## i3status design
+        # status_command i3status -c $HOME/.config/i3/i3status.conf
+        # colors {
+        #     #color class           border      back.           text
+        #     focused_workspace      $color1     $background     $color1
+        #     active_workspace       #555555     #555555         #ffffff
+        #     inactive_workspace     $color2     #000000         $color2
+        #     urgent_workspace       $color1     $background2    background
+        #     statusline $color2
+        #     separator $color2
+        # }
+
+        ## i3block design
+        # status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
+        # colors {
+        #     background #2F2F2F
+        #     statusline #eeeeee
+        #     separator #666666
+        #     #                     border  backgr. text
+        #     focused_workspace     #a9a9a9 #222222 #a9a9a9
+        #     active_workspace      #a9a9a9 #222222 #a9a9a9
+        #     inactive_workspace    #a9a9a9 #5f676a #a9a9a9
+        #     urgent_workspace      #eb709b #eb709b #ffffff
+        # }
+
+	    status_command i3blocks -c $HOME/.config/i3/i3blocks_neat.conf
+        i3bar_command i3bar -t
+        #font pango: SpaceMono Nerd Font Regular 11
+        #font pango: Fira Code Regular 12
+        font pango: Iosevka Nerd Font Regular 12
+
+	    colors
+	    {
+            #                   Border Background Text
+		    focused_workspace   $fg    $fg        $bg
+		    active_workspace    $bg    $bg        $purple
+		    inactive_workspace  $bg    $bg        $cyan
+		    urgent_workspace    $bg    $bg        $magenta
+		    background          $bg
+        }
+}
+
+## Instead of i3bar or i3blocks, polybar is an option
+#exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+
+
 
 
 # Pulse Audio controls
