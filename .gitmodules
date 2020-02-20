@@ -13,3 +13,6 @@
 [submodule "cfg/.config/kitty/kitty-themes"]
 	path = cfg/config/kitty/kitty-themes
 	url = git@github.com:dexpota/kitty-themes.git
+[submodule "cfg/config/i3blocks/blocks"]
+	path = cfg/config/i3blocks/blocks
+	url = git@github.com:vivien/i3blocks-contrib.git

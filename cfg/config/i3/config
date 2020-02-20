@@ -274,7 +274,7 @@ bar {
         #     urgent_workspace      #eb709b #eb709b #ffffff
         # }
 
-	    status_command i3blocks -c $HOME/.config/i3/i3blocks_neat.conf
+	    status_command i3blocks -c $HOME/.config/i3blocks/i3blocks_neat.conf
         i3bar_command i3bar -t
         #font pango: SpaceMono Nerd Font Regular 11
         #font pango: Fira Code Regular 12
