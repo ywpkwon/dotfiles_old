@@ -32,6 +32,8 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'mhinz/vim-startify'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'yuki-ycino/fzf-preview.vim'
 Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
