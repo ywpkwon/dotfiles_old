@@ -29,7 +29,7 @@ fi
 
 if [[ $neofetch == true ]]; then
     echo ''
-    neofetch --block_range 0 15
+    neofetch --ascii ~/.config/neofetch/ascii_neofetch.txt --ascii_colors 1 2 3 4 5 6 7 --block_range 0 15
 fi
 
 source ~/dotfiles/zsh/zshrc.sh
