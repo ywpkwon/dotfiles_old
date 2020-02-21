@@ -16,6 +16,10 @@ Plug 'jonathanfilip/vim-lucius'                     " nice white colortheme
 " auto completion, Language servers stuff
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'w0rp/ale'                                     " python linters
+" {{
+    nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+    nmap <silent> <C-j> <Plug>(ale_next_wrap)
+" }}
 Plug 'davidhalter/jedi-vim'                         " jedi for python
 Plug 'Vimjas/vim-python-pep8-indent'                " better indenting for python
 Plug 'tpope/vim-commentary'                         " comment-out by gc
