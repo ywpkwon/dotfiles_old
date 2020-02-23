@@ -68,6 +68,16 @@ Plug 'christoomey/vim-tmux-navigator'               " seamless vim and tmux navi
 Plug 'ianding1/leetcode.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'lilydjwg/colorizer'
+Plug 'junegunn/goyo.vim'                            " focus mode
+" {{
+    let g:goyo_width = 120
+    let g:goyo_linenr = 1
+" }}
+"Plug 'axelf4/vim-strip-trailing-whitespace'        " remove trailing whitespace (lines only you touched)
+Plug 'tweekmonster/wstrip.vim'                      " remove trailing whitespace (lines only you touched + realtime highlight)
+" {{
+    let g:wstrip_auto = 1       " Globally enabled for all filetypes
+" }}
 
 call plug#end()
 
@@ -271,19 +281,6 @@ nnoremap x "_x
 vnoremap x "_x
 
 set clipboard=unnamedplus
-
-
-" Removes trailing spaces
-function TrimWhiteSpace()
-  %s/\s*$//
-  ''
-endfunction
-
-autocmd FileWritePre * call TrimWhiteSpace()
-autocmd FileAppendPre * call TrimWhiteSpace()
-autocmd FilterWritePre * call TrimWhiteSpace()
-autocmd BufWritePre * call TrimWhiteSpace()
-
 
 " toggle nerdtree
 let g:which_key_map.f = { 'name' : '+files' }
