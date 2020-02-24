@@ -15,19 +15,91 @@ Plug 'jonathanfilip/vim-lucius'                     " nice white colortheme
 
 " auto completion, Language servers stuff
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'w0rp/ale'                                     " python linters
 " {{
-    nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-    nmap <silent> <C-j> <Plug>(ale_next_wrap)
+    set updatetime=300
+    set signcolumn=yes
+    " Use <c-space> to trigger completion.
+    inoremap <silent><expr> <c-space> coc#refresh()
+
+    " Diagnostics navigation.
+    nmap <silent> g<Up> <Plug>(coc-diagnostic-prev)
+    nmap <silent> g<Down> <Plug>(coc-diagnostic-next)
+
+    " GoTo code navigation.
+    nmap <silent> gd <Plug>(coc-definition)
+    nmap <silent> gy <Plug>(coc-type-definition)
+    nmap <silent> gi <Plug>(coc-implementation)
+    nmap <silent> gr <Plug>(coc-references)
+
+    " Use K to show documentation in preview window.
+    nnoremap <silent> K :call <SID>show_documentation()<CR>
+    function! s:show_documentation()
+        if (index(['vim','help'], &filetype) >= 0)
+            execute 'h '.expand('<cword>')
+        else
+            call CocAction('doHover')
+        endif
+    endfunction
+
+    " Highlight the symbol and its references when holding the cursor.
+    autocmd CursorHold * silent call CocActionAsync('highlight')
+
+    " Symbol renaming.
+    nmap <leader>rn <Plug>(coc-rename)
+
+    " Formatting selected code.
+    xmap <leader>f  <Plug>(coc-format-selected)
+    nmap <leader>f  <Plug>(coc-format-selected)
+
+    """ Use tab for trigger completion with characters ahead and navigate.
+    """ NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+    """ other plugin before putting this into your config.
+    inoremap <silent><expr> <TAB>
+          \ pumvisible() ? "\<C-n>" :
+          \ <SID>check_back_space() ? "\<TAB>" :
+          \ coc#refresh()
+    inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+    " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position
+    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+    "inoremap <silent><expr> <TAB>
+    "    \ pumvisible() ? coc#_select_confirm() :
+    "    \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+    "    \ <SID>check_back_space() ? "\<TAB>" :
+    "    \ coc#refresh()
+
+    function! s:check_back_space() abort
+        let col = col('.') - 1
+        return !col || getline('.')[col - 1]  =~# '\s'
+    endfunction
+
+    let g:coc_snippet_next = '<tab>'
+
+    "" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+    "" position. Coc only does snippet and additional edit on confirm.
+    "if has('patch8.1.1068')
+    "  " Use `complete_info` if your (Neo)Vim version supports it.
+    "  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+    "else
+    "  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    "endif
+    "
 " }}
-Plug 'davidhalter/jedi-vim'                         " jedi for python
+"Plug 'dense-analysis/ale'
+"Plug 'w0rp/ale'                                     " python linters
+"" {{
+"    nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+"    nmap <silent> <C-j> <Plug>(ale_next_wrap)
+"" }}
+" Plug 'davidhalter/jedi-vim'                       " jedi for python
 Plug 'Vimjas/vim-python-pep8-indent'                " better indenting for python
 Plug 'tpope/vim-commentary'                         " comment-out by gc
-" Plug 'ncm2/ncm2'                                    " awesome autocomplete plugin
-" Plug 'roxma/nvim-yarp'                              " dependency of ncm2
-" Plug 'ncm2/ncm2-bufword'                            " buffer keyword completion
-" Plug 'ncm2/ncm2-path'                               " filepath completion
-" Plug 'HansPinckaers/ncm2-jedi'                      " fast python completion (use ncm2 if you want type info or snippet support)
+" Plug 'ncm2/ncm2'                                  " awesome autocomplete plugin
+" Plug 'roxma/nvim-yarp'                            " dependency of ncm2
+" Plug 'ncm2/ncm2-bufword'                          " buffer keyword completion
+" Plug 'ncm2/ncm2-path'                             " filepath completion
+" Plug 'HansPinckaers/ncm2-jedi'                    " fast python completion (use ncm2 if you want type info or snippet support)
 "" {{ ncm2 settings
 "    autocmd BufEnter * call ncm2#enable_for_buffer()
 "    set completeopt=menuone,noselect,noinsert
@@ -52,6 +124,11 @@ Plug 'yuki-ycino/fzf-preview.vim'
 " }}
 Plug 'wsdjeg/FlyGrep.vim'                           " awesome grep on the fly
 Plug 'ctrlpvim/ctrlp.vim'                           " fuzzy search files
+" {{
+    " ctrl p options
+    let g:ctrlp_custom_ignore = '\v\.(npy|jpg|pyc|so|dll)$'
+    let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+" }}
 
 " nerd tree
 Plug 'scrooloose/nerdtree'                          " file list
@@ -60,7 +137,11 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'      " to highlight files in nerd
 " git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'                       " show git changes to files in gutter
-
+" {{
+    " vimgutter options
+    let g:gitgutter_override_sign_column_highlight = 0
+    let g:gitgutter_map_keys = 0
+" }}
 " other
 Plug 'liuchengxu/vim-which-key'
 Plug 'mhinz/vim-startify'                           " cool start up screen
@@ -149,7 +230,7 @@ set listchars=tab:>-,trail:~,space:·,extends:>,precedes:<
 " theicfire .vimrc tips
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-let mapleader = " " " Leader is the space key
+let mapleader = " "           " Leader is the space key
 let g:mapleader = " "
 let maplocalleader = "'"
 let g:maplocalleader = "'"
@@ -173,6 +254,11 @@ autocmd VimEnter * call which_key#register('<Space>', "g:which_key_map")
 " Move between buffers with Shift + arrow key...
 nnoremap <leader>bk :bprevious<cr>
 nnoremap <leader>bj :bnext<cr>
+
+nnoremap <S-Right> :bnext<cr>
+nnoremap <S-Left>  :bprevious<cr>
+nnoremap <S-Up>    :lprev<cr>
+nnoremap <S-Down>  :lnext<cr>
 
 " ... but skip the quickfix when navigating
 augroup qf
@@ -304,12 +390,7 @@ nnoremap <leader>fj :FzfPreviewJumps<CR>
 nnoremap <leader>fl :FzfPreviewLines<CR>
 nnoremap <leader>fd :FzfPreviewLocationList<CR>
 
-
-set pumheight=5
-
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <silent> <expr> <CR> (pumvisible() && empty(v:completed_item)) ?  "\<c-y>\<cr>" : "\<CR>"
+set pumheight=10
 
 "auto indent for brackets
 nnoremap <leader>c :nohlsearch<Bar>:echo<CR>
@@ -389,9 +470,9 @@ au FileType python map <silent> <leader>jP Ofrom pdb import set_trace; set_trace
 "hi pythonImportedClassDef ctermfg=87
 "let g:impsort_highlight_imported=0
 
-" Remove all trailing whitespace by pressing C-S
-nnoremap <C-S> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
-autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+" " Remove all trailing whitespace by pressing C-S
+" nnoremap <C-S> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+" autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 
 " move between defs python:
 " NOTE: this break shortcuts with LL
@@ -416,14 +497,12 @@ au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 nnoremap <C-a> <Esc>
 nnoremap <C-x> <Esc>
 
-" vimgutter options
-let g:gitgutter_override_sign_column_highlight = 0
-let g:gitgutter_map_keys = 0
-
-" ctrl p options
-let g:ctrlp_custom_ignore = '\v\.(npy|jpg|pyc|so|dll)$'
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-
+" quckfix / location autoclose
+autocmd BufWinEnter quickfix nnoremap <silent> <buffer>
+            \   q :cclose<cr>:lclose<cr>
+autocmd BufEnter * if (winnr('$') == 1 && &buftype ==# 'quickfix' ) |
+            \   bd|
+            \   q | endif
 
 "----------------------------------------------
 " Toggling
