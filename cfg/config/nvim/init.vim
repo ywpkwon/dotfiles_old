@@ -266,12 +266,6 @@ augroup qf
     autocmd FileType qf set nobuflisted
 augroup END
 
-" easy split movement
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
 " tabs:
 nnoremap <leader>tn :tabnew<Space>
 nnoremap <leader>tj :tabnext<CR>
@@ -290,6 +284,7 @@ noremap <leader>8 8<c-w><c-w>
 noremap <leader>9 9<c-w><c-w>
 
 noremap <Tab> <C-w>w
+imap <C-o> <esc>o
 "----------------------------------------------
 " Splits
 "----------------------------------------------
@@ -398,24 +393,21 @@ nnoremap <leader>c :nohlsearch<Bar>:echo<CR>
 " FlyGrep settings
 nnoremap <leader>s :FlyGrep<cr>
 
-" ale options
-let g:ale_python_flake8_options = '--ignore=E129,E501,E302,E265,E241,E305,E402,W503'
-let g:ale_python_pylint_options = '-j 0 --max-line-length=120'
-let g:ale_list_window_size = 4
-let g:ale_sign_column_always = 0
-let g:ale_open_list = 1
-let g:ale_keep_list_window_open = '1'
+" " ale options
+" let g:ale_python_flake8_options = '--ignore=E129,E501,E302,E265,E241,E305,E402,W503'
+" let g:ale_python_pylint_options = '-j 0 --max-line-length=120'
+" let g:ale_list_window_size = 4
+" let g:ale_sign_column_always = 0
+" let g:ale_open_list = 1
+" let g:ale_keep_list_window_open = '1'
 
-" Options are in .pylintrc!
-"highlight VertSplit ctermbg=253
-
-let g:ale_sign_error = '‼'
-let g:ale_sign_warning = '∙'
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = '0'
-let g:ale_lint_on_save = '1'
-nmap <silent> <C-M> <Plug>(ale_previous_wrap)
-nmap <silent> <C-m> <Plug>(ale_next_wrap)
+" let g:ale_sign_error = '‼'
+" let g:ale_sign_warning = '∙'
+" let g:ale_lint_on_text_changed = 'never'
+" let g:ale_lint_on_enter = '0'
+" let g:ale_lint_on_save = '1'
+" nmap <silent> <C-M> <Plug>(ale_previous_wrap)
+" nmap <silent> <C-m> <Plug>(ale_next_wrap)
 
 " mapping to make movements operate on 1 screen line in wrap mode
 function! ScreenMovement(movement)
@@ -458,11 +450,11 @@ let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<leader>jr"
 
 
-" easy breakpoint python
-au FileType python map <silent> <leader>jb ofrom pudb import set_trace; set_trace()<esc>
-au FileType python map <silent> <leader>jB Ofrom pudb import set_trace; set_trace()<esc>
-au FileType python map <silent> <leader>jp ofrom pdb import set_trace; set_trace()<esc>
-au FileType python map <silent> <leader>jP Ofrom pdb import set_trace; set_trace()<esc>
+" " easy breakpoint python
+" au FileType python map <silent> <leader>jb ofrom pudb import set_trace; set_trace()<esc>
+" au FileType python map <silent> <leader>jB Ofrom pudb import set_trace; set_trace()<esc>
+" au FileType python map <silent> <leader>jp ofrom pdb import set_trace; set_trace()<esc>
+" au FileType python map <silent> <leader>jP Ofrom pdb import set_trace; set_trace()<esc>
 
 " Impsort option
 "hi pythonImportedObject ctermfg=142 guifg=#afaf00
