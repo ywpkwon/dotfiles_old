@@ -14,7 +14,7 @@ ln -sf  ~/dotfiles/cfg/config/nvim ~/.config/
 ln -sf  ~/dotfiles/cfg/config/ranger ~/.config/
 ln -sf  ~/dotfiles/cfg/config/kitty ~/.config/
 ln -sf  ~/dotfiles/cfg/neofetch ~/.config/
-ln -sf  ~/dotfiles/cfg/config/dircolors ~/.dircolors
+ln -sf  ~/dotfiles/cfg/config/dir_colors ~/.dir_colors
 ln -sfn ~/dotfiles/cfg/urxvt ~/.urxvt
 ln -sfn ~/dotfiles/cfg/wallpapers ~/.wallpapers
 ln -sf  ~/dotfiles/cfg/.fonts ~

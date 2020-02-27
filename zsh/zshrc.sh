@@ -87,6 +87,9 @@ antigen apply
 source ~/dotfiles/zsh/plugins/fixls.zsh
 source ~/dotfiles/zsh/grc.zsh
 
+# "ls" colors
+eval $(dircolors -b ~/.dir_colors)
+
 #Functions
 	# Loop a command and show the output in vim
 	loop() {
