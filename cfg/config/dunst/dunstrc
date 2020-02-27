@@ -1,16 +1,25 @@
 [global]
+
 #monitor = 0
+
 follow = mouse
+
 geometry = "400x60-20+48"
+
 indicate_hidden = yes
+
 shrink = no
+
+# transparency of the window: [0, 100]
+transparency = 0
+
 separator_height = 2
 #separator_color = frame
 padding = 32
 horizontal_padding = 32
 sort = no
 idle_threshold = 120
-font = Fira Mono 12
+font = FiraCode 20
 line_height = 4
 markup = full
 format = "<b>%s</b>\n%b"
@@ -21,8 +30,11 @@ ignore_newline = no
 stack_duplicates = true
 hide_duplicate_count = no
 show_indicators = no
+
 icon_position = left
 show_icons = left
+min_icon_size = 500
+
 sticky_history = yes
 history_length = 20
 browser = /usr/bin/firefox -new-tab
@@ -43,20 +55,20 @@ context = ctrl+shift+period
 [urgency_low]
 frame_color = "#38b0f5"
 foreground = "#38b0f5"
-background = "#191311"
-#background = "#2B313C"
+#background = "#191311"
+background = "#2B313C"
 timeout = 4
 
 [urgency_normal]
 frame_color = "#ecf538"
 foreground = "#ecf538"
-background = "#191311"
-#background = "#2B313C"
+#background = "#191311"
+background = "#2B313C"
 timeout = 6
 
 [urgency_critical]
 frame_color = "#e64015"
 foreground = "#e64015"
-background = "#191311"
-#background = "#2B313C"
+#background = "#191311"
+background = "#2B313C"
 timeout = 8
