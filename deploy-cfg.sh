@@ -13,7 +13,7 @@ ln -sf  ~/dotfiles/cfg/config/alacritty ~/.config/
 ln -sf  ~/dotfiles/cfg/config/nvim ~/.config/
 ln -sf  ~/dotfiles/cfg/config/ranger ~/.config/
 ln -sf  ~/dotfiles/cfg/config/kitty ~/.config/
-ln -sfn ~/dotfiles/cfg/neofetch ~/.config/neofetch
+ln -sf  ~/dotfiles/cfg/neofetch ~/.config/
 ln -sfn ~/dotfiles/cfg/urxvt ~/.urxvt
 ln -sfn ~/dotfiles/cfg/wallpapers ~/.wallpapers
 ln -sf  ~/dotfiles/cfg/.fonts ~
