@@ -9,6 +9,7 @@ Plug 'vim-airline/vim-airline-themes'               " themes for statusline
 Plug 'ryanoasis/vim-devicons'
 Plug 'joshdick/onedark.vim'                         " colortheme
 Plug 'morhetz/gruvbox'                              " colortheme
+Plug 'junegunn/seoul256.vim'
 Plug 'jonathanfilip/vim-lucius'                     " nice white colortheme
 
 " ================= Functionalities ================= "
@@ -540,6 +541,8 @@ let g:which_key_map.o = {
 "let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 "let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
+let &t_8f = "\e[38;2;%lu;%lu;%lum"
+let &t_8b = "\e[48;2;%lu;%lu;%lum"
 "endif
 
 " colorscheme options
@@ -552,14 +555,17 @@ let g:gruvbox_contrast_dark = 'soft'
 colorscheme gruvbox
 set background=dark
 
+"colorscheme xcodedark
+"let g:seoul256_srgb = 1
+"let g:seoul256_background = 236
+"colorscheme seoul256
+
 " highlight python and self function
 "autocmd BufEnter * syntax match Type /\v\.[a-zA-Z0-9_]+\ze(\[|\s|$|,|\]|\)|\.|:)/hs=s+1
 "autocmd BufEnter * syntax match pythonFunction /\v[[:alnum:]_]+\ze(\s?\()/
 "hi def link pythonFunction Function
 "autocmd BufEnter * syn match Self "\(\W\|^\)\@<=self\(\.\)\@="
 "highlight self ctermfg=243
-
-
 
 
 " semshi options
