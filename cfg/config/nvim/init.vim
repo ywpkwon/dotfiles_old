@@ -26,6 +26,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
       \ 'coc-json',
       \ 'coc-yaml',
       \ 'coc-texlab',
+      \ 'coc-spell-checker',
       \]
 
     " Use <c-space> to trigger completion.
