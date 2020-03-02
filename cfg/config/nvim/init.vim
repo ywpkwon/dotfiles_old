@@ -19,6 +19,15 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " {{
     set updatetime=300
     set signcolumn=yes
+
+    let g:coc_global_extensions = [
+      \ 'coc-snippets',
+      \ 'coc-python',
+      \ 'coc-json',
+      \ 'coc-yaml',
+      \ 'coc-texlab',
+      \]
+
     " Use <c-space> to trigger completion.
     inoremap <silent><expr> <c-space> coc#refresh()
 
@@ -158,7 +167,7 @@ Plug 'junegunn/goyo.vim'                            " focus mode
 "Plug 'axelf4/vim-strip-trailing-whitespace'        " remove trailing whitespace (lines only you touched)
 Plug 'tweekmonster/wstrip.vim'                      " remove trailing whitespace (lines only you touched + realtime highlight)
 " {{
-    let g:wstrip_auto = 1       " Globally enabled for all filetypes
+    let g:wstrip_auto = 1                           " Globally enabled for all filetypes
 " }}
 
 call plug#end()
