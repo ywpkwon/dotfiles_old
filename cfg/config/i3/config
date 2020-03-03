@@ -188,7 +188,7 @@ bindsym $mod+r mode "resize"
 ###############################################################
 
 # Defining colors
-set $bg       #282A3644
+set $bg       #282A3611
 set $lg       #44475a
 set $fg       #f8f8f2
 set $cyan     #8be9fd
