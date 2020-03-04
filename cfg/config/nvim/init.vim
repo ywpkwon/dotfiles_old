@@ -17,7 +17,12 @@ Plug 'jonathanfilip/vim-lucius'                     " nice white colortheme
 " auto completion, Language servers stuff
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " {{
+    " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+    " delays and poor user experience.
     set updatetime=300
+
+    " Always show the signcolumn, otherwise it would shift the text each time
+    " diagnostics appear/become resolved.
     set signcolumn=yes
 
     let g:coc_global_extensions = [
@@ -86,6 +91,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
     endfunction
 
     let g:coc_snippet_next = '<tab>'
+
+
 
     "" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
     "" position. Coc only does snippet and additional edit on confirm.
@@ -258,6 +265,12 @@ nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 let g:which_key_map =  {}
 autocmd VimEnter * call which_key#register('<Space>', "g:which_key_map")
 
+"----------------------------------------------
+" Which vim key for CoC
+"----------------------------------------------
+let g:which_key_map.x = { 'name' : '+coc' }
+let g:which_key_map.x.l = { 'name' : 'latex' }
+nnoremap <leader>xlb :CocCommand latex.ForwardSearch<CR>
 
 "----------------------------------------------
 " Navigation
@@ -398,7 +411,7 @@ nnoremap <leader>fd :FzfPreviewLocationList<CR>
 
 set pumheight=10
 
-"auto indent for brackets
+" nohighlight
 nnoremap <leader>c :nohlsearch<Bar>:echo<CR>
 
 " FlyGrep settings
@@ -627,6 +640,5 @@ nnoremap <leader>ll :LeetCodeList<cr>
 nnoremap <leader>lt :LeetCodeTest<cr>
 nnoremap <leader>ls :LeetCodeSubmit<cr>
 nnoremap <leader>li :LeetCodeSignIn<cr>
-
 
 
