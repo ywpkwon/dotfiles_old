@@ -227,7 +227,6 @@ client.placeholder          $bg      $bg        $cyan    $cyan
 ###################  Bar Appearance  ##########################
 ###############################################################
 bar {
-        #font pango:Font Awesome 5 Free 10
         # tray_output primary
         # separator_symbol "|"
         # tray_padding 4
@@ -276,9 +275,10 @@ bar {
 
 	    status_command i3blocks -c $HOME/.config/i3blocks/i3blocks_neat.conf
         i3bar_command i3bar -t
+
         #font pango: SpaceMono Nerd Font Regular 11
-        #font pango: Fira Code Regular 12
-        font pango: Iosevka Nerd Font Regular 12
+        #font pango: Fira Code Regular 11
+        font pango: Iosevka Nerd Font Regular 11
 
 	    colors
 	    {
