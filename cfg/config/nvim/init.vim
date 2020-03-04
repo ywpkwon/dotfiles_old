@@ -32,6 +32,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
       \ 'coc-yaml',
       \ 'coc-texlab',
       \ 'coc-spell-checker',
+      \ 'coc-prettier',
       \]
 
     " Use <c-space> to trigger completion.
@@ -64,8 +65,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
     nmap <leader>rn <Plug>(coc-rename)
 
     " Formatting selected code.
-    xmap <leader>f  <Plug>(coc-format-selected)
-    nmap <leader>f  <Plug>(coc-format-selected)
+    nmap <F6>  :call CocAction('format')<CR>
+
+    " Formatting selected. Not sure if these work...
+    xmap <F5>  <Plug>(coc-format-selected)
+    nmap <F5>  <Plug>(coc-format-selected)
 
     """ Use tab for trigger completion with characters ahead and navigate.
     """ NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
