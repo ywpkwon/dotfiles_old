@@ -1,6 +1,6 @@
 {
     "coc.source.buffer.disableSyntaxes": ["comment", "string"],
-
+    "python.pythonPath": "/usr/bin/python3",
     "latex.build.onSave": true,
     "latex.lint.onChange": true,
     "latex.forwardSearch.executable": "/usr/bin/zathura",
