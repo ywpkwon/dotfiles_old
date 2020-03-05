@@ -232,6 +232,11 @@ bar {
         # tray_padding 4
         position top
 
+        # hide
+        mode hide
+        hidden_state hide
+        modifier Mod1
+
         ## i3status design
         # status_command i3status -c $HOME/.config/i3/i3status2.conf
         # colors {
@@ -356,9 +361,9 @@ for_window [title="TeamViewer"] floating enable
 ###################  I 3  G A P S     #############################
 ###################################################################
 # i3-gaps
-gaps inner 10
+gaps inner 12
 gaps outer 0
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 0
 # hide_edge_borders both
 smart_gaps on
 smart_borders on
