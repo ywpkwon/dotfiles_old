@@ -139,10 +139,13 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'yuki-ycino/fzf-preview.vim'
 " {{
+    let $BAT_THEME='Monokai Extended'
     " Command to be executed after file list creation
     " let g:fzf_preview_filelist_postprocess_command = ''
-    " let g:fzf_preview_filelist_po stprocess_command = 'xargs -d "\n" ls —color'          " Use dircolors
+    " let g:fzf_preview_filelist_postprocess_command = 'xargs -d "\n" ls —color'          " Use dircolors
     let g:fzf_preview_filelist_postprocess_command = 'xargs -d "\n" exa --color=always' " Use exa
+    let g:fzf_preview_command = 'bat --color=always --style=grid {-1}'
+    let g:fzf_preview_grep_preview_cmd = '~/.config/nvim/preview_fzf_grep'
 " }}
 Plug 'wsdjeg/FlyGrep.vim'                           " awesome grep on the fly
 Plug 'ctrlpvim/ctrlp.vim'                           " fuzzy search files
@@ -413,12 +416,14 @@ let g:which_key_map.f.t = 'toggle Tagbar'
 
 " FzfPreview
 nnoremap <leader>fp :FzfPreviewProjectFiles<CR>
-nnoremap <leader>fg :FzfPreviewGitFiles<CR>
+"nnoremap <leader>fg :FzfPreviewGitFiles<CR>
 nnoremap <leader>fs :FzfPreviewGitStatus<CR>
 nnoremap <leader>fb :FzfPreviewBuffers<CR>
 nnoremap <leader>fj :FzfPreviewJumps<CR>
 nnoremap <leader>fl :FzfPreviewLines<CR>
 nnoremap <leader>fd :FzfPreviewLocationList<CR>
+nnoremap <leader>ff :FzfPreviewProjectGrep -add-fzf-arg=--nth=3 .<CR>
+nnoremap <leader>ffr :FzfPreviewProjectGrep -resume .<CR>
 
 set pumheight=10
 
