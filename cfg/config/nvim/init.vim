@@ -36,17 +36,17 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
       \]
 
     " Use <c-space> to trigger completion.
-    inoremap <silent><expr> <c-space> coc#refresh()
+    inoremap <silent><expr><c-space> coc#refresh()
 
     " Diagnostics navigation.
-    nmap <silent> g<Up> <Plug>(coc-diagnostic-prev)
+    nmap <silent> g<Up>   <Plug>(coc-diagnostic-prev)
     nmap <silent> g<Down> <Plug>(coc-diagnostic-next)
 
     " GoTo code navigation.
-    nmap <silent> gd <Plug>(coc-definition)
-    nmap <silent> gy <Plug>(coc-type-definition)
-    nmap <silent> gi <Plug>(coc-implementation)
-    nmap <silent> gr <Plug>(coc-references)
+    nmap <silent> gd      <Plug>(coc-definition)
+    nmap <silent> gy      <Plug>(coc-type-definition)
+    nmap <silent> gi      <Plug>(coc-implementation)
+    nmap <silent> gr      <Plug>(coc-references)
 
     " Use K to show documentation in preview window.
     nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -181,7 +181,14 @@ Plug 'tweekmonster/wstrip.vim'                      " remove trailing whitespace
 " {{
     let g:wstrip_auto = 1                           " Globally enabled for all filetypes
 " }}
+Plug 'junegunn/vim-easy-align'
+" {{
+    " Start interactive EasyAlign in visual mode (e.g. vipga)
+    xmap ga <Plug>(EasyAlign)
 
+    " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+    nmap ga <Plug>(EasyAlign)
+" }}
 call plug#end()
 
 " path to your python
