@@ -1,5 +1,6 @@
-syntax on
+" vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker:
 
+syntax on
 call plug#begin('~/.vim/plugged')
 
 " ================= looks and GUI stuff ================== "
@@ -9,14 +10,15 @@ Plug 'vim-airline/vim-airline-themes'               " themes for statusline
 Plug 'ryanoasis/vim-devicons'
 Plug 'joshdick/onedark.vim'                         " colortheme
 Plug 'morhetz/gruvbox'                              " colortheme
-Plug 'junegunn/seoul256.vim'
+Plug 'junegunn/seoul256.vim'                        " colortheme
+Plug 'sonph/onehalf', {'rtp': 'vim/'}               " colortheme
 Plug 'jonathanfilip/vim-lucius'                     " nice white colortheme
 
 " ================= Functionalities ================= "
 
 " auto completion, Language servers stuff
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" {{
+" COC: {{{
     " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
     " delays and poor user experience.
     set updatetime=300
@@ -107,13 +109,14 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
     "  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
     "endif
     "
-" }}
+" }}}
 "Plug 'dense-analysis/ale'
 "Plug 'w0rp/ale'                                     " python linters
-"" {{
+" ALE: {{{
 "    nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 "    nmap <silent> <C-j> <Plug>(ale_next_wrap)
-"" }}
+" }}}
+
 " Plug 'davidhalter/jedi-vim'                       " jedi for python
 Plug 'Vimjas/vim-python-pep8-indent'                " better indenting for python
 Plug 'tpope/vim-commentary'                         " comment-out by gc
@@ -122,14 +125,14 @@ Plug 'tpope/vim-commentary'                         " comment-out by gc
 " Plug 'ncm2/ncm2-bufword'                          " buffer keyword completion
 " Plug 'ncm2/ncm2-path'                             " filepath completion
 " Plug 'HansPinckaers/ncm2-jedi'                    " fast python completion (use ncm2 if you want type info or snippet support)
-"" {{ ncm2 settings
+" ncm2: {{{
 "    autocmd BufEnter * call ncm2#enable_for_buffer()
 "    set completeopt=menuone,noselect,noinsert
 "    " make it FAST
 "    let ncm2#popup_delay = 5
 "    let ncm2#complete_length = [[1,1]]
 "    let g:ncm2#matcher = 'substrfuzzy'
-"" }}
+" }}}
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'majutsushi/tagbar'                            " show tags in a bar (functions etc) for easy browsing
 "Plug 'twieekmonster/impsort.vim'                   " color and sort imports
@@ -138,7 +141,7 @@ Plug 'majutsushi/tagbar'                            " show tags in a bar (functi
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'yuki-ycino/fzf-preview.vim'
-" {{
+" {{{
     let $BAT_THEME='Monokai Extended'
     " Command to be executed after file list creation
     " let g:fzf_preview_filelist_postprocess_command = ''
@@ -146,14 +149,14 @@ Plug 'yuki-ycino/fzf-preview.vim'
     let g:fzf_preview_filelist_postprocess_command = 'xargs -d "\n" exa --color=always' " Use exa
     let g:fzf_preview_command = 'bat --color=always --style=grid {-1}'
     let g:fzf_preview_grep_preview_cmd = '~/.config/nvim/preview_fzf_grep'
-" }}
+" }}}
 Plug 'wsdjeg/FlyGrep.vim'                           " awesome grep on the fly
 Plug 'ctrlpvim/ctrlp.vim'                           " fuzzy search files
-" {{
+" {{{
     " ctrl p options
     let g:ctrlp_custom_ignore = '\v\.(npy|jpg|pyc|so|dll)$'
     let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-" }}
+" }}}
 
 " nerd tree
 Plug 'scrooloose/nerdtree'                          " file list
@@ -162,11 +165,11 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'      " to highlight files in nerd
 " git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'                       " show git changes to files in gutter
-" {{
+" {{{
     " vimgutter options
     let g:gitgutter_override_sign_column_highlight = 0
     let g:gitgutter_map_keys = 0
-" }}
+" }}}
 " other
 Plug 'liuchengxu/vim-which-key'
 Plug 'mhinz/vim-startify'                           " cool start up screen
@@ -175,23 +178,23 @@ Plug 'ianding1/leetcode.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'lilydjwg/colorizer'
 Plug 'junegunn/goyo.vim'                            " focus mode
-" {{
+" {{{
     let g:goyo_width = 120
     let g:goyo_linenr = 1
-" }}
+" }}}
 "Plug 'axelf4/vim-strip-trailing-whitespace'        " remove trailing whitespace (lines only you touched)
 Plug 'tweekmonster/wstrip.vim'                      " remove trailing whitespace (lines only you touched + realtime highlight)
-" {{
+" {{{
     let g:wstrip_auto = 1                           " Globally enabled for all filetypes
-" }}
+" }}}
 Plug 'junegunn/vim-easy-align'
-" {{
+" {{{
     " Start interactive EasyAlign in visual mode (e.g. vipga)
     xmap ga <Plug>(EasyAlign)
 
     " Start interactive EasyAlign for a motion/text object (e.g. gaip)
     nmap ga <Plug>(EasyAlign)
-" }}
+" }}}
 call plug#end()
 
 " path to your python
