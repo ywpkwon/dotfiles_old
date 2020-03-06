@@ -5,8 +5,11 @@ call plug#begin('~/.vim/plugged')
 
 " ================= looks and GUI stuff ================== "
 "
-Plug 'vim-airline/vim-airline'                      " make statusline awesome
-Plug 'vim-airline/vim-airline-themes'               " themes for statusline
+"Plug 'vim-airline/vim-airline'                      " make statusline awesome
+"Plug 'vim-airline/vim-airline-themes'               " themes for statusline
+"Plug 'khatiba/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
 Plug 'ryanoasis/vim-devicons'
 Plug 'joshdick/onedark.vim'                         " colortheme
 Plug 'morhetz/gruvbox'                              " colortheme
@@ -359,30 +362,94 @@ let g:which_key_map.w = {
 "----------------------------------------------
 " Airline
 "----------------------------------------------
+" Airline: {{{
 " Add window number
-function! WindowNumber(...)
-    let builder = a:1
-    let context = a:2
-    call builder.add_section('airline_a', '  %{tabpagewinnr(tabpagenr())} ')
-    return 0
-endfunction
+"function! WindowNumber(...)
+"    let builder = a:1
+"    let context = a:2
+"    call builder.add_section('airline_a', '  %{tabpagewinnr(tabpagenr())} ')
+"    return 0
+"endfunction
+"
+"call airline#add_statusline_func('WindowNumber')
+"call airline#add_inactive_statusline_func('WindowNumber')
+"
+"let g:airline_theme='transparent'
+""let g:airline_powerline_fonts = 1
+"let g:airline_section_y = ""
+"let g:airline#extensions#tabline#enabled = 1
+"
+"" Airline settings
+"" do not show error/warning section
+"let g:airline_section_error = ""
+"let g:airline_section_warning = ""
+"
+"if !exists('g:airline_symbols')
+"    let g:airline_symbols = {}
+"endif
+" }}}
+"
+"
+"
 
-call airline#add_statusline_func('WindowNumber')
-call airline#add_inactive_statusline_func('WindowNumber')
+" Lightline: {{{
+  let g:lightline = {
+    \   'colorscheme': 'onedark',
+    \   'active': {
+    \     'left':[ [ 'mode', 'paste' ],
+    \              [ 'gitbranch', 'readonly', 'filename', 'modified', 'statusdiag' ]
+    \     ]
+    \   },
+    \   'tab': {
+    \     'active': ['tabnum'],
+    \     'inactive': ['tabnum']
+    \   },
+    \   'tabline': {
+    \     'left': [ ['buffers'] ],
+    \     'right': [ ]
+    \   },
+    \   'component': {
+    \     'lineinfo': '☰  %3l:%-2v',
+    \   },
+    \   'component_function': {
+    \     'gitbranch': 'fugitive#head',
+    \     'statusdiag': 'StatusDiagnostic',
+    \   }
+    \ }
+  let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+  let g:lightline.component_type   = {'buffers': 'tabsel'}
+  let g:lightline.separator = {
+    \   'left': '', 'right': ''
+    \}
+  let g:lightline.subseparator = {
+    \   'left': '', 'right': ''
+    \}
+  set showtabline=2  " Show tabline
+  set guioptions-=e  " Don't use GUI tabline
 
-let g:airline_theme='cobalt2'
-let g:airline_powerline_fonts = 1
-let g:airline_section_y = ""
-let g:airline#extensions#tabline#enabled = 1
+  function! StatusDiagnostic() abort
+    let info = get(b:, 'coc_diagnostic_info', {})
+    if empty(info) | return '' | endif
+    let msgs = []
+    if get(info, 'error', 0)
+      call add(msgs, 'E' . info['error'])
+    endif
+    if get(info, 'warning', 0)
+      call add(msgs, 'W' . info['warning'])
+    endif
+    return join(msgs, ' ')
+  endfunction
 
-" Airline settings
-" do not show error/warning section
-let g:airline_section_error = ""
-let g:airline_section_warning = ""
+  function! MyBufferlineRefresh()
+    call bufferline#refresh_status()
+    let rlen = 4*tabpagenr('$') + len(&fenc) + 8
+    call bufferline#trim_status_info(&columns - rlen)
+    return ''
+  endfunction
+"}}}
 
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
+
+
 
 "----------------------------------------------
 " Misc
