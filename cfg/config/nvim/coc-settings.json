@@ -7,5 +7,50 @@
     "latex.build.onSave": true,
     "latex.lint.onChange": true,
     "latex.forwardSearch.executable": "/usr/bin/zathura",
-    "latex.forwardSearch.args": ["--synctex-forward", "%l:1:%f", "%p"]
+    "latex.forwardSearch.args": ["--synctex-forward", "%l:1:%f", "%p"],
+
+    "cSpell.showStatus": false,
+    "cSpell.enabledLanguageIds": [
+        "c",
+        "cpp",
+        "csharp",
+        "go",
+        "javascript",
+        "javascriptreact",
+        "markdown",
+        "php",
+        "plaintext",
+        "python",
+        "typescript",
+        "typescriptreact",
+        "yml"
+    ],
+    "cSpell.languageSettings": [
+        {
+            "languageId": "python",
+            "includeRegExpList": [
+                "/#.*/",
+               "/('''|\"\"\")[^\\1]+?\\1/g",
+                "strings"
+            ]
+        },
+        {
+            "languageId": "javascript,typescript",
+            "includeRegExpList": [
+                "CStyleComment",
+                "strings"
+            ]
+        },
+        {
+            "languageId": "cpp,c",
+            "allowCompoundWords": false,
+            "includeRegExpList": [
+                "CStyleComment",
+                "string"
+            ],
+            "ignoreRegExpList": [
+                "/#include.*/"
+            ]
+        }
+    ]
 }
