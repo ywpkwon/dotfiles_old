@@ -458,7 +458,7 @@ let g:which_key_map.w = {
 imap <F13> <Esc>
 cnoremap <Esc> <C-c>
 inoremap <c-c> <ESC>
-nnoremap <C-z> <Esc>  " disable terminal ctrl-z
+"nnoremap <C-z> <Esc>  " disable terminal ctrl-z
 
 " map S to replace current word with pasteboard
 nnoremap S diw"0P
