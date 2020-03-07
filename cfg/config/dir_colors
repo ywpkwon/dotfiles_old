@@ -424,6 +424,13 @@ EXEC                  1;32
 .zip                  35
 .zipx                 35
 
+# Deep learning
+.pb                   36
+.caffemodel           36
+.ckpt                 36
+.h5                   36
+.index                36
+
 # Miscellaneous
 .torrent              34
 .crdownload           38;5;246
