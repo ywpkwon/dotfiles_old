@@ -1,10 +1,34 @@
 " vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker:
 
 syntax on
+
+" ---------------------------------------------------
+" Change leader key to space: This should be prior to plugins
+" since plugin setting may set key bindings using the leader key.
+" ---------------------------------------------------
+" With a map leader it's possible to do extra key combinations
+" like <leader>w saves the current file
+let mapleader = " "           " Leader is the space key
+let g:mapleader = " "
+let maplocalleader = "'"
+let g:maplocalleader = "'"
+nnoremap <SPACE> <Nop>
+
+" ---------------------------------------------------
+" which-vim-key setting
+" ---------------------------------------------------
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+" Define prefix dictionary
+let g:which_key_map =  {}
+autocmd VimEnter * call which_key#register('<Space>', "g:which_key_map")
+
+" ---------------------------------------------------
+" Plugins
+" ---------------------------------------------------
 call plug#begin('~/.vim/plugged')
 
 " ================= looks and GUI stuff ================== "
-"
+
 "Plug 'vim-airline/vim-airline'                      " make statusline awesome
 "Plug 'vim-airline/vim-airline-themes'               " themes for statusline
 "Plug 'khatiba/vim-airline-themes'
@@ -101,8 +125,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     let g:coc_snippet_next = '<tab>'
 
-
-
     "" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
     "" position. Coc only does snippet and additional edit on confirm.
     "if has('patch8.1.1068')
@@ -168,11 +190,12 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'      " to highlight files in nerd
 " git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'                       " show git changes to files in gutter
-" {{{
+" Vim_gitgutter: {{{
     " vimgutter options
     let g:gitgutter_override_sign_column_highlight = 0
     let g:gitgutter_map_keys = 0
 " }}}
+
 " other
 Plug 'liuchengxu/vim-which-key'
 Plug 'mhinz/vim-startify'                           " cool start up screen
@@ -197,6 +220,42 @@ Plug 'junegunn/vim-easy-align'
 
     " Start interactive EasyAlign for a motion/text object (e.g. gaip)
     nmap ga <Plug>(EasyAlign)
+" }}}
+Plug 'easymotion/vim-easymotion'
+" Easymotion: {{{
+  let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+  let g:which_key_map.m = { 'name' : '+easy-motion' }
+  " to move to {char}
+  map  <leader>mf <Plug>(easymotion-bd-f)
+  nmap <leader>mf <Plug>(easymotion-overwin-f)
+
+  " to move to {char}{char}
+  map  <leader>ms <Plug>(easymotion-bd-f2)
+  nmap <leader>ms <Plug>(easymotion-overwin-f2)
+
+  " Move to line
+  map  <leader>ml <Plug>(easymotion-bd-jk)
+  nmap <leader>ml <Plug>(easymotion-overwin-line)
+
+  " Move to word
+  map  <leader>mw <Plug>(easymotion-bd-w)
+  nmap <leader>mw <Plug>(easymotion-overwin-w)
+
+  " Gif config
+  map  / <Plug>(easymotion-sn)
+  omap / <Plug>(easymotion-tn)
+
+  " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+  " Without these mappings, `n` & `N` works fine. (These mappings just provide
+  " different highlight method and have some other features )
+  map  n <Plug>(easymotion-next)
+  map  N <Plug>(easymotion-prev)
+
+  "map <Leader><Leader>w <Plug>(easymotion-w)
+  " Turn on case-insensitive feature
+  let g:EasyMotion_smartcase = 1
+
 " }}}
 call plug#end()
 
@@ -264,26 +323,8 @@ set viminfo='20,<1000  " allow copying of more than 50 lines to other applicatio
 set cursorline                    " highlight the current line for the cursor
 set listchars=tab:>-,trail:~,space:·,extends:>,precedes:<
 
-
-" theicfire .vimrc tips
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
-let mapleader = " "           " Leader is the space key
-let g:mapleader = " "
-let maplocalleader = "'"
-let g:maplocalleader = "'"
-nnoremap <SPACE> <Nop>
-
 " paste multiple times
 xnoremap p pgvy
-
-" ---------------------------------------------------
-" which-vim-key setting
-" ---------------------------------------------------
-nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
-" Define prefix dictionary
-let g:which_key_map =  {}
-autocmd VimEnter * call which_key#register('<Space>', "g:which_key_map")
 
 "----------------------------------------------
 " Which vim key for CoC
@@ -339,25 +380,42 @@ set splitright
 " Closing splits
 nnoremap <leader>q :lcl<cr>:q<cr>
 let g:which_key_map.w = {
-      \ 'name' : '+windows' ,
-      \ 'd' : ['<C-W>c'     , 'delete-window']         ,
-      \ '-' : ['<C-W>s'     , 'split-window-below']    ,
-      \ '|' : ['<C-W>v'     , 'split-window-right']    ,
-      \ '2' : ['<C-W>v'     , 'layout-double-columns'] ,
-      \ 'h' : ['<C-W>h'     , 'window-left']           ,
-      \ 'j' : ['<C-W>j'     , 'window-below']          ,
-      \ 'l' : ['<C-W>l'     , 'window-right']          ,
-      \ 'k' : ['<C-W>k'     , 'window-up']             ,
-      \ 'H' : ['<C-W>5<'    , 'expand-window-left']    ,
-      \ 'J' : ['resize +5'  , 'expand-window-below']   ,
-      \ 'L' : ['<C-W>5>'    , 'expand-window-right']   ,
-      \ 'K' : ['resize -5'  , 'expand-window-up']      ,
-      \ '=' : ['<C-W>='     , 'balance-window']        ,
-      \ '?' : ['Windows'    , 'fzf-window']            ,
-      \ 'w' : [':w'         , 'save-file']          ,
-      \ 'q' : ['<C-W>q'     , 'close-file']            ,
-      \ 'Q' : [':q!'        , 'close-file!']            ,
+      \ 'name' : '+windows'               ,
+      \ 'd' : ['<C-W>c'                   , 'delete-window'],
+      \ '-' : ['<C-W>s'                   , 'split-window-below'],
+      \ '|' : ['<C-W>v'                   , 'split-window-right'],
+      \ '2' : ['<C-W>v'                   , 'layout-double-columns'],
+      \ 'h' : ['<C-W>h'                   , 'window-left'],
+      \ 'j' : ['<C-W>j'                   , 'window-below'],
+      \ 'l' : ['<C-W>l'                   , 'window-right'],
+      \ 'k' : ['<C-W>k'                   , 'window-up'],
+      \ 'H' : ['<C-W>5<'                  , 'expand-window-left'],
+      \ 'J' : ['resize +5'                , 'expand-window-below'],
+      \ 'L' : ['<C-W>5>'                  , 'expand-window-right'],
+      \ 'K' : ['resize -5'                , 'expand-window-up'],
+      \ '=' : ['<C-W>='                   , 'balance-window'],
+      \ 'z' : [':call ZoomWindowToggle()' , 'zoom-window-toggle'],
+      \ '?' : ['Windows'                  , 'fzf-window'],
+      \ 'w' : [':w'                       , 'save-file'],
+      \ 'q' : ['<C-W>q'                   , 'close-file'],
+      \ 'Q' : [':q!'                      , 'close-file!'],
       \ }
+
+" <leader>wz will do the same but let's have this too
+nnoremap Z :call ZoomWindowToggle()<cr>
+
+" window zoom (toggle between max and equal)
+let g:window_is_zoomed = 0
+function! ZoomWindowToggle()
+ if g:window_is_zoomed
+   execute "normal \<c-w>="
+   let g:window_is_zoomed = 0
+ else
+   execute "normal \<c-w>\|"
+   execute "normal \<c-w>_"
+   let g:window_is_zoomed = 1
+ endif
+endfunction
 
 "----------------------------------------------
 " Airline
@@ -388,9 +446,6 @@ let g:which_key_map.w = {
 "    let g:airline_symbols = {}
 "endif
 " }}}
-"
-"
-"
 
 " Lightline: {{{
   let g:lightline = {
@@ -449,8 +504,6 @@ let g:which_key_map.w = {
 "}}}
 
 
-
-
 "----------------------------------------------
 " Misc
 "----------------------------------------------
@@ -458,7 +511,6 @@ let g:which_key_map.w = {
 imap <F13> <Esc>
 cnoremap <Esc> <C-c>
 inoremap <c-c> <ESC>
-"nnoremap <C-z> <Esc>  " disable terminal ctrl-z
 
 " map S to replace current word with pasteboard
 nnoremap S diw"0P
