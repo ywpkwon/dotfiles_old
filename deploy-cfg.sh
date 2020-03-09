@@ -13,6 +13,7 @@ ln -sf  ~/dotfiles/cfg/config/alacritty ~/.config/
 ln -sf  ~/dotfiles/cfg/config/nvim ~/.config/
 ln -sf  ~/dotfiles/cfg/config/ranger ~/.config/
 ln -sf  ~/dotfiles/cfg/config/kitty ~/.config/
+ln -sf  ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 ln -sf  ~/dotfiles/cfg/neofetch ~/.config/
 ln -sf  ~/dotfiles/cfg/config/dir_colors ~/.dir_colors
 ln -sfn ~/dotfiles/cfg/urxvt ~/.urxvt
