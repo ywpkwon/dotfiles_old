@@ -263,7 +263,7 @@ call plug#end()
 let g:python3_host_prog = '/usr/bin/python3'
 let g:python_host_prog = '/usr/bin/python2'
 
-filetype indent on
+filetype plugin indent on
 
 set fileformat=unix
 set shortmess+=c
