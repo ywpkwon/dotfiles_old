@@ -1,9 +1,13 @@
 #include <iostream>
 #include <fstream>
+//#include <vector>
+#include <unordered_map>
 
 using namespace std;
 
-class Solution {
+ asdf;
+
+ class Solution {
 public:
   /** block comment **/
   vector<vector<int>> threeSum(vector<int>& nums) {
@@ -12,7 +16,7 @@ public:
     unordered_map<int,int> negMap;
     int zeroCount = 0;
 
-    // Seggregate possitive and negative in seperate maps
+    // Segregate positive and negative in separate maps
     for (auto &n : nums) {
       if (n == 0) {
         zeroCount++;
@@ -48,7 +52,7 @@ public:
           }
         }
 
-        // Inorder to avoid duplicates follow one consistent approach
+        // In order to avoid duplicates follow one consistent approach
         // we will cross search only if remaining part of sum if is greater
         // the current sum. This simply helps to avoid the duplicates
         int remSum = 0 - (n.first + m.first);
