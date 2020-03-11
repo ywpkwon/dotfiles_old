@@ -1,20 +1,20 @@
 #include <iostream>
 #include <fstream>
-//#include <vector>
+#include <vector>
 #include <unordered_map>
 
 using namespace std;
 
- asdf;
 
  class Solution {
-public:
+ public:
   /** block comment **/
   vector<vector<int>> threeSum(vector<int>& nums) {
     vector<vector<int>> result;
-    unordered_map<int,int> posMap;
+    std::unordered_map<int,int> posMap;
     unordered_map<int,int> negMap;
     int zeroCount = 0;
+    int x = 0 + zeroCount;
 
     // Segregate positive and negative in separate maps
     for (auto &n : nums) {
@@ -72,6 +72,10 @@ public:
     return result;
   }
 };
+
+Solution a();
+
+a.threeSum();
 
 
 int main() {
