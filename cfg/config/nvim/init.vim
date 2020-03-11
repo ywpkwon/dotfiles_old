@@ -40,7 +40,8 @@ Plug 'morhetz/gruvbox'                              " colortheme
 Plug 'junegunn/seoul256.vim'                        " colortheme
 Plug 'sonph/onehalf', {'rtp': 'vim/'}               " colortheme
 Plug 'jonathanfilip/vim-lucius'                     " nice white colortheme
-
+" snippets
+Plug 'honza/vim-snippets'
 " ================= Functionalities ================= "
 
 " auto completion, Language servers stuff
@@ -195,6 +196,9 @@ Plug 'airblade/vim-gitgutter'                       " show git changes to files 
     let g:gitgutter_override_sign_column_highlight = 0
     let g:gitgutter_map_keys = 0
 " }}}
+
+" cpp
+Plug 'octol/vim-cpp-enhanced-highlight'
 
 " other
 Plug 'liuchengxu/vim-which-key'
