@@ -40,8 +40,9 @@ Plug 'morhetz/gruvbox'                              " colortheme
 Plug 'junegunn/seoul256.vim'                        " colortheme
 Plug 'sonph/onehalf', {'rtp': 'vim/'}               " colortheme
 Plug 'jonathanfilip/vim-lucius'                     " nice white colortheme
-" snippets
-Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets'                           " snippets
+Plug 'dominikduda/vim_current_word'                 " highlight all words under cursor
+
 " ================= Functionalities ================= "
 
 " auto completion, Language servers stuff
@@ -90,6 +91,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     " Highlight the symbol and its references when holding the cursor.
     autocmd CursorHold * silent call CocActionAsync('highlight')
+    autocmd CursorHoldI * silent call CocActionAsync('highlight')
+    "autocmd CursorHoldI * silent call CocActionAsync('showSignatureHelp')
 
     " Symbol renaming.
     nmap <leader>rn <Plug>(coc-rename)
@@ -198,7 +201,9 @@ Plug 'airblade/vim-gitgutter'                       " show git changes to files 
 " }}}
 
 " cpp
-Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'sheerun/vim-polyglot'
+"Plug 'octol/vim-cpp-enhanced-highlight'
+"Plug 'jaxbot/semantic-highlight.vim'
 
 " other
 Plug 'liuchengxu/vim-which-key'
@@ -732,30 +737,54 @@ set background=dark
 "autocmd BufEnter * syn match Self "\(\W\|^\)\@<=self\(\.\)\@="
 "highlight self ctermfg=243
 
+" color setting should be lower than colorscheme
+" semshi options: {{{
+  function MyCustomHighlights()
+      hi semshiLocal           ctermfg=209 guifg=#ff875f
+      hi semshiGlobal          ctermfg=214 guifg=#ffaf00
+      hi semshiImported        ctermfg=172 guifg=#d78700 cterm=bold gui=bold
+      hi semshiParameter       ctermfg=75  guifg=#5fafff
+      hi semshiParameterUnused ctermfg=117 guifg=#87d7ff cterm=underline gui=underline
+      hi semshiFree            ctermfg=97  guifg=#875faf
+      hi semshiBuiltin         ctermfg=217 guifg=#ffafaf
+      hi semshiAttribute       ctermfg=49  guifg=#00ff87
+      hi semshiSelf            ctermfg=249 guifg=#b2b2b2
+      hi semshiUnresolved      ctermfg=148 guifg=#afd700 cterm=underline gui=underline
+      hi semshiSelected        ctermfg=231 guifg=#ffffff ctermbg=60 guibg=#5f5f87
 
-" semshi options
-function MyCustomHighlights()
-    hi semshiLocal           ctermfg=209 guifg=#ff875f
-    hi semshiGlobal          ctermfg=214 guifg=#ffaf00
-    hi semshiImported        ctermfg=172 guifg=#d78700 cterm=bold gui=bold
-    hi semshiParameter       ctermfg=75  guifg=#5fafff
-    hi semshiParameterUnused ctermfg=117 guifg=#87d7ff cterm=underline gui=underline
-    hi semshiFree            ctermfg=97  guifg=#875faf
-    hi semshiBuiltin         ctermfg=217 guifg=#ffafaf
-    hi semshiAttribute       ctermfg=49  guifg=#00ff87
-    hi semshiSelf            ctermfg=249 guifg=#b2b2b2
-    hi semshiUnresolved      ctermfg=148 guifg=#afd700 cterm=underline gui=underline
-    hi semshiSelected        ctermfg=231 guifg=#ffffff ctermbg=60 guibg=#5f5f87
+      hi semshiErrorSign       ctermfg=231 guifg=#ffffff ctermbg=160 guibg=#d70000
+      hi semshiErrorChar       ctermfg=231 guifg=#ffffff ctermbg=160 guibg=#d70000
+  endfunction
 
-    hi semshiErrorSign       ctermfg=231 guifg=#ffffff ctermbg=160 guibg=#d70000
-    hi semshiErrorChar       ctermfg=231 guifg=#ffffff ctermbg=160 guibg=#d70000
-endfunction
+  autocmd FileType python call MyCustomHighlights()
+  "autocmd ColorScheme * call MyCustomHighlights()
 
-autocmd FileType python call MyCustomHighlights()
-"autocmd ColorScheme * call MyCustomHighlights()
+  let g:semshi#excluded_hl_groups = ['local', 'attribute', 'builtin']
+  let g:semshi#no_default_builtin_highlight = v:false
+" }}}
 
-let g:semshi#excluded_hl_groups = ['local', 'attribute', 'builtin']
-let g:semshi#no_default_builtin_highlight = v:false
+" Highlight current word (twin words)
+" This could be done in two ways: CoC or vim_current_word.vim
+" color setting should be lower than colorscheme
+hi CocHighlightText ctermfg=231 guifg=#ffffff ctermbg=60 guibg=#df5f87
+
+" vim_current_word: {{{
+  let g:vim_current_word#enabled = 0                " enable/disable plugin
+  let g:vim_current_word#highlight_twins = 1        " Twins of word under cursor:
+  let g:vim_current_word#highlight_current_word = 0 " The word under cursor
+  let g:vim_current_word#highlight_only_in_focused_window = 1
+  hi CurrentWord ctermbg=53
+  hi CurrentWordTwins ctermfg=231 guifg=#ffffff ctermbg=60 guibg=#5f5f87
+
+  " hi CurrentWordTwins guifg=#XXXXXX guibg=#XXXXXX gui=underline,bold,italic ctermfg=XXX ctermbg=XiXX cterm=underline,bold,italic
+  "                            └┴┴┴┴┤        └┴┴┴┴┤     └┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┤         └┴┤         └┴┤       └┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┤
+  "      gui-vim font color hex code│             │   gui-vim special styles│           │           │ console-vim special styles│
+  "      ───────────────────────────┘             │   ──────────────────────┘           │           │ ──────────────────────────┘
+  "              gui-vim background color hex code│     console-vim font term color code│           │
+  "              ─────────────────────────────────┘     ────────────────────────────────┘           │
+  "                                                           console-vim background term color code│
+  "                                                           ──────────────────────────────────────┘
+" }}}
 
 
 " Create menus based on existing mappings
