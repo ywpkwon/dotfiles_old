@@ -41,7 +41,7 @@ Plug 'junegunn/seoul256.vim'                        " colortheme
 Plug 'sonph/onehalf', {'rtp': 'vim/'}               " colortheme
 Plug 'jonathanfilip/vim-lucius'                     " nice white colortheme
 Plug 'honza/vim-snippets'                           " snippets
-Plug 'dominikduda/vim_current_word'                 " highlight all words under cursor
+Plug 'RRethy/vim-illuminate'                        " highlight all words under cursor
 
 " ================= Functionalities ================= "
 
@@ -90,8 +90,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
     endfunction
 
     " Highlight the symbol and its references when holding the cursor.
-    autocmd CursorHold * silent call CocActionAsync('highlight')
-    autocmd CursorHoldI * silent call CocActionAsync('highlight')
+    "autocmd CursorHold * silent call CocActionAsync('highlight')
+    "autocmd CursorHoldI * silent call CocActionAsync('highlight')
     "autocmd CursorHoldI * silent call CocActionAsync('showSignatureHelp')
 
     " Symbol renaming.
@@ -201,7 +201,8 @@ Plug 'airblade/vim-gitgutter'                       " show git changes to files 
 " }}}
 
 " cpp
-Plug 'sheerun/vim-polyglot'
+Plug 'bfrg/vim-cpp-modern'
+"Plug 'sheerun/vim-polyglot'
 "Plug 'octol/vim-cpp-enhanced-highlight'
 "Plug 'jaxbot/semantic-highlight.vim'
 
@@ -620,13 +621,6 @@ let g:jedi#usages_command = "<leader>ju"
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<leader>jr"
 
-
-" " easy breakpoint python
-" au FileType python map <silent> <leader>jb ofrom pudb import set_trace; set_trace()<esc>
-" au FileType python map <silent> <leader>jB Ofrom pudb import set_trace; set_trace()<esc>
-" au FileType python map <silent> <leader>jp ofrom pdb import set_trace; set_trace()<esc>
-" au FileType python map <silent> <leader>jP Ofrom pdb import set_trace; set_trace()<esc>
-
 " Impsort option
 "hi pythonImportedObject ctermfg=142 guifg=#afaf00
 "hi pythonImportedFuncDef ctermfg=81
@@ -705,7 +699,6 @@ let g:which_key_map.o = {
 " Colors
 "----------------------------------------------
 " True color
-
 " Correct RGB escape codes for vim inside tmux
 "if !has('nvim') && $TERM ==# 'screen-256color'
 "let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -730,12 +723,15 @@ set background=dark
 "let g:seoul256_background = 236
 "colorscheme seoul256
 
-" highlight python and self function
-"autocmd BufEnter * syntax match Type /\v\.[a-zA-Z0-9_]+\ze(\[|\s|$|,|\]|\)|\.|:)/hs=s+1
-"autocmd BufEnter * syntax match pythonFunction /\v[[:alnum:]_]+\ze(\s?\()/
-"hi def link pythonFunction Function
-"autocmd BufEnter * syn match Self "\(\W\|^\)\@<=self\(\.\)\@="
-"highlight self ctermfg=243
+" Useful to know about color setting:
+" color setting should be lower than colorscheme
+" hi SomeGroupName  guifg=#XXXXXX guibg=#XXXXXX gui=underline,bold,italic ctermfg=XXX ctermbg=XiXX cterm=underline,bold,italic
+"                          └┴┴┴┴┤        └┴┴┴┴┤     └┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┤         └┴┤         └┴┤       └┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┤
+"    gui-vim font color hex code│             │   gui-vim special styles│           │           │ console-vim special styles│
+"    ───────────────────────────┘             │   ──────────────────────┘           │           │ ──────────────────────────┘
+"            gui-vim background color hex code│     console-vim font term color code│           │
+"            ─────────────────────────────────┘     ────────────────────────────────┘           │
+"                                                         console-vim background term color code│
 
 " color setting should be lower than colorscheme
 " semshi options: {{{
@@ -763,29 +759,24 @@ set background=dark
   let g:semshi#no_default_builtin_highlight = v:false
 " }}}
 
-" Highlight current word (twin words)
-" This could be done in two ways: CoC or vim_current_word.vim
-" color setting should be lower than colorscheme
+" Highlight current word (twin words) by CoC
+" I'm not using it since vim_illuminate seems better option
 hi CocHighlightText ctermfg=231 guifg=#ffffff ctermbg=60 guibg=#df5f87
 
-" vim_current_word: {{{
-  let g:vim_current_word#enabled = 0                " enable/disable plugin
-  let g:vim_current_word#highlight_twins = 1        " Twins of word under cursor:
-  let g:vim_current_word#highlight_current_word = 0 " The word under cursor
-  let g:vim_current_word#highlight_only_in_focused_window = 1
-  hi CurrentWord ctermbg=53
-  hi CurrentWordTwins ctermfg=231 guifg=#ffffff ctermbg=60 guibg=#5f5f87
-
-  " hi CurrentWordTwins guifg=#XXXXXX guibg=#XXXXXX gui=underline,bold,italic ctermfg=XXX ctermbg=XiXX cterm=underline,bold,italic
-  "                            └┴┴┴┴┤        └┴┴┴┴┤     └┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┤         └┴┤         └┴┤       └┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┤
-  "      gui-vim font color hex code│             │   gui-vim special styles│           │           │ console-vim special styles│
-  "      ───────────────────────────┘             │   ──────────────────────┘           │           │ ──────────────────────────┘
-  "              gui-vim background color hex code│     console-vim font term color code│           │
-  "              ─────────────────────────────────┘     ────────────────────────────────┘           │
-  "                                                           console-vim background term color code│
-  "                                                           ──────────────────────────────────────┘
+" vim_illuminate: {{{
+  let g:Illuminate_delay = 250
+  let g:Illuminate_highlightUnderCursor = 0   " Don't highlight word under cursor (default: 1)
+  let g:Illuminate_ftHighlightGroups = {
+      \ 'vim:blacklist': ['vimVar', 'vimString', 'vimLineComment',
+      \                   'vimFuncName', 'vimFunction', 'vimUserFunc', 'vimFunc'],
+      \ 'python:blacklist': ['pythonComment', 'pythonStatement', 'pythonConditional',
+      \                      'pythonBuiltinFunc', 'pythonString'],
+      \ 'c:blacklist': ['cInclude', 'cConditional', 'cType', 'cRepeat', 'cStructure',
+      \                 'cComment', 'cCommentL']
+      \ }
+  let g:Illuminate_ftblacklist = ['nerdtree']
+  hi illuminatedWord ctermfg=231 guifg=#ffffff ctermbg=60 guibg=#5f5f87
 " }}}
-
 
 " Create menus based on existing mappings
 " nnoremap <silent> <leader>oq  :copen<CR>
@@ -813,3 +804,7 @@ nnoremap <leader>ls :LeetCodeSubmit<cr>
 nnoremap <leader>li :LeetCodeSignIn<cr>
 
 
+" Identify the syntax highlighting group used at the cursor (Debugging purpose)
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . "> trans<"
+  \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+  \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
