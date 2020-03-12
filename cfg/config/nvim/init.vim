@@ -91,18 +91,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     " Highlight the symbol and its references when holding the cursor.
     "autocmd CursorHold * silent call CocActionAsync('highlight')
-    "autocmd CursorHoldI * silent call CocActionAsync('highlight')
     "autocmd CursorHoldI * silent call CocActionAsync('showSignatureHelp')
 
-    " Symbol renaming.
-    nmap <leader>rn <Plug>(coc-rename)
-
-    " Formatting selected code.
+    " Formatting selected
     nmap <F6>  :call CocAction('format')<CR>
-
-    " Formatting selected. Not sure if these work...
-    xmap <F5>  <Plug>(coc-format-selected)
-    nmap <F5>  <Plug>(coc-format-selected)
+    vmap <F6>  <Plug>(coc-format-selected)
 
     """ Use tab for trigger completion with characters ahead and navigate.
     """ NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -137,7 +130,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
     "else
     "  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
     "endif
-    "
 " }}}
 "Plug 'dense-analysis/ale'
 "Plug 'w0rp/ale'                                     " python linters
@@ -278,59 +270,59 @@ filetype plugin indent on
 set fileformat=unix
 set shortmess+=c
 
-set autoindent                    " take indent for new line from previous line
-set smartindent                   " enable smart indentation
-set autoread                      " reload file if the file changes on the disk
+set autoindent        " take indent for new line from previous line
+set smartindent       " enable smart indentation
+set autoread          " reload file if the file changes on the disk
 au CursorHold * checktime
 
-set mouse=a         " change cursor per mode
-set number          " always show current line number
-set smartcase       " case sensitive when a query has capital
-set ignorecase      " this should be set for 'smartcase' to work
-set wrapscan  " begin search from top of file when nothing is found anymore
+set mouse=a           " change cursor per mode
+set number            " always show current line number
+set smartcase         " case sensitive when a query has capital
+set ignorecase        " this should be set for 'smartcase' to work
+set wrapscan          " begin search from top of file when nothing is found anymore
 
 set expandtab
 set tabstop=4
 set shiftwidth=4
-"set fillchars+=vert:\  " remove chars from seperators
+                      " set fillchars+=vert:\  " remove chars from seperators
 set softtabstop=4
 
-set history=1000  " remember more commands and search history
+set history=1000      " remember more commands and search history
 
-set nobackup  " no backup or swap file, live dangerously
-set noswapfile  " swap files give annoying warning
+set nobackup          " no backup or swap file, live dangerously
+set noswapfile        " swap files give annoying warning
 
-set breakindent  " preserve horizontal whitespace when wrapping
+set breakindent       " preserve horizontal whitespace when wrapping
 set showbreak=..
-set lbr  " wrap words
-set nowrap  " i turn on wrap manually when needed
+set lbr               " wrap words
+set nowrap            " i turn on wrap manually when needed
 
-set scrolloff=3 " keep three lines between the cursor and the edge of the screen
+set scrolloff=3       " keep three lines between the cursor and the edge of the screen
 
 set undodir=~/.vim/undodir
-set undofile  " save undos
+set undofile          " save undos
 set undolevels=10000  " maximum number of changes that can be undone
-set undoreload=100000  " maximum number lines to save for undo on a buffer reload
+set undoreload=100000 " maximum number lines to save for undo on a buffer reload
 
-set noshowmode  " keep command line clean
+set noshowmode        " keep command line clean
 set noshowcmd
 
-set laststatus=2  " always slow statusline
+set laststatus=2      " always slow statusline
 
-set splitright  " i prefer splitting right and below
+set splitright        " i prefer splitting right and below
 set splitbelow
 
-set hlsearch  " highlight search and search while typing
+set hlsearch          " highlight search and search while typing
 set incsearch
-set cpoptions+=x  " stay at seach item when <esc>
+set cpoptions+=x      " stay at seach item when <esc>
 
-set noerrorbells  " remove bells (i think this is default in neovim)
+set noerrorbells      " remove bells (i think this is default in neovim)
 set visualbell
 set t_vb=
 set relativenumber
-set viminfo='20,<1000  " allow copying of more than 50 lines to other applications
+set viminfo='20,<1000 " allow copying of more than 50 lines to other applications
 
-set cursorline                    " highlight the current line for the cursor
+set cursorline        " highlight the current line for the cursor
 set listchars=tab:>-,trail:~,space:·,extends:>,precedes:<
 
 " paste multiple times
@@ -342,6 +334,8 @@ xnoremap p pgvy
 let g:which_key_map.x = { 'name' : '+coc' }
 let g:which_key_map.x.l = { 'name' : 'latex' }
 nnoremap <leader>xlb :CocCommand latex.ForwardSearch<CR>
+nnoremap <leader>xlb :CocCommand latex.ForwardSearch<CR>
+nmap     <leader>xn  <Plug>(coc-rename)
 
 "----------------------------------------------
 " Navigation
