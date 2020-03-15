@@ -102,12 +102,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
     """ other plugin before putting this into your config.
     inoremap <silent><expr> <TAB>
           \ pumvisible() ? "\<C-n>" :
+          \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
           \ <SID>check_back_space() ? "\<TAB>" :
           \ coc#refresh()
     inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
     " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position
-    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    inoremap <expr><CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
     "inoremap <silent><expr> <TAB>
     "    \ pumvisible() ? coc#_select_confirm() :
@@ -247,12 +248,11 @@ Plug 'easymotion/vim-easymotion'
   " Gif config
   map  / <Plug>(easymotion-sn)
   omap / <Plug>(easymotion-tn)
-
   " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
   " Without these mappings, `n` & `N` works fine. (These mappings just provide
   " different highlight method and have some other features )
-  map  n <Plug>(easymotion-next)
-  map  N <Plug>(easymotion-prev)
+  " map  n <Plug>(easymotion-next)
+  " map  N <Plug>(easymotion-prev)
 
   "map <Leader><Leader>w <Plug>(easymotion-w)
   " Turn on case-insensitive feature
