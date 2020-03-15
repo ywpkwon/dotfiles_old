@@ -245,9 +245,15 @@ Plug 'easymotion/vim-easymotion'
   map  <leader>mw <Plug>(easymotion-bd-w)
   nmap <leader>mw <Plug>(easymotion-overwin-w)
 
+  " To faciliate jumping from insert mode:
+  " (If one function is allowed, I guess it would be overwin-w)
+  map   <c-b>     <Plug>(easymotion-overwin-w)
+  imap  <c-b>     <ESC><Plug>(easymotion-overwin-w)
+
   " Gif config
   map  / <Plug>(easymotion-sn)
   omap / <Plug>(easymotion-tn)
+
   " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
   " Without these mappings, `n` & `N` works fine. (These mappings just provide
   " different highlight method and have some other features )
@@ -325,8 +331,6 @@ set viminfo='20,<1000 " allow copying of more than 50 lines to other application
 set cursorline        " highlight the current line for the cursor
 set listchars=tab:>-,trail:~,space:·,extends:>,precedes:<
 
-" paste multiple times
-xnoremap p pgvy
 
 "----------------------------------------------
 " Which vim key for CoC
@@ -373,7 +377,7 @@ noremap <leader>8 8<c-w><c-w>
 noremap <leader>9 9<c-w><c-w>
 
 noremap <Tab> <C-w>w
-imap <C-o> <esc>o
+"imap <C-o> <esc>o
 "----------------------------------------------
 " Splits
 "----------------------------------------------
@@ -511,13 +515,16 @@ endfunction
 "----------------------------------------------
 " Misc
 "----------------------------------------------
+set clipboard=unnamedplus
+set pumheight=10
+
 " mapping Esc
-imap <F13> <Esc>
+imap     <F13> <Esc>
 cnoremap <Esc> <C-c>
 inoremap <c-c> <ESC>
 
 " map S to replace current word with pasteboard
-nnoremap S diw"0P
+nnoremap S "_diwP
 nnoremap cc "_cc
 
 " map paste, yank and delete to named register so the content
@@ -525,39 +532,53 @@ nnoremap cc "_cc
 nnoremap x "_x
 vnoremap x "_x
 
-set clipboard=unnamedplus
+" paste multiple times
+xnoremap p pgvy
 
-" toggle nerdtree
-let g:which_key_map.f = { 'name' : '+files' }
-nnoremap <leader>fn :NERDTreeToggle<CR>
-nnoremap <leader>ft :set nosplitright<CR>:TagbarToggle<CR>:set splitright<CR>
-let g:which_key_map.f.n = 'toggle NERDTree'
-let g:which_key_map.f.t = 'toggle Tagbar'
+" home / end (matching with b, e)
+nnoremap B ^
+nnoremap E $
 
-" let g:which_key_map.f = {
-"       \ 'n' : 'toggle NERDTree',
-"       \ 't' : 'toggle Tagbar',
-"       \ }
+" avoid esc
+inoremap jk <ESC>
 
-
-" FzfPreview
-nnoremap <leader>fp :FzfPreviewProjectFiles<CR>
-"nnoremap <leader>fg :FzfPreviewGitFiles<CR>
-nnoremap <leader>fs :FzfPreviewGitStatus<CR>
-nnoremap <leader>fb :FzfPreviewBuffers<CR>
-nnoremap <leader>fj :FzfPreviewJumps<CR>
-nnoremap <leader>fl :FzfPreviewLines<CR>
-nnoremap <leader>fd :FzfPreviewLocationList<CR>
-nnoremap <leader>ff :FzfPreviewProjectGrep -add-fzf-arg=--nth=3 .<CR>
-nnoremap <leader>ffr :FzfPreviewProjectGrep -resume .<CR>
-
-set pumheight=10
+" break muscle memory (only for normal mode)
+nnoremap <Left>  :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up>    :echoe "Use k"<CR>
+nnoremap <Down>  :echoe "Use j"<CR>
 
 " nohighlight
 nnoremap <leader>c :nohlsearch<Bar>:echo<CR>
 
 " FlyGrep settings
 nnoremap <leader>s :FlyGrep<cr>
+
+" Fzf
+let g:which_key_map.f = { 'name' : '+FzF' }
+nnoremap <leader>fa :Ag<CR>
+nnoremap <leader>fb :Buffers<CR>
+nnoremap <leader>fc :Colors<CR>
+nnoremap <leader>fg :GFiles<CR>
+nnoremap <leader>fs :GFiles?<CR>
+nnoremap <leader>fl :Lines<CR>
+nnoremap <leader>fh :History<CR>
+nnoremap <leader>fm :Marks<CR>
+nnoremap <leader>fw :Windows<CR>
+
+" FzfPreview
+let g:which_key_map.F = { 'name' : '+FzFPreview' }
+nnoremap <leader>Fp :FzfPreviewProjectFiles<CR>
+"nnoremap <leader>fg :FzfPreviewGitFiles<CR>
+nnoremap <leader>Fs :FzfPreviewGitStatus<CR>
+nnoremap <leader>Fb :FzfPreviewBuffers<CR>
+nnoremap <leader>Fj :FzfPreviewJumps<CR>
+nnoremap <leader>Fl :FzfPreviewLines<CR>
+nnoremap <leader>Fd :FzfPreviewLocationList<CR>
+nnoremap <leader>Ff :FzfPreviewProjectGrep -add-fzf-arg=--nth=3 .<CR>
+nnoremap <leader>Ffr :FzfPreviewProjectGrep -resume .<CR>
+
+
 
 " " ale options
 " let g:ale_python_flake8_options = '--ignore=E129,E501,E302,E265,E241,E305,E402,W503'
@@ -596,24 +617,24 @@ nnoremap <silent> <expr> ^ ScreenMovement("^")
 nnoremap <silent> <expr> $ ScreenMovement("$")
 
 " jedi options
-let g:jedi#auto_initialization = 1
-let g:jedi#completions_enabled = 0
-let g:jedi#auto_vim_configuration = 0
-let g:jedi#smart_auto_mappings = 0
-let g:jedi#popup_on_dot = 0
-let g:jedi#show_call_signatures = "1"
-let g:jedi#show_call_signatures_delay = 0
-let g:jedi#show_call_signatures_modes = 'i'  " ni = also in normal mode
-let g:jedi#enable_speed_debugging=0
-let g:jedi#use_tabs_not_buffers = 0  " use buffers instead of tabs
-let g:jedi#goto_command = "<leader>jg"
-let g:jedi#goto_assignments_command = "<leader>ja"
-let g:jedi#goto_definitions_command = "<leader>jd"
-let g:jedi#goto_stubs_command = "<leader>js"
-let g:jedi#documentation_command = "<leader>jh"
-let g:jedi#usages_command = "<leader>ju"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<leader>jr"
+" let g:jedi#auto_initialization = 1
+" let g:jedi#completions_enabled = 0
+" let g:jedi#auto_vim_configuration = 0
+" let g:jedi#smart_auto_mappings = 0
+" let g:jedi#popup_on_dot = 0
+" let g:jedi#show_call_signatures = "1"
+" let g:jedi#show_call_signatures_delay = 0
+" let g:jedi#show_call_signatures_modes = 'i'  " ni = also in normal mode
+" let g:jedi#enable_speed_debugging=0
+" let g:jedi#use_tabs_not_buffers = 0  " use buffers instead of tabs
+" let g:jedi#goto_command = "<leader>jg"
+" let g:jedi#goto_assignments_command = "<leader>ja"
+" let g:jedi#goto_definitions_command = "<leader>jd"
+" let g:jedi#goto_stubs_command = "<leader>js"
+" let g:jedi#documentation_command = "<leader>jh"
+" let g:jedi#usages_command = "<leader>ju"
+" let g:jedi#completions_command = "<C-Space>"
+" let g:jedi#rename_command = "<leader>jr"
 
 " Impsort option
 "hi pythonImportedObject ctermfg=142 guifg=#afaf00
@@ -686,8 +707,9 @@ let g:which_key_map.o = {
       \ 'name' : '+toggle',
       \ 'w' : [':call ToggleWhiteSpace()', 'toggle whitespace'],
       \ 'o' : [':call ToggleOverlengh()', 'toggle overlength'] ,
+      \ 'n' : ['NERDTreeToggle', 'toggle NERDTree'],
+      \ 't' : ['TagbarToggle', 'toggle Tagbar'],
       \ }
-
 
 "----------------------------------------------
 " Colors
