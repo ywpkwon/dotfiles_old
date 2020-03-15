@@ -42,7 +42,11 @@ Plug 'sonph/onehalf', {'rtp': 'vim/'}               " colortheme
 Plug 'jonathanfilip/vim-lucius'                     " nice white colortheme
 Plug 'honza/vim-snippets'                           " snippets
 Plug 'RRethy/vim-illuminate'                        " highlight all words under cursor
-
+Plug 'nathanaelkane/vim-indent-guides'              " show indentation
+" vim-indent-guides: {{{
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 2
+" }}}
 " ================= Functionalities ================= "
 
 " auto completion, Language servers stuff
@@ -709,6 +713,7 @@ let g:which_key_map.o = {
       \ 'o' : [':call ToggleOverlengh()', 'toggle overlength'] ,
       \ 'n' : ['NERDTreeToggle', 'toggle NERDTree'],
       \ 't' : ['TagbarToggle', 'toggle Tagbar'],
+      \ 'i' : ['IndentGuidesToggle', 'toggle indent guildes']
       \ }
 
 "----------------------------------------------
