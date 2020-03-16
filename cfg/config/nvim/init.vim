@@ -552,11 +552,28 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up>    :echoe "Use k"<CR>
 nnoremap <Down>  :echoe "Use j"<CR>
 
+"So I can move around in insert
+inoremap <C-k> <C-o>gk
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+inoremap <C-j> <C-o>gj
+
+"So I can move in command
+cnoremap <C-h> <Left>
+cnoremap <C-l> <Right>
+
+"Make it easier to indent a visual selection several times.
+xnoremap > >gv
+xnoremap < <gv
+
 " nohighlight
 nnoremap <leader>c :nohlsearch<Bar>:echo<CR>
 
 " FlyGrep settings
 nnoremap <leader>s :FlyGrep<cr>
+
+"Automagically resize splits when the host is resized
+autocmd VimResized * wincmd =
 
 " Fzf
 let g:which_key_map.f = { 'name' : '+FzF' }
