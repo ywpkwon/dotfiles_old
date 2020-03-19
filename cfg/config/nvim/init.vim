@@ -269,6 +269,13 @@ Plug 'easymotion/vim-easymotion'
   let g:EasyMotion_smartcase = 1
 
 " }}}
+Plug 'rbgrouleff/bclose.vim'           " prerequisite for ranger.vim
+Plug 'francoiscabrol/ranger.vim'       " vim + ranger integration
+" ranger.vim: {{{
+  let g:ranger_map_keys = 0
+  map  <leader>or :RangerCurrentDirectory<Cr>
+  map  <leader>oR :RangerWorkingDirectory<Cr>
+" }}}
 call plug#end()
 
 " path to your python
